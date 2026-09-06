@@ -114,7 +114,7 @@ export default function AboutScreen() {
           </Text>
           <View style={styles.contactRow}>
             <Ionicons name="mail-outline" size={16} color="#0B4155" />
-            <Text style={styles.contactText}>hello@guanacaste.tours</Text>
+            <Text style={styles.contactText}>rosenbeck17@gmail.com</Text>
           </View>
           <View style={styles.contactRow}>
             <Ionicons name="location-outline" size={16} color="#0B4155" />
