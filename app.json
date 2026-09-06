@@ -1,25 +1,69 @@
 {
   "expo": {
-    "name": "guanacaste-tours",
+    "name": "Guanacaste Tours",
     "slug": "guanacaste-tours",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "scheme": "guanacaste-tours",
+    "hostUri": "https://guanacaste.tours",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mekupelet.guanacaste-tours",
+      "associatedDomains": [
+        { "domains": ["guanacaste.tours"], "types": [1] }
+      ]
     },
     "android": {
+      "package": "com.mekupelet.guanacaste-tours",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
+        "backgroundColor": "#0B4155",
         "foregroundImage": "./assets/android-icon-foreground.png",
         "backgroundImage": "./assets/android-icon-background.png",
         "monochromeImage": "./assets/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "permissions": ["INTERNET"],
+      "intentFilters": [
+        {
+          "action": "VIEW",
+          "autoVerify": true,
+          "data": [{ "scheme": "https", "host": "guanacaste.tours", "pathPrefix": "/" }],
+          "category": ["BROWSABLE", "DEFAULT"]
+        }
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro",
+      "output": "output",
+      "generateExpoRouterManifest": true,
+      "progressiveWebApp": {
+        "manifest": {
+          "name": "Guanacaste Tours",
+          "short_name": "Guanacaste",
+          "description": "The complete guide to tours, excursions, and adventures in Guanacaste, Costa Rica. Book zip-lining, catamaran, whale watching, ATV, and more.",
+          "theme_color": "#0B4155",
+          "background_color": "#0B4155",
+          "display": "standalone",
+          "start_url": "/",
+          "icons": [
+            { "src": "./assets/icon.png", "sizes": "192x192", "type": "image/png" },
+            { "src": "./assets/icon.png", "sizes": "512x512", "type": "image/png" }
+          ]
+        }
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-web-browser",
+        {
+          "androidEnableWebView": true,
+          "androidForceHardKeyEdgeLock": true,
+          "iosOriginWhitelist": ["https://*.getyourguide.com", "https://*.viator.com", "https://*.booking.com", "https://*.discovercars.com"]
+        }
+      ]
+    ]
   }
 }

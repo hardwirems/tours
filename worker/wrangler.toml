@@ -1,0 +1,16 @@
+name = "guanacaste-go"
+main = "src/index.ts"
+compatibility_date = "2025-01-01"
+
+# ── Cloudflare Pages ────────────────────────────────────────────────────────
+# When deployed via `npx wrangler pages deploy dist/`, this config is used
+# for the Pages Functions runtime (not the standalone Worker).
+#   - pages_build_output_dir: the static site directory (dist/)
+#   - The functions/ directory at the project root is picked up automatically
+#     for Pages Functions (e.g. functions/go/index.ts → handles /go/* routes)
+#   - Secrets: set via `wrangler pages secret put SUPABASE_URL`
+#   - Do NOT use `wrangler deploy` for this — that deploys the standalone
+#     Worker defined by `main`, not the Pages Functions.
+# ─────────────────────────────────────────────────────────────────────────────
+
+pages_build_output_dir = "dist"

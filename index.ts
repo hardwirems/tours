@@ -1,8 +1,5 @@
-import { registerRootComponent } from 'expo';
-
-import App from './App';
-
-// registerRootComponent calls AppRegistry.registerComponent('main', () => App);
-// It also ensures that whether you load the app in Expo Go or in a native build,
-// the environment is set up appropriately
-registerRootComponent(App);
+// Expo Router's entry point. This registers the root component AND wires up
+// the require.context over ./app that supplies the route tree.
+// Do not replace this with `export default ExpoRoot` — that exports a
+// component without ever rendering it, and the app boots to a blank page.
+import 'expo-router/entry';

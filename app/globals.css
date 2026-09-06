@@ -1,0 +1,110 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------------
+   Global design system for Guanacaste Tours — native + web.
+   Tokens:
+     --color-primary:    #0B4155  (deep ocean teal)
+     --color-sky:        #1D7FA8  (sky/ocean blue)
+     --color-sand:       #F5E6CC  (warm Guanacaste sand)
+     --color-sun:        #E8A849  (golden hour sun)
+     --color-danger:     #C0392B  (booked-out / alert red)
+     --color-ink:        #1A1A1A  (body text)
+     --color-muted:      #6B7280  (secondary text)
+   --------------------------------------------------------------------------- */
+
+:root {
+  --color-primary: #0B4155;
+  --color-sky: #1D7FA8;
+  --color-sky-light: #E6F4FE;
+  --color-sand: #F5E6CC;
+  --color-sun: #E8A849;
+  --color-sun-light: #FDF3E0;
+  --color-danger: #C0392B;
+  --color-ink: #1A1A1A;
+  --color-muted: #6B7280;
+  --color-border: #E5E7EB;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F9FAFB;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-card: 0 4px 12px rgba(11, 65, 85, 0.08);
+  --shadow-elevated: 0 8px 24px rgba(11, 65, 85, 0.12);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Links */
+a {
+  color: var(--color-sky);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+/* Custom scrollbar (web) */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface-alt);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-sky);
+  border-radius: 4px;
+}
+
+/* Selection */
+::selection {
+  background: var(--color-sun-light);
+  color: var(--color-primary);
+}
+
+/* Focus states */
+:focus-visible {
+  outline: 2px solid var(--color-sky);
+  outline-offset: 2px;
+}
+
+/* Smooth scroll (web) */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Typography scale */
+.font-display {
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Utility: screen reader only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
