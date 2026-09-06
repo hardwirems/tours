@@ -375,11 +375,12 @@ export function TourDetail({ tour, onBook, onBack, onOpenBookingLink }: TourDeta
 
 const styles = StyleSheet.create({
   card: {
-    width: 270,
+    flexGrow: 1,
+    flexBasis: 320,
+    maxWidth: 420,
     backgroundColor: '#FFFFFF',
     borderRadius: 12,
     overflow: 'hidden',
-    marginRight: 12,
     ...Platform.select({
       web: {
         WebkitBoxShadow: '0 4px 12px rgba(11, 65, 85, 0.08)',
@@ -452,12 +453,15 @@ const styles = StyleSheet.create({
   },
   body: {
     padding: 12,
+    flex: 1,
+    justifyContent: 'space-between',
   },
   title: {
     color: '#0B4155',
     fontSize: 14,
     fontWeight: '700',
     lineHeight: 19,
+    minHeight: 38,
     marginBottom: 5,
   },
   titleFeatured: {
@@ -467,6 +471,7 @@ const styles = StyleSheet.create({
     color: '#6B7280',
     fontSize: 12,
     lineHeight: 17,
+    minHeight: 34,
     marginBottom: 9,
   },
   factsRow: {
@@ -521,6 +526,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'stretch',
+    gap: 16,
     paddingHorizontal: 16,
     paddingVertical: 4,
   },

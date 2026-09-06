@@ -101,7 +101,7 @@ export default function ToursScreen() {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.chipsContainer}
         >
-          {['Tamarindo', 'Flamingo', 'Liberia', 'Papagayo', 'Potrero', 'Brasilito'].map((t) => (
+          {['Tamarindo', 'Playa Flamingo', 'Liberia', 'Playa Hermosa'].map((t) => (
             <TouchableOpacity
               key={t}
               style={[styles.chipSmall, town === t && styles.chipSmallActive]}

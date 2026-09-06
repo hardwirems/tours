@@ -1,6 +1,7 @@
 import { SITE_URL } from '../../lib/constants';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform } from 'react-native';
-import { TOURS } from '../../lib/tours';
+import { TOURS, CATEGORIES } from '../../lib/tours';
+import { router } from 'expo-router';
 
 // ---------------------------------------------------------------------------
 // (tabs)/index.tsx — Home tab.
@@ -81,10 +82,10 @@ export default function HomeScreen() {
       <View style={styles.searchSection}>
         <Text style={styles.sectionTitle}>What kind of tour?</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipsContent}>
-          {['Beach & Water', 'Wildlife & Nature', 'Adventure & Adrenaline', 'Culture & Day Trips', 'Multi-Day Packages'].map((label) => (
-            <View key={label} style={styles.chip}>
+          {Object.entries(CATEGORIES).map(([key, label]) => (
+              <TouchableOpacity key={key} style={styles.chip} onPress={() => router.push(`/tours?category=${key}`)}>
               <Text style={styles.chipText}>{label}</Text>
-            </View>
+            </TouchableOpacity>
           ))}
         </ScrollView>
       </View>
@@ -94,7 +95,7 @@ export default function HomeScreen() {
         <Text style={styles.sectionTitle}>Top-rated tours in Guanacaste</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.cardScrollContent} style={styles.cardScroll}>
           {TOURS.slice(0, 6).map((tour) => (
-            <View key={tour.slug} style={styles.tourPreview}>
+            <TouchableOpacity key={tour.slug} style={styles.tourPreview} onPress={() => router.push(`/tours/${tour.slug}`)}>
               <Image
                 source={{ uri: tour.images[0]?.src }}
                 style={styles.tourPreviewImage}
@@ -102,7 +103,7 @@ export default function HomeScreen() {
               />
               <Text style={styles.tourPreviewTitle} numberOfLines={2}>{tour.title}</Text>
               <Text style={styles.tourPreviewMeta}>From ${tour.priceFrom} · {tour.duration}</Text>
-            </View>
+            </TouchableOpacity>
           ))}
         </ScrollView>
       </View>
@@ -111,10 +112,10 @@ export default function HomeScreen() {
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Browse by category</Text>
         <View style={styles.categoryGrid}>
-          {['Beach & Water', 'Wildlife & Nature', 'Adventure & Adrenaline', 'Culture & Day Trips', 'Multi-Day Packages'].map((label) => (
-            <View key={label} style={styles.categoryCard}>
+          {Object.entries(CATEGORIES).map(([key, label]) => (
+            <TouchableOpacity key={key} style={styles.categoryCard} onPress={() => router.push(`/tours?category=${key}`)}>
               <Text style={styles.categoryLabel}>{label}</Text>
-            </View>
+            </TouchableOpacity>
           ))}
         </View>
       </View>
@@ -157,10 +158,10 @@ const styles = StyleSheet.create({
   chipText: { color: '#0B4155', fontSize: 13, fontWeight: '600' },
   cardScroll: { maxHeight: 220 },
   cardScrollContent: { paddingRight: 12 },
-  tourPreview: { width: 280, backgroundColor: '#FFFFFF', borderRadius: 12, overflow: 'hidden', marginRight: 12, ...Platform.select({ web: { WebkitBoxShadow: '0 4px 12px rgba(11,65,85,0.08)', boxShadow: '0 4px 12px rgba(11,65,85,0.08)' } }) },
-  tourPreviewImage: { width: '100%', height: 148 },
-  tourPreviewTitle: { color: '#0B4155', fontSize: 14, fontWeight: '700', lineHeight: 19, marginBottom: 5, padding: 12 },
-  tourPreviewMeta: { color: '#6B7280', fontSize: 12, fontWeight: '500', padding: 12 },
+  tourPreview: { width: 300, backgroundColor: '#FFFFFF', borderRadius: 12, overflow: 'hidden', marginRight: 12, ...Platform.select({ web: { WebkitBoxShadow: '0 4px 12px rgba(11,65,85,0.08)', boxShadow: '0 4px 12px rgba(11,65,85,0.08)' } }) },
+  tourPreviewImage: { width: '100%', height: 180 },
+  tourPreviewTitle: { color: '#0B4155', fontSize: 15, fontWeight: '700', lineHeight: 21, marginBottom: 8, paddingHorizontal: 14 },
+  tourPreviewMeta: { color: '#6B7280', fontSize: 12, fontWeight: '500', paddingHorizontal: 14, paddingBottom: 14, paddingTop: 2 },
   categoryGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
   categoryCard: { width: '31%', backgroundColor: '#F9FAFB', borderRadius: 12, padding: 14, alignItems: 'center', borderWidth: 1, borderColor: '#E5E7EB' },
   categoryLabel: { color: '#0B4155', fontSize: 13, fontWeight: '600', marginTop: 6, textAlign: 'center' },
