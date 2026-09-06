@@ -21,7 +21,7 @@ export function AffiliateDisclosure({ program, mini = false }: AffiliateDisclosu
       <View style={styles.miniRow}>
         <Ionicons name="information-circle" size={10} color="#6B7280" />
         <Text style={styles.miniText}>
-          We may earn a commission from {label ?? 'our partners'} at no extra cost to you.
+          We may earn a commission, at no extra cost to you.
         </Text>
       </View>
     );

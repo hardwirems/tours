@@ -8,7 +8,7 @@ import { TourGrid } from '../../../components/TourCard';
 export const metadata = {
   title: 'All Tours in Guanacaste, Costa Rica — Browse & Book',
   description:
-    'Browse every tour and excursion in Guanacaste, Costa Rica. Filter by category (zip-lining, catamaran, ATV, volcano, wildlife, culture) or town (Tamarindo, Flamingo, Liberia, Papagayo).',
+    'Browse every tour and excursion in Guanacaste, Costa Rica. Filter by category (zip-lining, catamaran, ATV, volcano, wildlife, culture) or town (Tamarindo, Playa Flamingo, Liberia, Playa Hermosa).',
   openGraph: {
     title: 'All Tours in Guanacaste, Costa Rica',
     description:
