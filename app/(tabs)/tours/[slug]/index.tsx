@@ -1,8 +1,8 @@
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
-import { getTourBySlug } from '../../lib/tours';
-import { TourDetail } from '../../components/TourCard';
+import { getTourBySlug } from '../../../../lib/tours';
+import { TourDetail } from '../../../../components/TourCard';
 
 export const metadata = ({ params }: { params: { slug: string } }) => {
   const tour = getTourBySlug(params.slug);

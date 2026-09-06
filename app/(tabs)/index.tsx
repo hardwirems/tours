@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform } from 'react-native';
-import { TOURS } from '../../../lib/tours';
+import { TOURS } from '../../lib/tours';
 
 // ---------------------------------------------------------------------------
 // (tabs)/index.tsx — Home tab.

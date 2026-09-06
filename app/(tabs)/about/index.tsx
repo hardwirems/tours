@@ -31,7 +31,6 @@ export default function AboutScreen() {
         <Image
           source={{ uri: 'https://images.unsplash.com/photo-1589985261513-84652?w=1200&q=80' }}
           style={styles.heroImage}
-          defaultSource={require('../../assets/about-fallback.png')}
           resizeMode="cover"
         />
         <View style={styles.heroOverlay}>

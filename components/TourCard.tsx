@@ -28,7 +28,6 @@ export function TourCard({ tour, onPress, featured = false }: TourCardProps) {
         <Image
           source={{ uri: tour.images[0]?.src }}
           style={styles.image}
-          defaultSource={require('../assets/tour-fallback.png')}
           resizeMode="cover"
         />
         {/* Category badge */}
@@ -173,7 +172,6 @@ export function TourDetail({ tour, onBook, onBack, onOpenBookingLink }: TourDeta
         <Image
           source={{ uri: tour.images[0]?.src }}
           style={styles.detailHeroImage}
-          defaultSource={require('../assets/tour-fallback.png')}
           resizeMode="cover"
         />
         <View style={styles.detailHeroOverlay}>
