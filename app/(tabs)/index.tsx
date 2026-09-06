@@ -65,7 +65,7 @@ export default function HomeScreen() {
       {/* Hero */}
       <View style={styles.hero}>
         <Image
-          source={{ uri: 'https://images.unsplash.com/photo-1591756413813-37aed080bbc4?w=1200&q=80' }}
+          source={require('../../assets/hero.jpeg')}
           style={styles.heroImage}
           resizeMode="cover"
         />
@@ -147,15 +147,15 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   containerContent: { flexGrow: 1, paddingBottom: 32 },
   container: { flex: 1, backgroundColor: '#FFFFFF' },
-  hero: { height: 260, backgroundColor: '#0B4155' },
+  hero: { height: 520, backgroundColor: '#0B4155', justifyContent: 'flex-end' },
   heroImage: { width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 },
   heroOverlay: {
     position: 'absolute', bottom: 0, left: 0, right: 0,
     padding: 20, backgroundColor: 'rgba(11, 65, 85, 0.65)',
   },
   heroEyebrow: { color: '#FDF3E0', fontSize: 13, fontWeight: '600', letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: 6 },
-  heroTitle: { color: '#FFFFFF', fontSize: 26, fontWeight: '800', lineHeight: 32, marginBottom: 8 },
-  heroSubtitle: { color: '#FDF3E0', fontSize: 15, lineHeight: 22, opacity: 0.92, marginBottom: 16 },
+  heroTitle: { color: '#FFFFFF', fontSize: 46, fontWeight: '800', lineHeight: 52, marginBottom: 8 },
+  heroSubtitle: { color: '#FDF3E0', fontSize: 18, lineHeight: 27, opacity: 0.95, maxWidth: 620, marginBottom: 16 },
   searchSection: { padding: 20, backgroundColor: '#FFFFFF', borderBottomWidth: 1, borderBottomColor: '#E5E7EB' },
   section: { padding: 20, backgroundColor: '#FFFFFF', borderBottomWidth: 1, borderBottomColor: '#E5E7EB' },
   sectionTitle: { color: '#0B4155', fontSize: 18, fontWeight: '800', marginBottom: 14 },
