@@ -74,7 +74,11 @@ export const TOURS: Tour[] = [
     freeCancellation: false,
     whatIncluded: ['Professional bilingual instructor', 'Shower', 'Soft-Top surf board', 'Locker', 'Use of changing rooms', '90 minutes lesson', 'Rash guard (Surf Shirt)'],
     whatToBring: ['Suitable for all physical fitness levels', 'Children under 12 are Required to Book a Private Lesson for safety reasons and to ensure a more one-on-one attention', 'Note: Please contact the phone number on your voucher to advise your chosen lesson time', 'Semi private lessons are for two or three people travelling together'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Professional bilingual instructor, Shower, Soft-Top surf board, Locker, Use of changing rooms, 90 minutes lesson and Rash guard (Surf Shirt).' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. Children under 12 are Required to Book a Private Lesson for safety reasons and to ensure a more one-on-one attention. Note: Please contact the phone number on your voucher to advise your chosen lesson time. Semi private lessons are for two or three people travelling together.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour does not offer free cancellation. Review the cancellation terms on Viator before you book.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/f5/17/7d.jpg', alt: 'Surf Lessons in Tamarindo, Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/f5/17/7c.jpg', alt: 'Surf Lessons in Tamarindo, Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/f5/17/7b.jpg', alt: 'Surf Lessons in Tamarindo, Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/b4/d3/90.jpg', alt: 'Surf Lessons in Tamarindo, Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/b4/d3/91.jpg', alt: 'Surf Lessons in Tamarindo, Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/b4/d3/93.jpg', alt: 'Surf Lessons in Tamarindo, Costa Rica' }],
   },
   {
@@ -96,7 +100,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Lunch', 'Bottled water', 'Professional guide', 'Pick up from RIU Guanacaste/Palace, Ocotal, Playas del Coco, Playa Hermosa/Panama, Liberia', 'All Fees and Taxes', 'Pick up From Tamarindo, Langosta, Grande, Conchal, Flamingo, Catalinas', 'Transport by air-conditioned minivan'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness', 'Minimum age for tubing is 8 years - Ability for river tubing dependent on size of child and strength of river that day', 'Children ages 4–7 can participate in all activities except tubing. One adult must stay behind with the child during the tubing portion.', 'Weight limit 300 lbs', 'At time of booking, passengers must provide the following information at time of booking: hotel, house or condo name', 'If your hotel is not listed, contact us for quoting'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Lunch, Bottled water, Professional guide, Pick up from RIU Guanacaste/Palace, Ocotal, Playas del Coco, Playa Hermosa/Panama, Liberia, All Fees and Taxes, Pick up From Tamarindo, Langosta, Grande, Conchal, Flamingo, Catalinas and Transport by air-conditioned minivan.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness. Minimum age for tubing is 8 years - Ability for river tubing dependent on size of child and strength of river that day. Children ages 4–7 can participate in all activities except tubing. One adult must stay behind with the child during the tubing portion. Weight limit 300 lbs. At time of booking, passengers must provide the following information at time of booking: hotel, house or condo name. If your hotel is not listed, contact us for quoting.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/ef/db/04.jpg', alt: 'Ziplining in the canyon - Guachipelin Adventure Combo in Rincon de la Vieja Volcano - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/82/c1/ef.jpg', alt: 'River Tubing! - Guachipelin Adventure Combo in Rincon de la Vieja Volcano - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/82/80/56.jpg', alt: 'Hot Springs Rio Negro - Guachipelin Adventure Combo in Rincon de la Vieja Volcano - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/82/c3/58.jpg', alt: 'Ziplining through the Jungle Canopy - Guachipelin Adventure Combo in Rincon de la Vieja Volcano - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/82/75/78.jpg', alt: 'Hot Springs at Rio Negro Guachipelin Adventure Combo in Rincon de la Vieja Volcano - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/82/c2/28.jpg', alt: 'River Tubing - Guachipelin Adventure Combo in Rincon de la Vieja Volcano - Native\'s Way Costa Rica Tours & Packages' }],
   },
   {
@@ -118,7 +126,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Lunch', 'Professional guide'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Specialized infant seats are available', 'Suitable for all physical fitness levels', 'Children must be accompanied by an adult', 'May be operated by a multi-lingual guide'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Lunch and Professional guide.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Specialized infant seats are available. Suitable for all physical fitness levels. Children must be accompanied by an adult. May be operated by a multi-lingual guide.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/71/52/bf.jpg', alt: 'Nico - Jaguar at Diamante' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/71/52/96.jpg', alt: 'Superman zip line' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/7e/a3/b5.jpg', alt: 'Diamante Eco Adventure Park Day Pass with Lunch' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/7e/fd/a9.jpg', alt: 'Diamante Eco Adventure Park Day Pass with Lunch' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/71/52/8f.jpg', alt: 'Sam - Rainbow Billed Toucan' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/71/52/a1.jpg', alt: 'Having Fun in the zip line' }],
   },
   {
@@ -140,7 +152,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Hotel pickup and drop-off', 'Driver/guide', 'Lunch', 'National park fees', 'Professional bilingual guide'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness', 'If your hotel is not listed, contact us for quoting', 'Due to a new requirement issued by the Ministry of Tourism and the National Park Systems of Costa Rica, we need each person to send us the following information: Full Name on Passport, Passport number, Passport issuing country. You must carry a picture of your passport with you on your tour!'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Hotel pickup and drop-off, Driver/guide, Lunch, National park fees and Professional bilingual guide.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness. If your hotel is not listed, contact us for quoting. Due to a new requirement issued by the Ministry of Tourism and the National Park Systems of Costa Rica, we need each person to send us the following information: Full Name on Passport, Passport number, Passport issuing country. You must carry a picture of your passport with you on your tour!.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/d7/f0/a6.jpg', alt: 'Rio Celeste Waterfall - Rio Celeste & Llanos de Cortes Waterfall Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/88/bf/97.jpg', alt: 'Rio Celeste Waterfall - Rio Celeste & Llanos de Cortes Waterfall Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/9d/f4/25.jpg', alt: 'Llanos de Cortes Waterfall - Rio Celeste Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/9d/fb/51.jpg', alt: 'Sloth Sanctuary - Rio Celeste Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/f9/92/4c.jpg', alt: 'Naturally Blue River - Rio Celeste Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/9d/f4/91.jpg', alt: 'Sloth Sanctuary - Rio Celeste Tour - Native\'s Way Costa Rica Tours & Packages' }],
   },
   {
@@ -162,7 +178,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Kayaks', 'Local guide', 'Snacks', 'Use of snorkeling equipment', 'Unlimited beer, wine and soft drinks', 'Hotel pickup & drop off from close locations', 'Stand up Paddle Boards'],
     whatToBring: ['Suitable for all physical fitness levels', 'Children must be accompanied by an adult', 'Vegetarian option is available, please advise at time of booking if required', 'Boarding time start at 1.30 pm to 1.50 pm'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Kayaks, Local guide, Snacks, Use of snorkeling equipment, Unlimited beer, wine and soft drinks, Hotel pickup & drop off from close locations and Stand up Paddle Boards.' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. Children must be accompanied by an adult. Vegetarian option is available, please advise at time of booking if required. Boarding time start at 1.30 pm to 1.50 pm.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/33/cb/a4/53/caption.jpg', alt: 'Sunset Catamaran & Snorkeling Tour in Playa Flamingo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/ab/f0/d6.jpg', alt: 'Sunset Catamaran' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/3c/94/23.jpg', alt: 'Sunset View' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/ab/f0/6d.jpg', alt: 'Sunset View' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/ab/f1/08.jpg', alt: 'Lazy Lizard Catamaran' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/ab/f2/12.jpg', alt: 'Enjoy the sea' }],
   },
   {
@@ -184,7 +204,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Water', 'Lunch', 'Tanning nets', 'Use of snorkeling equipment', 'Unlimited natural juices', 'Waterslide', 'Alcoholic beverages'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Suitable for all physical fitness levels', 'Please arrive 20 minutes before departure time, Marina Flamingo main lobby area.'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Water, Lunch, Tanning nets, Use of snorkeling equipment, Unlimited natural juices, Waterslide and Alcoholic beverages.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Suitable for all physical fitness levels. Please arrive 20 minutes before departure time, Marina Flamingo main lobby area.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/ec/42/64.jpg', alt: 'Flamingo, Guanacaste All Inclusive Catamaran Snorkel Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/57/94/06.jpg', alt: 'Flamingo, Guanacaste All Inclusive Catamaran Snorkel Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/47/1c/30.jpg', alt: 'Flamingo, Guanacaste All Inclusive Catamaran Snorkel Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/ec/42/69.jpg', alt: 'Flamingo, Guanacaste All Inclusive Catamaran Snorkel Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/ec/42/5f.jpg', alt: 'Flamingo, Guanacaste All Inclusive Catamaran Snorkel Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/ec/42/60.jpg', alt: 'Flamingo, Guanacaste All Inclusive Catamaran Snorkel Adventure' }],
   },
   {
@@ -206,7 +230,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['-Restroom', '-Stand up paddle board', '-Drinks: variety of sodas, juices, beer, white wine, Cacique, vodka, rum, tequila, and water', '-Swimming', '-Pool Noodles', '-Meal: chicken fajitas, black beans, salad, fruit platter, vegetable tray, homemade banana bread', '-Kayaks', '-Snorkeling Gear'],
     whatToBring: ['Suitable for all physical fitness levels', 'Please arrive 15 minutes prior to tour start time in order to get checked-in.'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes -Restroom, -Stand up paddle board, -Drinks: variety of sodas, juices, beer, white wine, Cacique, vodka, rum, tequila, and water, -Swimming, -Pool Noodles, -Meal: chicken fajitas, black beans, salad, fruit platter, vegetable tray, homemade banana bread, -Kayaks and -Snorkeling Gear.' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. Please arrive 15 minutes prior to tour start time in order to get checked-in.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/3c/b6/e3.jpg', alt: 'Blue Dolphin Sailing Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/36/96/c3.jpg', alt: 'Blue Dolphin - Public Catamaran Tour - Tamarindo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/36/96/aa.jpg', alt: 'Blue Dolphin - Public Catamaran Tour - Tamarindo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/36/96/97.jpg', alt: 'Blue Dolphin - Public Catamaran Tour - Tamarindo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/36/96/9a.jpg', alt: 'Blue Dolphin - Public Catamaran Tour - Tamarindo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/24/5a/22.jpg', alt: 'Blue Dolphin - Public Catamaran Tour - Tamarindo' }],
   },
   {
@@ -228,7 +256,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'Lunch', 'All Fees and Taxes', 'In-vehicle air conditioning', 'Certified Guide'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Specialized infant seats are available', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, Lunch, All Fees and Taxes, In-vehicle air conditioning and Certified Guide.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Specialized infant seats are available. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/13/d5/6b.jpg', alt: 'Sloth Wildlife Experience, Coffee, Chocolate & Waterfall' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/34/20/7a/95/caption.jpg', alt: 'Sloth Wildlife Experience, Coffee, Chocolate & Waterfall' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/33/e5/e3/22/caption.jpg', alt: 'Sloth Wildlife Experience, Coffee, Chocolate & Waterfall' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/34/00/4a/a3/caption.jpg', alt: 'Sloth Wildlife Experience, Coffee, Chocolate & Waterfall' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/33/f4/5f/26/caption.jpg', alt: 'Sloth Wildlife Experience, Coffee, Chocolate & Waterfall' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/34/00/4a/a1/caption.jpg', alt: 'Sloth Wildlife Experience, Coffee, Chocolate & Waterfall' }],
   },
   {
@@ -250,7 +282,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Goggles and Helmet', 'Fully Automatic Honda Buggy (2-4-5-6 Seater)', 'Fully Trained Tour guide (English and Spanish)', 'Semi-Automatic Honda ATV (Single or Shared)', 'Bottled Water & Seasonal Fruits'],
     whatToBring: ['Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Goggles and Helmet, Fully Automatic Honda Buggy (2-4-5-6 Seater), Fully Trained Tour guide (English and Spanish), Semi-Automatic Honda ATV (Single or Shared) and Bottled Water & Seasonal Fruits.' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/7e/99/78.jpg', alt: 'ATV or Buggy Guided Tour from Tamarindo, Conchal or RIU Hotels' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/cf/23/7c.jpg', alt: 'ATV or Buggy Guided Tour from Tamarindo, Conchal or RIU Hotels' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/33/8e/14.jpg', alt: 'ATV or Buggy Guided Tour from Tamarindo, Conchal or RIU Hotels' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/33/8e/28.jpg', alt: 'ATV or Buggy Guided Tour from Tamarindo, Conchal or RIU Hotels' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/c8/ce/f0.jpg', alt: 'Tamarindo Top Rated ATV Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/7e/97/e0.jpg', alt: 'ATV or Buggy Guided Tour from Tamarindo, Conchal or RIU Hotels' }],
   },
   {
@@ -272,7 +308,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Entrance to the Animal Sanctuary'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Specialized infant seats are available', 'Suitable for all physical fitness levels', 'Children must be accompanied by an adult', 'Minimum drinking age is 18 years', 'May be operated by a multi-lingual guide'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Entrance to the Animal Sanctuary.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Specialized infant seats are available. Suitable for all physical fitness levels. Children must be accompanied by an adult. Minimum drinking age is 18 years. May be operated by a multi-lingual guide.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/26/c7/70.jpg', alt: 'Skip the Line: Diamante Eco Adventure Park: Animal Sanctuary Discovery Ticket' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/30/66/45.jpg', alt: 'Costa Rica Jaguars - Animal Sanctuary' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/26/c7/87.jpg', alt: 'Skip the Line: Diamante Eco Adventure Park: Animal Sanctuary Discovery Ticket' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/30/6a/86.jpg', alt: 'White Faced Monkeys - Animal Sanctuary' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/30/66/73.jpg', alt: 'Red Eyed Tree Frog' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/30/6a/76.jpg', alt: 'Margays - Animal Sanctuary' }],
   },
   {
@@ -294,7 +334,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Hotel pickup and drop-off', 'National Park fees', 'Bottled water', 'Driver/guide', 'Lunch', 'In-vehicle air conditioning'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness', 'Vegetarian option is available, please advise at time of booking if required', 'Use "Special Requirements" field upon checkout to advise dietary information', 'A minimum of 2 people per booking is required, if you are a solo traveler please contact us', 'If you do not need transportation, please meet us at the entrance of the National Park at 9:00 am.', 'If your hotel is not listed, contact us for quoting'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Hotel pickup and drop-off, National Park fees, Bottled water, Driver/guide, Lunch and In-vehicle air conditioning.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness. Vegetarian option is available, please advise at time of booking if required. Use "Special Requirements" field upon checkout to advise dietary information. A minimum of 2 people per booking is required, if you are a solo traveler please contact us. If you do not need transportation, please meet us at the entrance of the National Park at 9:00 am. If your hotel is not listed, contact us for quoting.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/83/1c/9c.jpg', alt: 'Volcanic Activity - Rincon de la Vieja National Park Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/8d/5b/e6.jpg', alt: 'Fumaroles - Rincon de la Vieja National Park Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/d7/e7/a5.jpg', alt: 'Oropendola Waterfall - Native\'s Way Costa Rica Tours' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/83/1c/0b.jpg', alt: 'Hot Springs Rio Negro - Rincon de la Vieja National Park Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/e8/62/10.jpg', alt: 'Mud Pots - Rincon de la Vieja National Park Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/9b/c3/10.jpg', alt: 'Trail - Rincon de la Vieja National Park - Native\'s Way Costa Rica Tours & Packages' }],
   },
   {
@@ -316,7 +360,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Rash guard', 'Surf board'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Travelers should have at least a moderate level of physical fitness'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Rash guard and Surf board.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Travelers should have at least a moderate level of physical fitness.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/8f/d5/0b.jpg', alt: 'Surf Lesson in Tamarindo - Stand Up or Your Money Back!' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/8f/da/2e.jpg', alt: 'Surf Lesson in Tamarindo - Stand Up or Your Money Back!' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/8f/d4/e8.jpg', alt: 'Surf Lesson in Tamarindo - Stand Up or Your Money Back!' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/8f/d4/62.jpg', alt: 'Surf Lesson in Tamarindo - Stand Up or Your Money Back!' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/8f/d4/61.jpg', alt: 'Surf Lesson in Tamarindo - Stand Up or Your Money Back!' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/8f/da/2c.jpg', alt: 'Surf Lesson in Tamarindo - Stand Up or Your Money Back!' }],
   },
   {
@@ -338,7 +386,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Local guide', 'Bottled water', 'Hotel pickup and drop-off in Tamarindo/Langosta area'],
     whatToBring: ['Infants are required to sit on an adult’s lap', 'Suitable for all physical fitness levels', 'Please wear comfortable clothes, sunscreen, insect repellent'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Local guide, Bottled water and Hotel pickup and drop-off in Tamarindo/Langosta area.' },
+      { question: 'What should I know before booking?', answer: 'Infants are required to sit on an adult’s lap. Suitable for all physical fitness levels. Please wear comfortable clothes, sunscreen, insect repellent.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/6b/89/39.jpg', alt: 'Tamarindo Estuary Mangrove Boat Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/6b/89/3c.jpg', alt: 'Tamarindo Estuary Mangrove Boat Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/d4/37/96.jpg', alt: 'Tamarindo Estuary Mangrove Boat Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/6b/89/37.jpg', alt: 'Tamarindo Estuary Mangrove Boat Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/6b/89/38.jpg', alt: 'Tamarindo Estuary Mangrove Boat Tour - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/d4/3c/46.jpg', alt: 'Tamarindo Estuary Mangrove Boat Tour - Native\'s Way Costa Rica Tours & Packages' }],
   },
   {
@@ -360,7 +412,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Admission fees', 'Bottled water', 'Professional bilingual guide (English and Spanish)', 'Lunch', 'Air-conditioned vehicle transportation'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Specialized infant seats are available', 'Travelers should have at least a moderate level of physical fitness', 'Additional cost per car seat $20.00 USD // Costo adicional por sillas de Bebé $20.00 USD'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Admission fees, Bottled water, Professional bilingual guide (English and Spanish), Lunch and Air-conditioned vehicle transportation.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Specialized infant seats are available. Travelers should have at least a moderate level of physical fitness. Additional cost per car seat $20.00 USD // Costo adicional por sillas de Bebé $20.00 USD.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/e6/14/78.jpg', alt: 'Tropical Rainforest, Hanging Bridges And Jungle Sloths Sanctuary' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/7c/da/97.jpg', alt: 'Tropical Rainforest, Hanging Bridges And Jungle Sloths Sanctuary' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/7c/e4/e2.jpg', alt: 'Tropical Rainforest, Hanging Bridges And Jungle Sloths Sanctuary' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/f3/6d/6d.jpg', alt: 'Tropical Rainforest, Hanging Bridges And Jungle Sloths Sanctuary' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/f3/6c/7e.jpg', alt: 'Tropical Rainforest, Hanging Bridges And Jungle Sloths Sanctuary' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/f3/6b/8e.jpg', alt: 'Tropical Rainforest, Hanging Bridges And Jungle Sloths Sanctuary' }],
   },
   {
@@ -382,7 +438,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Unlimited drinks (open bar)', 'Alcoholic beverages', 'Snacks', 'Lunch', 'Catamaran cruise'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Unlimited drinks (open bar), Alcoholic beverages, Snacks, Lunch and Catamaran cruise.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/28/f6/82.jpg', alt: 'Marlin del Rey Catamaran – Tamarindo & Playas del Coco' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/28/f6/bf.jpg', alt: 'Marlin del Rey Catamaran – Tamarindo & Playas del Coco' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/71/53/b1.jpg', alt: 'Marlin del Rey Sailing Tours' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/28/f6/8b.jpg', alt: 'Marlin del Rey Catamaran – Tamarindo & Playas del Coco' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/28/f6/bb.jpg', alt: 'Marlin del Rey Catamaran – Tamarindo & Playas del Coco' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/28/f6/bd.jpg', alt: 'Marlin del Rey Catamaran – Tamarindo & Playas del Coco' }],
   },
   {
@@ -404,7 +464,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bathrooms', 'Life Jackets', 'WaterProof Bag', 'Lockers'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness', 'NOT SUITED FOR GUESTS WITH KNEE, ANKLE, MOBILITY ISSUES OR COMPLETELY OUT OF SHAPE', 'YOU MUST ARRIVE 15MIN - 20MIN PRIOR TO GET READY AND START THE TOUR ON TIME'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bathrooms, Life Jackets, WaterProof Bag and Lockers.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness. NOT SUITED FOR GUESTS WITH KNEE, ANKLE, MOBILITY ISSUES OR COMPLETELY OUT OF SHAPE. YOU MUST ARRIVE 15MIN - 20MIN PRIOR TO GET READY AND START THE TOUR ON TIME.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/cf/df/17.jpg', alt: 'La Leona Waterfall Adventure Hike (Private Tour)' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/99/1a/06.jpg', alt: 'La Leona Waterfall Adventure Hike (Private Tour)' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/cf/df/9b.jpg', alt: 'La Leona Waterfall Adventure Hike (Private Tour)' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/cf/df/9c.jpg', alt: 'La Leona Waterfall Adventure Hike (Private Tour)' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/cf/df/9e.jpg', alt: 'La Leona Waterfall Adventure Hike (Private Tour)' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/cf/df/a9.jpg', alt: 'La Leona Waterfall Adventure Hike (Private Tour)' }],
   },
   {
@@ -426,7 +490,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Professional guide with safety instructions'],
     whatToBring: ['Specialized infant seats are available', 'Suitable for all physical fitness levels', 'Children must be accompanied by an adult', 'Minimum drinking age is 18 years'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Professional guide with safety instructions.' },
+      { question: 'What should I know before booking?', answer: 'Specialized infant seats are available. Suitable for all physical fitness levels. Children must be accompanied by an adult. Minimum drinking age is 18 years.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/7e/a3/b5.jpg', alt: 'Diamante Adventure Park - Ocean View Zip Line' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/30/50/d0.jpg', alt: 'Diamante Eco Adventure Park Superman Line' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/30/50/d1.jpg', alt: 'Diamante Zip Line - Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/f1/29/8b.jpg', alt: 'Superman Zip Line - Aerial Pass' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/f1/29/8c.jpg', alt: 'Aerial Pass' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/30/4c/cb.jpg', alt: 'Diamante Zip Line - Costa Rica' }],
   },
   {
@@ -448,7 +516,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Hotel, Condo, or House pickup and drop-off', 'National Park fees', 'All taxes, fees and handling charges', 'Bottled water', 'Lunch', 'Breakfast', 'Guide'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Suitable for all physical fitness levels', 'Passport name, number, expiry and country is required at time of booking for all participants. Please bring your passport on the day of your tour', 'Entry to Nicaragua: Send photo of passport to info@nativesway.com or WhatsApp', 'Your departure Ticket that proof of flight out of Costa Rica', 'If your hotel is not listed, contact us for quoting'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Hotel, Condo, or House pickup and drop-off, National Park fees, All taxes, fees and handling charges, Bottled water, Lunch, Breakfast and Guide.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Suitable for all physical fitness levels. Passport name, number, expiry and country is required at time of booking for all participants. Please bring your passport on the day of your tour. Entry to Nicaragua: Send photo of passport to info@nativesway.com or WhatsApp. Your departure Ticket that proof of flight out of Costa Rica. If your hotel is not listed, contact us for quoting.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/88/bf/9c.jpg', alt: 'Granada, Nicaragua One Day Tour from Costa Rica -Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/9d/e1/6d.jpg', alt: 'Nicaragua Full Day Tour from Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/88/bf/9d.jpg', alt: 'Active Masaya Crater, Nicaragua One Day Tour from Costa Rica - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/f9/49/1e.jpg', alt: 'Colonial Buildings, Nicaragua One Day Tour from Costa Rica - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/9d/e4/f4.jpg', alt: 'Catarina Lookout' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/9d/df/da.jpg', alt: 'Nicaragua Full Day Tour from Costa Rica' }],
   },
   {
@@ -470,7 +542,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Lunch'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Specialized infant seats are available', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Lunch.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Specialized infant seats are available. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0d/35/2a.jpg', alt: 'Explore Day Pass – Adventure & Relaxation in One Day' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/13/2c/32/13.jpg', alt: 'Volcanic Mud Rincon' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0d/34/6f.jpg', alt: 'Explore Day Pass – Adventure & Relaxation in One Day' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0d/33/a8.jpg', alt: 'Explore Day Pass – Adventure & Relaxation in One Day' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0d/33/a9.jpg', alt: 'Explore Day Pass – Adventure & Relaxation in One Day' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0d/34/71.jpg', alt: 'Explore Day Pass – Adventure & Relaxation in One Day' }],
   },
   {
@@ -492,7 +568,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Lunch', '1 Paddle', 'Use of snorkeling equipment', '2 KAYAKS', 'Alcoholic beverages'],
     whatToBring: ['Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Lunch, 1 Paddle, Use of snorkeling equipment, 2 KAYAKS and Alcoholic beverages.' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/7e/cb/76.jpg', alt: 'Timarouba Catamaran Sunset Cruise with Open Bar Lunch& Snorkeling' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/05/aa/eb.jpg', alt: 'Timarouba Catamaran Sunset Cruise with Open Bar Lunch& Snorkeling' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/7e/c0/fc.jpg', alt: 'Timarouba Catamaran Sunset Cruise with Open Bar Lunch& Snorkeling' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/7e/cb/77.jpg', alt: 'Timarouba Catamaran Sunset Cruise with Open Bar Lunch& Snorkeling' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/7c/98/8a.jpg', alt: 'Timarouba Catamaran Sunset Cruise with Open Bar Lunch& Snorkeling' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/7e/cb/6b.jpg', alt: 'Timarouba Catamaran Sunset Cruise with Open Bar Lunch& Snorkeling' }],
   },
   {
@@ -514,7 +594,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'Snorkel Equipment is included if you book the combo Atv + snorkel', 'ATV tour equipment including helmets', 'Round-trip transfer from a central location or hotel'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness', 'Minimum age to drive is 16 years with driver license', 'Children must be accompanied by an adult', 'There is a possibility of cancellation after confirmation if there is not enough passengers. In the event of this occurring, you will be offered an alternative or full refund', 'The tour guide can cancel the activity for lightning, wind, or hard rain any time for your own safety', 'It is recommended that you wear comfortable light clothing that you are not worried will be damages.'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, Snorkel Equipment is included if you book the combo Atv + snorkel, ATV tour equipment including helmets and Round-trip transfer from a central location or hotel.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness. Minimum age to drive is 16 years with driver license. Children must be accompanied by an adult. There is a possibility of cancellation after confirmation if there is not enough passengers. In the event of this occurring, you will be offered an alternative or full refund. The tour guide can cancel the activity for lightning, wind, or hard rain any time for your own safety. It is recommended that you wear comfortable light clothing that you are not worried will be damages.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/df/b3/a4.jpg', alt: 'ATV TOUR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/e5/48/35.jpg', alt: 'ATV TOUR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/e6/fe/5c.jpg', alt: 'UTV SIDE BY SIDE' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/03/65/d8.jpg', alt: 'ATV RIVER' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/03/65/d9.jpg', alt: 'ATV RIVER' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/7a/c6/a1.jpg', alt: 'UTV SIDE X SIDE' }],
   },
   {
@@ -536,7 +620,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Diving Equipment', 'Driver/guide', 'Snacks: Water, Ice Tea, Seasonal Fruits and Cookies.'],
     whatToBring: ['Suitable for all physical fitness levels', 'Evidence of Dive Certification is required from all divers wishing to participate in a certified dive.'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Diving Equipment, Driver/guide and Snacks: Water, Ice Tea, Seasonal Fruits and Cookies..' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. Evidence of Dive Certification is required from all divers wishing to participate in a certified dive.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/51/fa.jpg', alt: 'Two Tanks Scuba Diving Tour at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/52/02.jpg', alt: 'Two Tanks Scuba Diving Tour at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/52/0a.jpg', alt: 'Two Tanks Scuba Diving Tour at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/52/0c.jpg', alt: 'Two Tanks Scuba Diving Tour at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/52/11.jpg', alt: 'Two Tanks Scuba Diving Tour at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/5c/b9/66.jpg', alt: 'Two Tanks Scuba Diving Tour at Catalina Islands & North Island - CR' }],
   },
   {
@@ -558,7 +646,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Entrance fees', 'Dry Bags', 'Life Vest'],
     whatToBring: ['Infants are required to sit on an adult’s lap', 'Travelers should have at least a moderate level of physical fitness', 'Hike is for Children 8 and above', 'Hike has to be done in water shoes or tennis shoes ( no sandals or flip flops allowed ). We swim with the shoes on'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Entrance fees, Dry Bags and Life Vest.' },
+      { question: 'What should I know before booking?', answer: 'Infants are required to sit on an adult’s lap. Travelers should have at least a moderate level of physical fitness. Hike is for Children 8 and above. Hike has to be done in water shoes or tennis shoes ( no sandals or flip flops allowed ). We swim with the shoes on.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/d2/e1/c2.jpg', alt: 'La Leona Waterfall Hike' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/d2/e1/c4.jpg', alt: 'La Leona Waterfall Hike' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/d2/e1/c6.jpg', alt: 'La Leona Waterfall Hike' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/d2/e1/c9.jpg', alt: 'La Leona Waterfall Hike' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/a8/87/4e.jpg', alt: 'La Leona Waterfall Hike' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/a8/87/5f.jpg', alt: 'La Leona Waterfall Hike' }],
   },
   {
@@ -580,7 +672,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Snacks', 'Small group boat tour (Ask us for private rates)', 'Typical homemade meal (Family style)', 'Local guide (S/E)', 'Bottled water', 'Juice & coffee'],
     whatToBring: ['Infants are required to sit on an adult’s lap'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Snacks, Small group boat tour (Ask us for private rates), Typical homemade meal (Family style), Local guide (S/E), Bottled water and Juice & coffee.' },
+      { question: 'What should I know before booking?', answer: 'Infants are required to sit on an adult’s lap.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/f9/68/3f.jpg', alt: 'Local Guide Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/33/e3/43/87/caption.jpg', alt: 'Palo Verde Boat Tours, Ortega' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/29/02/71.jpg', alt: 'Palo Verde Boat Tours, Ortega' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/2a/6c/5e.jpg', alt: 'Palo Verde Boat Tours, Ortega' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/82/77/f3.jpg', alt: 'Palo Verde Boat Tours, Ortega' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/fd/8e/fd.jpg', alt: 'Palo Verde Boat Tours, Ortega' }],
   },
   {
@@ -602,7 +698,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'Locker', 'Tea and coffee', 'SurfBoard, Lish, Rushguard'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Specialized infant seats are available', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, Locker, Tea and coffee and SurfBoard, Lish, Rushguard.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Specialized infant seats are available. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ed/de/14.jpg', alt: 'BEST Surf Lessons in Tamarindo and Surf funcional, Surf skate, Video Analisis' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ed/de/1b.jpg', alt: 'BEST Surf Lessons in Tamarindo and Surf funcional, Surf skate, Video Analisis' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ed/de/1e.jpg', alt: 'BEST Surf Lessons in Tamarindo and Surf funcional, Surf skate, Video Analisis' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ed/de/1f.jpg', alt: 'BEST Surf Lessons in Tamarindo and Surf funcional, Surf skate, Video Analisis' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ed/de/22.jpg', alt: 'BEST Surf Lessons in Tamarindo and Surf funcional, Surf skate, Video Analisis' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ed/de/24.jpg', alt: 'BEST Surf Lessons in Tamarindo and Surf funcional, Surf skate, Video Analisis' }],
   },
   {
@@ -624,7 +724,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Local guide', 'Bottled water', 'Professional guide', 'Hotel pickup and drop-off (selected hotels only)(Conchal, Flamingo, Brasilito and Potrero.)', 'Use of helmet'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Infants are required to sit on an adult’s lap', 'Suitable for all physical fitness levels', 'Children must be accompanied by an adult', 'Minimum age for driver is 17 years with driver license', 'Dress code is smart casual'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Local guide, Bottled water, Professional guide, Hotel pickup and drop-off (selected hotels only)(Conchal, Flamingo, Brasilito and Potrero.) and Use of helmet.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Infants are required to sit on an adult’s lap. Suitable for all physical fitness levels. Children must be accompanied by an adult. Minimum age for driver is 17 years with driver license. Dress code is smart casual.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/81/aa/98.jpg', alt: 'Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/81/aa/9b.jpg', alt: 'ATV Beach and Mountain Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/81/ab/6e.jpg', alt: 'Top of the World viewpoint' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/81/ab/3a.jpg', alt: 'Brasilito beach viewpoint' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/81/ab/71.jpg', alt: 'Brasilito beach' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/81/ab/73.jpg', alt: 'Brasilito beach' }],
   },
   {
@@ -646,7 +750,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Unlimited drinks (open bar)', 'Lunch'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Unlimited drinks (open bar) and Lunch.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/3d/20/14.jpg', alt: 'Marlin del Rey Catamarans' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/71/53/b1.jpg', alt: 'Marlin del Rey Sailing Tours' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/71/53/b2.jpg', alt: 'Sunset Snorkeling Sailing Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/3d/1f/e6.jpg', alt: 'Marlin del Rey Catamarans' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/3d/1f/fd.jpg', alt: 'Marlin del Rey Catamarans' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/3d/1f/ed.jpg', alt: 'Marlin del Rey Catamarans' }],
   },
   {
@@ -668,7 +776,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Carbonated beverages', 'Bottled water', 'Use of SCUBA equipment', 'Snacks', 'All Fees and Taxes', 'In-vehicle air conditioning', 'Scuba guide'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Carbonated beverages, Bottled water, Use of SCUBA equipment, Snacks, All Fees and Taxes, In-vehicle air conditioning and Scuba guide.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/65/93/56.jpg', alt: 'Manta ray' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/65/92/db.jpg', alt: 'Turtle' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/e8/75/6f.jpg', alt: 'Big eye jacks' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/e8/74/54.jpg', alt: 'Scuba divers' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/e8/74/80.jpg', alt: 'White tip reef sharks' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/65/93/7c.jpg', alt: 'Moorish idol' }],
   },
   {
@@ -690,7 +802,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'Refreshing cool wet towel', 'Security Equipment'],
     whatToBring: ['Specialized infant seats are available', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, Refreshing cool wet towel and Security Equipment.' },
+      { question: 'What should I know before booking?', answer: 'Specialized infant seats are available. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/02/c9/69.jpg', alt: 'Guanacaste Zipline – Safe & Fun for Kids 2+ & Families' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/3c/11/6f.jpg', alt: 'Family Zipline' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/ea/82/ae.jpg', alt: 'Kid`s Zipline' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/3b/f6/83.jpg', alt: 'Costa Rica Zipline' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/3c/10/9e.jpg', alt: 'Over 2 years old zipline' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/5f/a3/a0.jpg', alt: 'Adventure zipline' }],
   },
   {
@@ -712,7 +828,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['guide'],
     whatToBring: ['Infants are required to sit on an adult’s lap', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes guide.' },
+      { question: 'What should I know before booking?', answer: 'Infants are required to sit on an adult’s lap. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/c3/44/01.jpg', alt: 'Jet Ski guided tour in Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/c3/4f/a0.jpg', alt: 'Jet Ski guided tour in Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/c3/4f/a2.jpg', alt: 'Jet Ski guided tour in Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/c3/44/4d.jpg', alt: 'Jet Ski guided tour in Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/c3/44/4e.jpg', alt: 'Jet Ski guided tour in Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/c3/44/1b.jpg', alt: 'Jet Ski guided tour in Playa Conchal' }],
   },
   {
@@ -734,7 +854,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'Unlimited drinks (open bar)', 'All taxes, fees and handling charges', 'Alcoholic beverages', 'Lunch', 'Beverages', 'Use of snorkel equipment'],
     whatToBring: ['Specialized infant seats are available', 'Suitable for all physical fitness levels', 'Children must be accompanied by an adult', 'Hotel pick up and drop off can be arranged for an additional fee'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, Unlimited drinks (open bar), All taxes, fees and handling charges, Alcoholic beverages, Lunch, Beverages and Use of snorkel equipment.' },
+      { question: 'What should I know before booking?', answer: 'Specialized infant seats are available. Suitable for all physical fitness levels. Children must be accompanied by an adult. Hotel pick up and drop off can be arranged for an additional fee.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/ab/5f/43.jpg', alt: 'Marlin del Rey Catamaran Sailing Sunset Cruise Tamarindo - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/0e/50/b1.jpg', alt: 'Marlin del Rey Catamaran Sailing Sunset Cruise Tamarindo - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/33/3a/56/f1/caption.jpg', alt: 'Catamaran Snorkel Sunset Cruise from Tamarindo or Playas del Coco' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/ab/5f/98.jpg', alt: 'Marlin del Rey Catamaran Sailing Sunset Cruise Tamarindo Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/ab/5f/99.jpg', alt: 'Marlin del Rey Catamaran Sailing Sunset Cruise Tamarindo Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/ab/5f/9a.jpg', alt: 'Marlin del Rey Catamaran Sailing Sunset Cruise Tamarindo - Native\'s Way Costa Rica Tours & Packages' }],
   },
   {
@@ -756,7 +880,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Professional guide', 'Bottled water'],
     whatToBring: ['Suitable for all physical fitness levels', 'Children must be accompanied by an adult', 'minimum 4 years old', 'baskets'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Professional guide and Bottled water.' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. Children must be accompanied by an adult. minimum 4 years old. baskets.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/01/3f/e2.jpg', alt: 'a funny group' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/01/3f/e3.jpg', alt: 'Above the river' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/75/b4/22.jpg', alt: 'Rain Forest Canopy Tour from Tamarindo: Zipline, Hanging Bridge' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/75/b4/24.jpg', alt: 'Rain Forest Canopy Tour from Tamarindo: Zipline, Hanging Bridge' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/75/b4/15.jpg', alt: 'Rain Forest Canopy Tour from Tamarindo: Zipline, Hanging Bridge' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/75/b4/17.jpg', alt: 'Rain Forest Canopy Tour from Tamarindo: Zipline, Hanging Bridge' }],
   },
   {
@@ -778,7 +906,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'Lunch', 'Certified Driver', 'In-vehicle air conditioning', 'Certified Guide'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Specialized infant seats are available', 'Suitable for all physical fitness levels', 'Additional cost per car seat $20.00 USD // Costo adicional por silla $20.00 USD'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, Lunch, Certified Driver, In-vehicle air conditioning and Certified Guide.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Specialized infant seats are available. Suitable for all physical fitness levels. Additional cost per car seat $20.00 USD // Costo adicional por silla $20.00 USD.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/ab/98/49.jpg', alt: 'Palo Verde Boat Safari + Coffee & Culture – Wildlife & Flavor' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/8d/05/80.jpg', alt: 'Palo Verde Boat Safari + Coffee & Culture – Wildlife & Flavor' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/8d/07/5e.jpg', alt: 'Palo Verde Boat Safari + Coffee & Culture – Wildlife & Flavor' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/8d/07/9b.jpg', alt: 'Palo Verde Boat Safari + Coffee & Culture – Wildlife & Flavor' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/ab/92/d8.jpg', alt: 'The most amazing experience' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/ab/93/00.jpg', alt: 'A little orange on the way!' }],
   },
   {
@@ -800,7 +932,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Single or double ATV rental and Fuel', 'Safety helmet and protective gear briefing', 'Bottled Water', 'Natural river volcanic mud mask experience', 'Snacks', 'Round-trip hotel transport (La Fortuna area)', 'Bilingual guide (English and Spanish)'],
     whatToBring: ['Suitable for all physical fitness levels', 'The minimum age to drive an ATV is 14 years old. The minimum age for passengers is 5 years old, and they must be accompanied by a responsible adult.', 'It is required to wear closed shoes for the activity and sunglasses are recommended.', 'We recommend wearing comfortable clothing and bringing a change of clothes if needed.', 'This is not a private activity; it is a group experience shared with other participants.', 'The volcanic mud activity is an open, natural experience. The mud is extracted directly from the river and is not a spa service.'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Single or double ATV rental and Fuel, Safety helmet and protective gear briefing, Bottled Water, Natural river volcanic mud mask experience, Snacks, Round-trip hotel transport (La Fortuna area) and Bilingual guide (English and Spanish).' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. The minimum age to drive an ATV is 14 years old. The minimum age for passengers is 5 years old, and they must be accompanied by a responsible adult. It is required to wear closed shoes for the activity and sunglasses are recommended. We recommend wearing comfortable clothing and bringing a change of clothes if needed. This is not a private activity; it is a group experience shared with other participants. The volcanic mud activity is an open, natural experience. The mud is extracted directly from the river and is not a spa service.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/72/16/ae.jpg', alt: 'Volcano The volcano views from the farm are truly photo-worthy, and riding through the open fields feels like pure freedom!view' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/72/16/be.jpg', alt: 'Ride through rivers and mud for an unforgettable ATV experience!' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/72/16/b8.jpg', alt: 'Splash through muddy waterholes on your ATV!' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/72/16/bb.jpg', alt: 'Ride through rivers and mud for an unforgettable ATV experience!' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/13/38/e0.jpg', alt: 'Arenal River crossing' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/f3/89/c9.jpg', alt: 'Splash through muddy waterholes on your ATV!' }],
   },
   {
@@ -822,7 +958,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'Pictures and videos', 'Pick-up from your hotel ( Samara)'],
     whatToBring: ['Specialized infant seats are available', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, Pictures and videos and Pick-up from your hotel ( Samara).' },
+      { question: 'What should I know before booking?', answer: 'Specialized infant seats are available. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/32/b2/f1/e0/caption.jpg', alt: 'Jungle and Beach Horseback Riding Tour - 2H 1/2' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/e8/8c/d8.jpg', alt: 'Jungle and Beach Horseback Riding Tour - 2H 1/2' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/32/b2/f1/d9/caption.jpg', alt: 'Jungle and Beach Horseback Riding Tour - 2H 1/2' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/de/38/87.jpg', alt: 'Jungle and Beach Horseback Riding Tour - 2H 1/2' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/de/38/35.jpg', alt: 'Jungle and Beach Horseback Riding Tour - 2H 1/2' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/f6/47/44.jpg', alt: 'Jungle and Beach Horseback Riding Tour - 2H 1/2' }],
   },
   {
@@ -844,7 +984,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bilingual Guides', 'Alcoholic beverages', 'Use of snorkeling equipment', 'Waterslide', 'Lunch', 'Tropical juices'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bilingual Guides, Alcoholic beverages, Use of snorkeling equipment, Waterslide, Lunch and Tropical juices.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/83/7d/d8.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/48/e1/6b.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/48/e1/68.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/57/94/09.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/83/7d/43.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/83/7d/90.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }],
   },
   {
@@ -866,7 +1010,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['One of the largest of 127 mangrove forest in Costa Rica', 'TOURS ARE BASED ON TIDES! CHECK IN FOR SCHEDULES', 'Bottled water', 'Free transportation ONLY from Playa Tamarindo or Playa Langosta', 'Naturalist Expert Guides', 'Travel the vast network of mangroves with an expert nature guide', 'Snacks'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Infants are required to sit on an adult’s lap', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes One of the largest of 127 mangrove forest in Costa Rica, TOURS ARE BASED ON TIDES! CHECK IN FOR SCHEDULES, Bottled water, Free transportation ONLY from Playa Tamarindo or Playa Langosta, Naturalist Expert Guides, Travel the vast network of mangroves with an expert nature guide and Snacks.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Infants are required to sit on an adult’s lap. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/97/26/10.jpg', alt: 'American Crocodile' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/34/72/a6/06/caption.jpg', alt: 'Tamarindo Estuary Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/34/72/a6/51/caption.jpg', alt: 'Tamarindo Estuary Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/34/72/a6/32/caption.jpg', alt: 'Tamarindo Estuary Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/97/26/0a.jpg', alt: 'Little blue Heron' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0e/97/26/0d.jpg', alt: 'Tri-color Heron' }],
   },
   {
@@ -888,7 +1036,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Professional bilingual guide (English/Spanish)', 'Bottled water', 'Safety briefing and training before departure', 'Snacks', 'Ziplining equipment'],
     whatToBring: ['Suitable for all physical fitness levels', 'Maximum weight 125 kilos (275 pounds)'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Professional bilingual guide (English/Spanish), Bottled water, Safety briefing and training before departure, Snacks and Ziplining equipment.' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. Maximum weight 125 kilos (275 pounds).' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/07/f9/7d.jpg', alt: 'Security first' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/32/d3/5d/3f/caption.jpg', alt: 'Zipline Monkey Jungle family canopy tour in Tamarindo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/32/d3/5c/f9/caption.jpg', alt: 'Zipline Monkey Jungle family canopy tour in Tamarindo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/07/f9/75.jpg', alt: 'Zipline' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/32/d3/5d/33/caption.jpg', alt: 'Zipline Monkey Jungle family canopy tour in Tamarindo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/32/d3/5d/13/caption.jpg', alt: 'Zipline Monkey Jungle family canopy tour in Tamarindo' }],
   },
   {
@@ -910,7 +1062,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'Lunch', 'Transportation Included', 'Snacks', 'Insurance', 'Tour Guide.', 'Tea and coffee'],
     whatToBring: ['Specialized infant seats are available', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, Lunch, Transportation Included, Snacks, Insurance, Tour Guide. and Tea and coffee.' },
+      { question: 'What should I know before booking?', answer: 'Specialized infant seats are available. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ae/b4/a1.jpg', alt: 'Hike and view of the volcano' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ae/b3/f1.jpg', alt: 'Zip Line.' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ae/b3/f3.jpg', alt: 'Horseback Riding' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ae/b4/13.jpg', alt: 'Volcanic Mud Bath' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ae/b4/2e.jpg', alt: 'Hanging Bridges' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ae/b4/25.jpg', alt: 'Water slide' }],
   },
   {
@@ -932,7 +1088,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Safety briefing and equipment', 'Experienced guides', 'Lunch'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness', 'Children must be accompanied by an adult'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Safety briefing and equipment, Experienced guides and Lunch.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness. Children must be accompanied by an adult.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/fd/10/ed.jpg', alt: 'Tubing' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/34/7a/c6/41/caption.jpg', alt: 'Guachipelin Zipline, River Tubing, Horseback Ride, Hot springs & Lunch Combo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/34/7a/f3/a8/caption.jpg', alt: 'Guachipelin Zipline, River Tubing, Horseback Ride, Hot springs & Lunch Combo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/fd/10/fc.jpg', alt: 'Rio Negro Tubing Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/34/7a/f3/bf/caption.jpg', alt: 'Guachipelin Zipline, River Tubing, Horseback Ride, Hot springs & Lunch Combo' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/34/7a/c6/28/caption.jpg', alt: 'Guachipelin Zipline, River Tubing, Horseback Ride, Hot springs & Lunch Combo' }],
   },
   {
@@ -954,7 +1114,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'Lunch', 'Toallas de baño', 'In-vehicle air conditioning'],
     whatToBring: ['Specialized infant seats are available', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, Lunch, Toallas de baño and In-vehicle air conditioning.' },
+      { question: 'What should I know before booking?', answer: 'Specialized infant seats are available. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/cc/54/e4.jpg', alt: '\'' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/cc/54/fa.jpg', alt: 'Frogs-Sloths-waterfall-Coffee and Chocolate Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/cc/55/06.jpg', alt: 'Frogs-Sloths-waterfall-Coffee and Chocolate Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/cc/55/1f.jpg', alt: 'Frogs-Sloths-waterfall-Coffee and Chocolate Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/cc/55/62.jpg', alt: 'Frogs-Sloths-waterfall-Coffee and Chocolate Tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/cc/55/63.jpg', alt: 'Frogs-Sloths-waterfall-Coffee and Chocolate Tour' }],
   },
   {
@@ -976,7 +1140,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Private transportation', 'Lunch', 'All Fees and Taxes'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Private transportation, Lunch and All Fees and Taxes.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/40/8e/c4.jpg', alt: 'Oropendula Waterfall' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/2d/8f/14.jpg', alt: 'Natural hot springs' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/2d/90/41.jpg', alt: 'Steam vents' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/40/8d/c3.jpg', alt: 'Blue Crown Motmot' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/40/8e/36.jpg', alt: 'Capuchin Monkeys @ Rincon de la Vieja' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/40/8e/c0.jpg', alt: 'Oropendula Waterfall Platform' }],
   },
   {
@@ -998,7 +1166,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['licensed guide'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Infants are required to sit on an adult’s lap', 'Specialized infant seats are available', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes licensed guide.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Infants are required to sit on an adult’s lap. Specialized infant seats are available. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/fa/54/9d.jpg', alt: '1,5 Hours Private Horseback Riding Tour in Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/b0/9a/a6.jpg', alt: '1,5 Hours Private Horseback Riding Tour in Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/b0/9a/b0.jpg', alt: '1,5 Hours Private Horseback Riding Tour in Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/b0/9a/c0.jpg', alt: '1,5 Hours Private Horseback Riding Tour in Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/b0/9a/b5.jpg', alt: '1,5 Hours Private Horseback Riding Tour in Playa Conchal' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0a/b0/9a/ba.jpg', alt: '1,5 Hours Private Horseback Riding Tour in Playa Conchal' }],
   },
   {
@@ -1020,7 +1192,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Free surfboard rental after your surf lesson to keep practicing', 'We provide you with rashguards to protect you from the sun', 'Locker', 'Feel free to use our refreshing shower right on the beach after your surf'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Free surfboard rental after your surf lesson to keep practicing, We provide you with rashguards to protect you from the sun, Locker and Feel free to use our refreshing shower right on the beach after your surf.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/14/ca/d9/a5.jpg', alt: 'Surf Lessons for the whole family in Playa Sámara' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/14/ca/d9/a6.jpg', alt: 'Surf Lessons for the whole family in Playa Sámara' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/14/ca/d9/cb.jpg', alt: 'Surf Lessons for the whole family in Playa Sámara' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/14/ca/d9/cc.jpg', alt: 'Surf Lessons for the whole family in Playa Sámara' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/14/ca/d9/d8.jpg', alt: 'Surf Lessons for the whole family in Playa Sámara' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/14/ca/d9/e2.jpg', alt: 'Surf Lessons for the whole family in Playa Sámara' }],
   },
   {
@@ -1042,7 +1218,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Lunch', 'Tea and coffee'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Lunch and Tea and coffee.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0d/35/2e.jpg', alt: 'Nature Day Pass - Thermals & Cultural Tour in Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0d/33/a9.jpg', alt: 'Nature Day Pass - Thermals & Cultural Tour in Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0d/34/eb.jpg', alt: 'Nature Day Pass - Thermals & Cultural Tour in Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/11/ab/af/36.jpg', alt: 'Volcanic Mud Vandara' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0d/34/ee.jpg', alt: 'Nature Day Pass - Thermals & Cultural Tour in Costa Rica' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0d/34/ef.jpg', alt: 'Nature Day Pass - Thermals & Cultural Tour in Costa Rica' }],
   },
   {
@@ -1064,7 +1244,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Professional pictures- $10 pp or 25$ for group of 3 or more)', 'Snacks', 'We provide surf boards and rash guards'],
     whatToBring: ['Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Professional pictures- $10 pp or 25$ for group of 3 or more), Snacks and We provide surf boards and rash guards.' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/08/7f/fb/e7.jpg', alt: 'Perfect waves for beginners on our secluded beach spot' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/08/7f/fa/ba.jpg', alt: 'Kids ages 4 and up' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/08/7f/fa/cf.jpg', alt: 'Amazing Instructors' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/08/7f/fc/25.jpg', alt: 'Land lesson before heading out' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/08/80/03/fb.jpg', alt: 'Always a great day' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/08/80/0c/21.jpg', alt: 'Lots or returning customers' }],
   },
   {
@@ -1086,7 +1270,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Carbonated beverages', 'Bottled water', 'Use of SCUBA equipment', 'Snacks', 'All Fees and Taxes', 'In-vehicle air conditioning', 'Scuba instructor'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness', 'Travelers will have to fill out a medical questionnaire prior to the experience'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Carbonated beverages, Bottled water, Use of SCUBA equipment, Snacks, All Fees and Taxes, In-vehicle air conditioning and Scuba instructor.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness. Travelers will have to fill out a medical questionnaire prior to the experience.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/7c/09/9b.jpg', alt: '2 divers' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/80/94/47.jpg', alt: 'SSI certification card' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0f/dd/40/e0.jpg', alt: 'Diver with a school of fish' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/ee/39/f3.jpg', alt: 'White tip reef sharks' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/ee/39/f4.jpg', alt: 'Surgeon fish' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/ee/39/f6.jpg', alt: 'Star fish' }],
   },
   {
@@ -1108,7 +1296,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Diving Equipment', 'Diver - Guide', 'Snacks on Boat: Ice tea, water, seasonal fruits, cookies.', 'Hotel Pick Up & Drop Off - Selected Areas.'],
     whatToBring: ['Suitable for all physical fitness levels', 'Children must be accompanied by an adult'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Diving Equipment, Diver - Guide, Snacks on Boat: Ice tea, water, seasonal fruits, cookies. and Hotel Pick Up & Drop Off - Selected Areas..' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. Children must be accompanied by an adult.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/6e/55.jpg', alt: 'Scuba Diving for Non-Certified Divers at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/6e/51.jpg', alt: 'Scuba Diving for Non-Certified Divers at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/6e/53.jpg', alt: 'Scuba Diving for Non-Certified Divers at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/6e/54.jpg', alt: 'Scuba Diving for Non-Certified Divers at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/6e/58.jpg', alt: 'Scuba Diving for Non-Certified Divers at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/5c/b9/66.jpg', alt: 'Scuba Diving for Non-Certified Divers at Catalina Islands & North Island - CR' }],
   },
   {
@@ -1130,7 +1322,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Hotel Pick-Up and Drop-Off (Selected Areas Only)', 'Driver/guide', 'Use of snorkeling equipment', 'Snacks: Water, Ice Tea, Seasonal Fruits and Cookies.'],
     whatToBring: ['Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Hotel Pick-Up and Drop-Off (Selected Areas Only), Driver/guide, Use of snorkeling equipment and Snacks: Water, Ice Tea, Seasonal Fruits and Cookies..' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/d7/ab/26.jpg', alt: 'Snorkeling' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/56/b8.jpg', alt: 'Snorkeling at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/56/ba.jpg', alt: 'Snorkeling at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/56/bd.jpg', alt: 'Snorkeling at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/56/bf.jpg', alt: 'Snorkeling at Catalina Islands & North Island - CR' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/96/56/c1.jpg', alt: 'Snorkeling at Catalina Islands & North Island - CR' }],
   },
   {
@@ -1152,7 +1348,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['All taxes, fees and handling charges', 'Roundtrip A/C Transportation (except the self-drive option)', 'Animal Sanctuary, such as two types of sloths, colored frogs, exotic birds, and much more.', 'Hydration', 'Rio Celeste waterfall', 'Tropical regional fruits', 'Typical lunch', 'River Tubing'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness', 'Appreciate the imposing blue waterfall in the middle of the tropical rainforest.', 'We will pass through different wonderful landscapes and plans of citrus, pineapple, cashew, and many more.', 'The animal sanctuary awaits you to appreciate wildlife.', 'Cool off in the blue river by tubing and stopping for a swim.', 'Certified tour guide.'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes All taxes, fees and handling charges, Roundtrip A/C Transportation (except the self-drive option), Animal Sanctuary, such as two types of sloths, colored frogs, exotic birds, and much more., Hydration, Rio Celeste waterfall, Tropical regional fruits, Typical lunch and River Tubing.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness. Appreciate the imposing blue waterfall in the middle of the tropical rainforest. We will pass through different wonderful landscapes and plans of citrus, pineapple, cashew, and many more. The animal sanctuary awaits you to appreciate wildlife. Cool off in the blue river by tubing and stopping for a swim. Certified tour guide.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/33/18/ff.jpg', alt: 'Rio Celeste Combo: River Tubing+Blue Waterfall+Exotic Wildlife' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/ee/2f/ac.jpg', alt: 'Rio Celeste Combo: River Tubing+Blue Waterfall+Exotic Wildlife' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/84/1f/fd.jpg', alt: 'Rio Celeste Combo: River Tubing+Blue Waterfall+Exotic Wildlife' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/9a/39/3a.jpg', alt: 'Rio Celeste Combo: River Tubing+Blue Waterfall+Exotic Wildlife' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/13/c7/e6/91.jpg', alt: 'Rio Celeste Combo: River Tubing+Blue Waterfall+Exotic Wildlife' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/d2/7a/53.jpg', alt: 'Rio Celeste Combo: River Tubing+Blue Waterfall+Exotic Wildlife' }],
   },
   {
@@ -1174,7 +1374,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Guided snorkeling', 'Appetizers', 'Fresh fruit', 'Unlimited drinks with premium bottle service', 'Snorkeling gear', 'Lunch', 'Fishing gear'],
     whatToBring: ['Specialized infant seats are available', 'Travelers should have at least a moderate level of physical fitness', 'Minimum age is 3 years', 'Maximum of 13 passengers', 'Bring swimsuit, sunscreen, sunglasses, hat, and towel', 'Vegetarian option is available, please advise at time of booking if required'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Guided snorkeling, Appetizers, Fresh fruit, Unlimited drinks with premium bottle service, Snorkeling gear, Lunch and Fishing gear.' },
+      { question: 'What should I know before booking?', answer: 'Specialized infant seats are available. Travelers should have at least a moderate level of physical fitness. Minimum age is 3 years. Maximum of 13 passengers. Bring swimsuit, sunscreen, sunglasses, hat, and towel. Vegetarian option is available, please advise at time of booking if required.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/6c/76/24.jpg', alt: 'Small Semi Private Groups' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/6c/76/25.jpg', alt: '#1 Sailing Charter in Guanacaste' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/85/ce/d1.jpg', alt: 'Snorkeling' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/85/ce/d9.jpg', alt: 'Family Fun' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/85/ce/e3.jpg', alt: 'Take the helm' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/85/ce/eb.jpg', alt: 'Fishing' }],
   },
   {
@@ -1196,7 +1400,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Live entertainment', 'Driver/guide', 'Beach Bonfire at Sunset', 'Discounts on Food & Happy Hour', 'Local taxes', 'Welcome drink at each stop'],
     whatToBring: ['Suitable for all physical fitness levels', 'Minimum age is 18 years', 'Minimum drinking age is 18 years', 'MINIMUM OF 15 PEOPLE OR THE TOUR CANNOT OPERATE, YOU WILL BE REFUNDED IN THE EVENT OF THERE BEING LESS THAN 15 CUSTOMERS.'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Live entertainment, Driver/guide, Beach Bonfire at Sunset, Discounts on Food & Happy Hour, Local taxes and Welcome drink at each stop.' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. Minimum age is 18 years. Minimum drinking age is 18 years. MINIMUM OF 15 PEOPLE OR THE TOUR CANNOT OPERATE, YOU WILL BE REFUNDED IN THE EVENT OF THERE BEING LESS THAN 15 CUSTOMERS.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/54/dc/91.jpg', alt: 'Tamarindo Sunday Funday Beach and Pool Crawl Party Bus' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/33/9d/6a/98/caption.jpg', alt: 'Sunday Funday Tamarindo Party Bus - Beach and Pool Crawl' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/15/54/dc/77.jpg', alt: 'Dance Party on the Pool Bridge! Sunday Funday Beach and Pool Crawl' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/33/9d/6c/e7/caption.jpg', alt: 'Sunday Funday Tamarindo Party Bus - Beach and Pool Crawl' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/33/9d/6a/97/caption.jpg', alt: 'Sunday Funday Tamarindo Party Bus - Beach and Pool Crawl' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/r/33/9d/6a/a7/caption.jpg', alt: 'Sunday Funday Tamarindo Party Bus - Beach and Pool Crawl' }],
   },
   {
@@ -1218,7 +1426,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Private Tour: pick up from Pinilla, JW Marriott, Tamarindo, Langosta, Conchal, Flamingo, Grande', 'Bottled water', 'Driver/guide', 'Local taxes', 'Shared Tour: Pickup and drop-off from Native\'s Way Office'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness', 'Children under 5 years old are not permitted to attend this tour. We need to remain very quiet and often there are extended periods of simply waiting and observing', 'There is not a long hike, however there are times where we move from one beach or viewing point to another. Standing around patiently is normal for this tour.', 'Please reconsider booking if you have mobility issues, difficulty seeing in the night, recently undergone surgery, or have current physical injury', 'The turtle season generally extends from Mid-November to Mid-April, however since this is a natural phenomenon, the season can start, slow or end without specific reason.', 'A minimum of 6 people are required to operate. If we have not reached the minimum we will contact you 1 or 2 days before your tour to offer other options.'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Private Tour: pick up from Pinilla, JW Marriott, Tamarindo, Langosta, Conchal, Flamingo, Grande, Bottled water, Driver/guide, Local taxes and Shared Tour: Pickup and drop-off from Native\'s Way Office.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness. Children under 5 years old are not permitted to attend this tour. We need to remain very quiet and often there are extended periods of simply waiting and observing. There is not a long hike, however there are times where we move from one beach or viewing point to another. Standing around patiently is normal for this tour. Please reconsider booking if you have mobility issues, difficulty seeing in the night, recently undergone surgery, or have current physical injury. The turtle season generally extends from Mid-November to Mid-April, however since this is a natural phenomenon, the season can start, slow or end without specific reason. A minimum of 6 people are required to operate. If we have not reached the minimum we will contact you 1 or 2 days before your tour to offer other options.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0e/d5/29.jpg', alt: 'Green Pacific & Olive Ridley Turtle Nesting Tour from Tamarindo - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/de/48/90.jpg', alt: 'Green Pacific Turtle Nesting Tour from Tamarindo - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0e/d5/1a.jpg', alt: 'Green Pacific & Olive Ridley Turtle Nesting Tour from Tamarindo - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/d3/8b/65.jpg', alt: 'Green Pacific & Olive Ridley Turtle Nesting Tour from Tamarindo - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/17/0e/d5/43.jpg', alt: 'Green Pacific & Olive Ridley Turtle Nesting Tour from Tamarindo - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/d3/8b/7f.jpg', alt: 'Green Pacific & Olive Ridley Turtle Nesting Tour from Tamarindo - Native\'s Way Costa Rica Tours & Packages' }],
   },
   {
@@ -1240,7 +1452,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Breakfast', 'Lunch', 'Hotel pickup and drop-off in Papagayo and Tamarindo', 'Air-conditioned minivan transportation', 'Professional English and Spanish speaking guide', 'Admission ticket to Mistico Arenal Hanging Bridges'],
     whatToBring: ['Specialized infant seats are available', 'Suitable for all physical fitness levels', 'Note: please wear comfortable clothes and walking shoes. Please bring a swimsuit for the hot springs'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Breakfast, Lunch, Hotel pickup and drop-off in Papagayo and Tamarindo, Air-conditioned minivan transportation, Professional English and Spanish speaking guide and Admission ticket to Mistico Arenal Hanging Bridges.' },
+      { question: 'What should I know before booking?', answer: 'Specialized infant seats are available. Suitable for all physical fitness levels. Note: please wear comfortable clothes and walking shoes. Please bring a swimsuit for the hot springs.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/71/a2/d4.jpg', alt: 'Arenal Volcano and Hot Springs Full-Day Trip from Guanacaste' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/ca/b9/89.jpg', alt: 'Arenal Volcano Magic of Nature' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/ca/b9/8d.jpg', alt: 'Arenal Volcano Magic of Nature' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0d/ca/b9/6c.jpg', alt: 'Arenal Volcano Magic of Nature' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/a3/04/48.jpg', alt: 'Arenal Volcano Magic of Nature' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/a3/04/4a.jpg', alt: 'Arenal Volcano Magic of Nature' }],
   },
   {
@@ -1262,7 +1478,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'In-vehicle air conditioning', 'Flashlights'],
     whatToBring: ['Specialized infant seats are available', 'Travelers should have at least a moderate level of physical fitness'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, In-vehicle air conditioning and Flashlights.' },
+      { question: 'What should I know before booking?', answer: 'Specialized infant seats are available. Travelers should have at least a moderate level of physical fitness.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/12/2a/7d.jpg', alt: 'Turtle Watching Night Tours with Expert Naturalist' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/12/26/8f.jpg', alt: 'Turtle Watching Night Tours with Expert Naturalist' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/12/26/9f.jpg', alt: 'Turtle Watching Night Tours with Expert Naturalist' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/12/29/fe.jpg', alt: 'Turtle Watching Night Tours with Expert Naturalist' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/12/2a/93.jpg', alt: 'Turtle Watching Night Tours with Expert Naturalist' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/12/2a/a2.jpg', alt: 'Turtle Watching Night Tours with Expert Naturalist' }],
   },
   {
@@ -1284,7 +1504,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Hotel pickup and drop-off', 'Local guide', 'Bottled water', 'All taxes, fees and handling charges', 'Use of helmet'],
     whatToBring: ['Suitable for all physical fitness levels', 'Minimum age is 8 years', 'A minimum of 2 people per booking is required', 'Weight Limit - 115 kg/250 pounds'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Hotel pickup and drop-off, Local guide, Bottled water, All taxes, fees and handling charges and Use of helmet.' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. Minimum age is 8 years. A minimum of 2 people per booking is required. Weight Limit - 115 kg/250 pounds.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/24/b4/5a.jpg', alt: 'Horseback Riding Tour to Secluded Beaches - Native\'s Way Costa Rica Tours' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/2e/ce/45.jpg', alt: 'Horseback Riding Tour to Secluded Beaches - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/24/b4/5f.jpg', alt: 'Horseback Riding Tour to Secluded Beaches - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/6b/89/3d.jpg', alt: 'Horseback Riding Tour to Secluded Beaches - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/2e/ce/47.jpg', alt: 'Horseback Riding Tour to Secluded Beaches - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/24/b4/5b.jpg', alt: 'Horseback Riding Tour to Secluded Beaches - Native\'s Way Costa Rica Tours & Packages' }],
   },
   {
@@ -1306,7 +1530,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Hotel pickup and drop-off', 'Lunch', 'Transport by air-conditioned minivan'],
     whatToBring: ['Travelers should have at least a moderate level of physical fitness', 'Please advise any specific dietary requirements at time of booking', 'A minimum of 2 people per booking is required'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Hotel pickup and drop-off, Lunch and Transport by air-conditioned minivan.' },
+      { question: 'What should I know before booking?', answer: 'Travelers should have at least a moderate level of physical fitness. Please advise any specific dietary requirements at time of booking. A minimum of 2 people per booking is required.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/06/f1/24/9c.jpg', alt: 'Tenorio Whitewater Rafting Class 3 & 4 - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/d6/7e/6d.jpg', alt: 'Tenorio Whitewater Rafting Class 3 & 4 - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/d6/7e/6e.jpg', alt: 'Tenorio Whitewater Rafting Class 3 & 4 - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/d6/7e/6f.jpg', alt: 'Tenorio Whitewater Rafting Class 3 & 4 - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/d6/7e/74.jpg', alt: 'Tenorio Whitewater Rafting Class 3 & 4 - Native\'s Way Costa Rica Tours & Packages' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/d6/7e/76.jpg', alt: 'Tenorio Whitewater Rafting Class 3 & 4 - Native\'s Way Costa Rica Tours & Packages' }],
   },
   {
@@ -1328,7 +1556,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['All Fees and Taxes', 'Use of snorkeling equipment', 'Dinner', 'Paddle Boards'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Infants are required to sit on an adult’s lap', 'Suitable for all physical fitness levels'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes All Fees and Taxes, Use of snorkeling equipment, Dinner and Paddle Boards.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Infants are required to sit on an adult’s lap. Suitable for all physical fitness levels.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/5c/72/de.jpg', alt: 'Its all about the details, pillows and cushions for your comfort.' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/5c/72/93.jpg', alt: 'The most beautiful sunsets on earth' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/5c/72/96.jpg', alt: 'Whales, turtles and dolphins are some of the wild life you can spot on the tour' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/5c/72/97.jpg', alt: 'Fun for the whole family' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/5c/72/cd.jpg', alt: 'Our staff are ready to serve you.' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/10/5c/72/e2.jpg', alt: 'Paddle boarding and snorkelling included' }],
   },
   {
@@ -1350,7 +1582,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['Bottled water', 'Lunch', 'Cooler with ice', 'In-vehicle air conditioning', 'Equipment for: Zipline, Tubing and Horseback Riding'],
     whatToBring: ['Infants and small children can ride in a pram or stroller', 'Specialized infant seats are available', 'Travelers should have at least a moderate level of physical fitness', 'Additional cost per car seat $20.00 USD // Costo adicional por silla $20.00 USD'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes Bottled water, Lunch, Cooler with ice, In-vehicle air conditioning and Equipment for: Zipline, Tubing and Horseback Riding.' },
+      { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Specialized infant seats are available. Travelers should have at least a moderate level of physical fitness. Additional cost per car seat $20.00 USD // Costo adicional por silla $20.00 USD.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/02/30/cd.jpg', alt: 'Adventure Combo Tour: Horses, Tubing, Zipline & Hot Springs' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/02/31/34.jpg', alt: 'Adventure Combo Tour: Horses, Tubing, Zipline & Hot Springs' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/02/31/19.jpg', alt: 'Adventure Combo Tour: Horses, Tubing, Zipline & Hot Springs' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/09/7c/9d/29.jpg', alt: 'Adventure Combo Tour: Horses, Tubing, Zipline & Hot Springs' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/02/31/2f.jpg', alt: 'Adventure Combo Tour: Horses, Tubing, Zipline & Hot Springs' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/0b/eb/c8/e6.jpg', alt: 'Adventure Combo Tour: Horses, Tubing, Zipline & Hot Springs' }],
   },
   {
@@ -1372,7 +1608,11 @@ export const TOURS: Tour[] = [
     freeCancellation: true,
     whatIncluded: ['ATV', 'Helmet', 'Zip line entrance'],
     whatToBring: ['Suitable for all physical fitness levels', 'Lokers'],
-    faq: [],
+    faq: [
+      { question: 'What\'s included?', answer: 'This experience includes ATV, Helmet and Zip line entrance.' },
+      { question: 'What should I know before booking?', answer: 'Suitable for all physical fitness levels. Lokers.' },
+      { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
+    ],
     images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/b2/d9/80.jpg', alt: 'Zip Line and ATV Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/a9/ff/61.jpg', alt: 'Zip Line and ATV Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/ae/cc/6f.jpg', alt: 'Zip Line and ATV Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/ae/cc/72.jpg', alt: 'Zip Line and ATV Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/b2/d9/7b.jpg', alt: 'Zip Line and ATV Adventure' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/07/b2/d9/7c.jpg', alt: 'Zip Line and ATV Adventure' }],
   },
 ]

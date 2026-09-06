@@ -49,3 +49,4 @@ viator-raw.json
 viator-detailed.json
 destinations.json
 .wrangler/
+gen-faqs.js
