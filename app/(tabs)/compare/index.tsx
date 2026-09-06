@@ -40,7 +40,7 @@ export default function CompareScreen() {
   ];
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Compare tours</Text>
         <Text style={styles.headerSubtitle}>Pick any two to see them side by side</Text>
@@ -95,11 +95,12 @@ export default function CompareScreen() {
           </TouchableOpacity>
         </View>
       </ScrollView>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  containerContent: { flexGrow: 1, paddingBottom: 32 },
   container: { flex: 1, backgroundColor: '#FFFFFF' },
   header: { padding: 18, borderBottomWidth: 1, borderBottomColor: '#E5E7EB', backgroundColor: '#FFFFFF' },
   headerTitle: { color: '#0B4155', fontSize: 24, fontWeight: '800', marginBottom: 2 },

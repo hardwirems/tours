@@ -47,7 +47,7 @@ export default function ToursScreen() {
   });
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
           {category ? CATEGORY_LABELS[category as TourCategory] : town ? town : 'All tours'}
@@ -116,11 +116,12 @@ export default function ToursScreen() {
       <View style={styles.gridContainer}>
         <TourGrid tours={tours} onPress={(tour: Tour) => router.push(`/tours/${tour.slug}`)} />
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  containerContent: { flexGrow: 1, paddingBottom: 32 },
   container: { flex: 1, backgroundColor: '#FFFFFF' },
   header: {
     padding: 18, paddingBottom: 12, borderBottomWidth: 1, borderBottomColor: '#E5E7EB', backgroundColor: '#FFFFFF',

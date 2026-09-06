@@ -43,3 +43,8 @@ node_modules/
 dist/
 .expo/
 .DS_Store
+.env
+.env.local
+viator-raw.json
+viator-detailed.json
+destinations.json

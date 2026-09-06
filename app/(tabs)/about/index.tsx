@@ -26,7 +26,7 @@ export const metadata = {
 
 export default function AboutScreen() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
       {/* Header image */}
       <View style={styles.hero}>
         <Image
@@ -138,7 +138,7 @@ export default function AboutScreen() {
           </Text>
         </View>
       </ScrollView>
-    </View>
+    </ScrollView>
   );
 }
 

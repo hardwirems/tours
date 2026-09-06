@@ -60,7 +60,7 @@ export const jsonLd = {
 
 export default function HomeScreen() {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
       {/* Hero */}
       <View style={styles.hero}>
         <Image
@@ -133,11 +133,12 @@ export default function HomeScreen() {
           We may earn a commission when you book through our links — at no extra cost to you.
         </Text>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  containerContent: { flexGrow: 1, paddingBottom: 32 },
   container: { flex: 1, backgroundColor: '#FFFFFF' },
   hero: { height: 260, backgroundColor: '#0B4155' },
   heroImage: { width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 },
