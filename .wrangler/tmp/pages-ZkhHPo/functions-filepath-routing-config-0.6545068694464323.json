@@ -1,0 +1,13 @@
+{
+  "routes": [
+    {
+      "routePath": "/go/:slug*",
+      "mountPath": "/go",
+      "method": "GET",
+      "module": [
+        "go/[[slug]].ts:onRequestGet"
+      ]
+    }
+  ],
+  "baseURL": "/"
+}
