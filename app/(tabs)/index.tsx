@@ -1,7 +1,7 @@
 import { SITE_URL } from '../../lib/constants';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform } from 'react-native';
 import { TOURS, CATEGORIES } from '../../lib/tours';
-import { router } from 'expo-router';
+import { Link } from 'expo-router';
 
 // ---------------------------------------------------------------------------
 // (tabs)/index.tsx — Home tab.
@@ -83,9 +83,11 @@ export default function HomeScreen() {
         <Text style={styles.sectionTitle}>What kind of tour?</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipsContent}>
           {Object.entries(CATEGORIES).map(([key, label]) => (
-              <TouchableOpacity key={key} style={styles.chip} onPress={() => router.push(`/tours?category=${key}`)}>
+              <Link href={`/tours?category=${key}`} asChild>
+                <TouchableOpacity key={key} style={styles.chip}>
               <Text style={styles.chipText}>{label}</Text>
             </TouchableOpacity>
+              </Link>
           ))}
         </ScrollView>
       </View>
@@ -95,7 +97,8 @@ export default function HomeScreen() {
         <Text style={styles.sectionTitle}>Top-rated tours in Guanacaste</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.cardScrollContent} style={styles.cardScroll}>
           {TOURS.slice(0, 6).map((tour) => (
-            <TouchableOpacity key={tour.slug} style={styles.tourPreview} onPress={() => router.push(`/tours/${tour.slug}`)}>
+            <Link href={`/tours/${tour.slug}`} asChild>
+              <TouchableOpacity key={tour.slug} style={styles.tourPreview}>
               <Image
                 source={{ uri: tour.images[0]?.src }}
                 style={styles.tourPreviewImage}
@@ -104,6 +107,7 @@ export default function HomeScreen() {
               <Text style={styles.tourPreviewTitle} numberOfLines={2}>{tour.title}</Text>
               <Text style={styles.tourPreviewMeta}>From ${tour.priceFrom} · {tour.duration}</Text>
             </TouchableOpacity>
+            </Link>
           ))}
         </ScrollView>
       </View>
@@ -113,9 +117,11 @@ export default function HomeScreen() {
         <Text style={styles.sectionTitle}>Browse by category</Text>
         <View style={styles.categoryGrid}>
           {Object.entries(CATEGORIES).map(([key, label]) => (
-            <TouchableOpacity key={key} style={styles.categoryCard} onPress={() => router.push(`/tours?category=${key}`)}>
+            <Link href={`/tours?category=${key}`} asChild>
+              <TouchableOpacity key={key} style={styles.categoryCard}>
               <Text style={styles.categoryLabel}>{label}</Text>
             </TouchableOpacity>
+            </Link>
           ))}
         </View>
       </View>
