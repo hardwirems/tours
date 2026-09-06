@@ -95,7 +95,7 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
   const rawReferer = context.request.headers.get('referer') ?? context.request.headers.get('referrer') ?? ''
   const sourcePage =
     url.searchParams.get('source') ??
-    (rawReferer.startsWith('https://guanacaste.tours')
+    (rawReferer.startsWith(url.origin)
       ? new URL(rawReferer).pathname
       : null)
 

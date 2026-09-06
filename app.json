@@ -7,12 +7,12 @@
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
     "scheme": "guanacaste-tours",
-    "hostUri": "https://guanacaste.tours",
+    "hostUri": "https://guanacaste-tours.pages.dev",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.mekupelet.guanacaste-tours",
       "associatedDomains": [
-        { "domains": ["guanacaste.tours"], "types": [1] }
+        { "domains": ["guanacaste-tours.pages.dev"], "types": [1] }
       ]
     },
     "android": {
@@ -28,7 +28,7 @@
         {
           "action": "VIEW",
           "autoVerify": true,
-          "data": [{ "scheme": "https", "host": "guanacaste.tours", "pathPrefix": "/" }],
+          "data": [{ "scheme": "https", "host": "guanacaste-tours.pages.dev", "pathPrefix": "/" }],
           "category": ["BROWSABLE", "DEFAULT"]
         }
       ]

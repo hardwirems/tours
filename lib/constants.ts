@@ -34,3 +34,7 @@ export const COMMISSION_RATES: Record<string, number> = {
 export const AFFILIATE_COOKIE_NAME = 'guanacaste_ref';
 export const AFFILIATE_COOKIE_DAYS = 30;
 export const CLICK_TABLE_ID = 'clicks'; // Supabase table name for click tracking.
+
+/** Canonical origin for this site. Override per-environment with EXPO_PUBLIC_SITE_URL. */
+export const SITE_URL =
+  process.env.EXPO_PUBLIC_SITE_URL ?? 'https://guanacaste-tours.pages.dev';

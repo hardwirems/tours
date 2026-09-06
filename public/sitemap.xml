@@ -1,69 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://guanacaste.tours/</loc>
+    <loc>https://guanacaste-tours.pages.dev/</loc>
     <priority>1.0</priority>
     <changefreq>daily</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours</loc>
     <priority>0.9</priority>
     <changefreq>daily</changefreq>
   </url>
   <!-- Tour pages are generated at build time; this is the static fallback.
        In production, generate a full sitemap.xml from the tour data. -->
   <url>
-    <loc>https://guanacaste.tours/tours/zip-lining-guanacaste</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/zip-lining-guanacaste</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours/catamaran-sunset-tamarindo</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/catamaran-sunset-tamarindo</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours/atv-tamarindo</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/atv-tamarindo</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours/snorkeling-las-catalinas</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/snorkeling-las-catalinas</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours/rincon-de-la-vieja-volcano</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/rincon-de-la-vieja-volcano</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours/palo-verde-birdwatching</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/palo-verde-birdwatching</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours/sport-fishing-guanacaste</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/sport-fishing-guanacaste</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours/horseback-riding-guanacaste</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/horseback-riding-guanacaste</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours/liberia-town-tour</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/liberia-town-tour</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours/nicaragua-day-trip</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/nicaragua-day-trip</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://guanacaste.tours/tours/guanacaste-adventure-week</loc>
+    <loc>https://guanacaste-tours.pages.dev/tours/guanacaste-adventure-week</loc>
     <priority>0.7</priority>
     <changefreq>monthly</changefreq>
   </url>

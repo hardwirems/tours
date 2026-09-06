@@ -1,3 +1,4 @@
+import { SITE_URL } from '../../../lib/constants';
 import { View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -13,7 +14,7 @@ export const metadata = {
     description:
       'Browse every tour and excursion in Guanacaste. Filter by activity type or town — zip-lining, catamaran, ATV, whale watching, volcano hikes and more.',
     type: 'website',
-    url: 'https://guanacaste.tours/tours',
+    url: `${SITE_URL}/tours`,
     siteName: 'Guanacaste Tours',
   },
 };

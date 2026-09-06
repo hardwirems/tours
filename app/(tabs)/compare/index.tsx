@@ -1,3 +1,4 @@
+import { SITE_URL } from '../../../lib/constants';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
@@ -16,7 +17,7 @@ export const metadata = {
     title: 'Compare Tours in Guanacaste',
     description: 'Compare Guanacaste tours side by side — duration, price, difficulty, what\'s included, and booking options.',
     type: 'website',
-    url: 'https://guanacaste.tours/compare',
+    url: `${SITE_URL}/compare`,
     siteName: 'Guanacaste Tours',
   },
 };

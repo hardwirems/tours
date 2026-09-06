@@ -1,3 +1,4 @@
+import { SITE_URL } from '../../../lib/constants';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Image } from 'react-native';
 import { useRouter } from 'expo-router';
@@ -18,7 +19,7 @@ export const metadata = {
     description:
       'Who runs Guanacaste Tours, how we research every tour, our affiliate disclosure, and how to contact us.',
     type: 'website',
-    url: 'https://guanacaste.tours/about',
+    url: `${SITE_URL}/about`,
     siteName: 'Guanacaste Tours',
   },
 };

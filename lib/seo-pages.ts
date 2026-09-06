@@ -1,3 +1,4 @@
+import { SITE_URL } from './constants';
 import { Tour, TourCategory, CATEGORY_LABELS, TOURS } from '../lib/tours'
 
 // ---------------------------------------------------------------------------
@@ -117,7 +118,7 @@ const SEO_PAGES: SeOPage[] = [
     targetKeyword: 'best zip lining guanacaste',
     relatedKeywords: ['zip line guanacaste', 'best canopy tours guanacaste', 'diamante eco adventure park zip line', 'zip lining near liberia costa rica'],
     category: 'adventure',
-    canonical: 'https://guanacaste.tours/seo/best/zip-lining-guanacaste',
+    canonical: `${SITE_URL}/seo/best/zip-lining-guanacaste`,
     ogImage: '/images/og-best-zipline.jpg',
 
     intro: () =>
@@ -221,7 +222,7 @@ const SEO_PAGES: SeOPage[] = [
     targetKeyword: 'how much does zip lining cost in guanacaste',
     relatedKeywords: ['zip line guanacaste price', 'cost of canopy tour guanacaste', 'diamante zip line price', 'cheapest zip line guanacaste'],
     category: 'adventure',
-    canonical: 'https://guanacaste.tours/seo/cost/zip-lining-cost-guanacaste-2026',
+    canonical: `${SITE_URL}/seo/cost/zip-lining-cost-guanacaste-2026`,
     ogImage: '/images/og-cost-zipline.jpg',
 
     intro: () =>
@@ -314,7 +315,7 @@ const SEO_PAGES: SeOPage[] = [
     targetKeyword: 'things to do in tamarindo costa rica',
     relatedKeywords: ['tamarindo activities', 'tamarindo tours', 'what to do in tamarindo', 'tamarindo beach town guide'],
     category: 'mixed',
-    canonical: 'https://guanacaste.tours/seo/town/tamarindo',
+    canonical: `${SITE_URL}/seo/town/tamarindo`,
     ogImage: '/images/og-tamarindo.jpg',
 
     intro: () =>
@@ -434,7 +435,7 @@ const SEO_PAGES: SeOPage[] = [
     targetKeyword: 'things to do in liberia costa rica',
     relatedKeywords: ['liberia costa rica guide', 'liberia airport base', 'what to do near liberia airport'],
     category: 'mixed',
-    canonical: 'https://guanacaste.tours/seo/town/liberia',
+    canonical: `${SITE_URL}/seo/town/liberia`,
     ogImage: '/images/og-liberia.jpg',
 
     intro: () =>
@@ -512,7 +513,7 @@ const SEO_PAGES: SeOPage[] = [
     targetKeyword: 'best tours guanacaste january',
     relatedKeywords: ['guanacaste in january', 'january costa rica tours', 'what to do in guanacaste in january'],
     category: 'mixed',
-    canonical: 'https://guanacaste.tours/seo/season/january',
+    canonical: `${SITE_URL}/seo/season/january`,
     ogImage: '/images/og-season-january.jpg',
 
     intro: () =>
@@ -630,7 +631,7 @@ const SEO_PAGES: SeOPage[] = [
     targetKeyword: 'best tours guanacaste for families',
     relatedKeywords: ['guanacaste family activities', 'tourist activities guanacaste with kids', 'family friendly tours guanacaste'],
     category: 'mixed',
-    canonical: 'https://guanacaste.tours/seo/audience/families',
+    canonical: `${SITE_URL}/seo/audience/families`,
     ogImage: '/images/og-audience-families.jpg',
 
     intro: () =>
@@ -721,7 +722,7 @@ const SEO_PAGES: SeOPage[] = [
     targetKeyword: 'zip lining vs atv guanacaste',
     relatedKeywords: ['guanacaste adventure tour comparison', 'best adventure activity guanacaste', 'zip line or atv guanacaste'],
     category: 'adventure',
-    canonical: 'https://guanacaste.tours/seo/compare/zip-lining-vs-atv',
+    canonical: `${SITE_URL}/seo/compare/zip-lining-vs-atv`,
     ogImage: '/images/og-compare-zipline-atv.jpg',
 
     intro: () =>
@@ -821,7 +822,7 @@ const SEO_PAGES: SeOPage[] = [
     targetKeyword: 'rincon de la vieja volcano guide',
     relatedKeywords: ['rincon de la vieja hiking', 'rincon de la vieja hot springs', 'guanacaste volcano day trip', 'rincon de la vieja national park'],
     category: 'wildlife-nature',
-    canonical: 'https://guanacaste.tours/seo/guide/rincon-de-la-vieja',
+    canonical: `${SITE_URL}/seo/guide/rincon-de-la-vieja`,
     ogImage: '/images/og-guide-rincon.jpg',
 
     intro: () =>

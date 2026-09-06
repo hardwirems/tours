@@ -1,3 +1,4 @@
+import { SITE_URL } from '../../../../lib/constants';
 import { useRouter, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
@@ -8,7 +9,7 @@ export const metadata = ({ params }: { params: { slug: string } }) => {
   const tour = getTourBySlug(params.slug);
   if (!tour) return { title: 'Tour not found — Guanacaste Tours' };
 
-  const url = `https://guanacaste.tours/tours/${tour.slug}`;
+  const url = `${SITE_URL}/tours/${tour.slug}`;
   return {
     title: `${tour.title} — Guanacaste Tours`,
     description: tour.description.slice(0, 160),
@@ -35,13 +36,13 @@ export const jsonLd = ({ params }: { params: { slug: string } }) => {
     '@type': tour.schemaType,
     name: tour.title,
     description: tour.description,
-    url: `https://guanacaste.tours/tours/${tour.slug}`,
+    url: `${SITE_URL}/tours/${tour.slug}`,
     image: tour.ogImage ?? tour.images[0]?.src,
     startDate: '2026-01-01T00:00',
     price: { '@type': 'Offer', priceCurrency: 'USD', price: tour.priceFrom, priceValidUntil: '2026-12-31', availability: 'https://schema.org/InStock' },
     duration: tour.durationMinutes ? `${tour.durationMinutes} minutes` : tour.duration,
-    tourGuide: { '@type': 'Person', name: 'Guanacaste Tours Guide', url: 'https://guanacaste.tours/about' },
-    organizer: { '@type': 'Organization', name: 'Guanacaste Tours', url: 'https://guanacaste.tours' },
+    tourGuide: { '@type': 'Person', name: 'Guanacaste Tours Guide', url: `${SITE_URL}/about` },
+    organizer: { '@type': 'Organization', name: 'Guanacaste Tours', url: `${SITE_URL}` },
     aggregateRating: tour.rating != null && tour.reviewCount != null
       ? { '@type': 'AggregateRating', ratingValue: tour.rating, reviewCount: tour.reviewCount }
       : undefined,

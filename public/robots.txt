@@ -31,4 +31,4 @@ Disallow: /_expo/
 Disallow: /assets/
 Disallow: /static/
 
-Sitemap: https://guanacaste.tours/sitemap.xml
+Sitemap: https://guanacaste-tours.pages.dev/sitemap.xml
