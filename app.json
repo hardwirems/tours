@@ -36,7 +36,7 @@
     "web": {
       "favicon": "./assets/favicon.png",
       "bundler": "metro",
-      "output": "output",
+      "output": "static",
       "generateExpoRouterManifest": true,
       "progressiveWebApp": {
         "manifest": {
