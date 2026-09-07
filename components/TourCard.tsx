@@ -557,7 +557,7 @@ const styles = StyleSheet.create({
     marginLeft: 3,
   },
   detailHero: {
-    height: 200,
+    height: 520,
     backgroundColor: '#0B4155',
     position: 'relative',
   },
