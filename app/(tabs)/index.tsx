@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform }
 import { TOURS, CATEGORIES } from '../../lib/tours';
 import { Link } from 'expo-router';
 import { Seo } from '../../components/Seo';
+import { DESTINATIONS } from '../../lib/seo-content';
 
 // ---------------------------------------------------------------------------
 // (tabs)/index.tsx — Home tab.
@@ -86,7 +87,7 @@ export default function HomeScreen() {
         <Text style={styles.sectionTitle}>What kind of tour?</Text>
         <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipsContent}>
           {Object.entries(CATEGORIES).map(([key, label]) => (
-              <Link href={`/tours?category=${key}`} asChild>
+              <Link href={`/categories/${key}`} asChild>
                 <TouchableOpacity key={key} style={styles.chip}>
               <Text style={styles.chipText}>{label}</Text>
             </TouchableOpacity>
@@ -120,10 +121,24 @@ export default function HomeScreen() {
         <Text style={styles.sectionTitle}>Browse by category</Text>
         <View style={styles.categoryGrid}>
           {Object.entries(CATEGORIES).map(([key, label]) => (
-            <Link href={`/tours?category=${key}`} asChild>
+            <Link href={`/categories/${key}`} asChild>
               <TouchableOpacity key={key} style={styles.categoryCard}>
               <Text style={styles.categoryLabel}>{label}</Text>
             </TouchableOpacity>
+            </Link>
+          ))}
+        </View>
+      </View>
+
+      {/* Destinations */}
+      <View style={styles.section}>
+        <Text style={styles.sectionTitle}>Popular destinations</Text>
+        <View style={styles.categoryGrid}>
+          {DESTINATIONS.map((d) => (
+            <Link key={d.slug} href={`/destinations/${d.slug}`} asChild>
+              <TouchableOpacity style={styles.categoryCard}>
+                <Text style={styles.categoryLabel}>{d.town}</Text>
+              </TouchableOpacity>
             </Link>
           ))}
         </View>

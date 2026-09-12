@@ -1,0 +1,108 @@
+import { SITE_URL } from '../../../../lib/constants';
+import { useLocalSearchParams, useRouter, Link } from 'expo-router';
+import { View, Text, StyleSheet, ScrollView } from 'react-native';
+import { getToursByTown, Tour } from '../../../../lib/tours';
+import { DESTINATIONS, getDestinationBySlug, Destination } from '../../../../lib/seo-content';
+import { TourGrid } from '../../../../components/TourCard';
+import { Seo } from '../../../../components/Seo';
+
+function buildMeta(dest: Destination, url: string) {
+  return {
+    title: dest.title,
+    description: dest.description,
+    openGraph: { title: dest.h1, description: dest.description, type: 'website', url, siteName: 'Guanacaste Tours' },
+    twitter: { card: 'summary_large_image' as const, title: dest.h1, description: dest.description },
+    alternates: { canonical: url },
+    robots: { index: true, follow: true },
+  };
+}
+
+function buildJsonLd(dest: Destination, url: string, tours: Tour[]) {
+  return [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+        { '@type': 'ListItem', position: 2, name: 'Destinations', item: `${SITE_URL}/tours/` },
+        { '@type': 'ListItem', position: 3, name: dest.town, item: url },
+      ],
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'ItemList',
+      name: dest.h1,
+      numberOfItems: tours.length,
+      itemListElement: tours.map((t, i) => ({
+        '@type': 'ListItem', position: i + 1, url: `${SITE_URL}/tours/${t.slug}/`, name: t.title,
+      })),
+    },
+  ];
+}
+
+export default function DestinationScreen() {
+  const router = useRouter();
+  const params = useLocalSearchParams<{ place: string }>();
+  const dest = getDestinationBySlug(params.place);
+  const tours = dest ? getToursByTown(dest.town) : [];
+
+  if (!dest) {
+    return (
+      <>
+        <Seo metadata={{ title: 'Destination not found — Guanacaste Tours', robots: { index: false, follow: true } }} />
+        <View style={styles.notFound}><Text style={styles.notFoundText}>Destination not found</Text></View>
+      </>
+    );
+  }
+
+  const url = `${SITE_URL}/destinations/${dest.slug}/`;
+  return (
+    <>
+      <Seo metadata={buildMeta(dest, url)} jsonLd={buildJsonLd(dest, url, tours)} />
+      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+        <View style={styles.header}>
+          <Text style={styles.eyebrow}>Guanacaste, Costa Rica</Text>
+          <Text role="heading" aria-level={1} style={styles.h1}>{dest.h1}</Text>
+          <Text style={styles.intro}>{dest.intro}</Text>
+          <Text style={styles.count}>{tours.length} {tours.length === 1 ? 'tour' : 'tours'} in {dest.town}</Text>
+        </View>
+
+        <View style={styles.grid}>
+          <TourGrid tours={tours} onPress={(t: Tour) => router.push(`/tours/${t.slug}`)} />
+        </View>
+
+        <View style={styles.linksBlock}>
+          <Text role="heading" aria-level={2} style={styles.linksTitle}>Other Guanacaste destinations</Text>
+          <View style={styles.linkRow}>
+            {DESTINATIONS.filter((d) => d.slug !== dest.slug).map((d) => (
+              <Link key={d.slug} href={`/destinations/${d.slug}`} style={styles.chipLink}>{d.town}</Link>
+            ))}
+          </View>
+          <Link href="/tours" style={styles.allLink}>See all Guanacaste tours →</Link>
+        </View>
+      </ScrollView>
+    </>
+  );
+}
+
+export function generateStaticParams() {
+  return DESTINATIONS.map((d) => ({ place: d.slug }));
+}
+
+const styles = StyleSheet.create({
+  container: { flex: 1, backgroundColor: '#FFFFFF' },
+  content: { flexGrow: 1, paddingBottom: 32 },
+  header: { padding: 20, borderBottomWidth: 1, borderBottomColor: '#E5E7EB' },
+  eyebrow: { color: '#1D7FA8', fontSize: 12, fontWeight: '700', letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 6 },
+  h1: { color: '#0B4155', fontSize: 30, fontWeight: '800', lineHeight: 36, marginBottom: 12 },
+  intro: { color: '#374151', fontSize: 15, lineHeight: 23, maxWidth: 680 },
+  count: { color: '#6B7280', fontSize: 13, fontWeight: '600', marginTop: 12 },
+  grid: { flex: 1 },
+  linksBlock: { padding: 20, borderTopWidth: 1, borderTopColor: '#E5E7EB' },
+  linksTitle: { color: '#0B4155', fontSize: 16, fontWeight: '800', marginBottom: 12 },
+  linkRow: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
+  chipLink: { color: '#0B4155', backgroundColor: '#E6F4FE', paddingHorizontal: 12, paddingVertical: 7, borderRadius: 999, fontSize: 13, fontWeight: '600', marginRight: 6, marginBottom: 6, textDecorationLine: 'none' },
+  allLink: { color: '#1D7FA8', fontSize: 14, fontWeight: '700', marginTop: 14, textDecorationLine: 'none' },
+  notFound: { flex: 1, backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center', padding: 20 },
+  notFoundText: { color: '#6B7280', fontSize: 16, fontWeight: '600' },
+});

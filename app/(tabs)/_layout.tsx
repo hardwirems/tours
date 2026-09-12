@@ -48,8 +48,10 @@ export default function TabsLayout() {
         />
       ))}
 
-      {/* Dynamic tour detail route — reachable, but hidden from the tab bar. */}
+      {/* Dynamic content routes — reachable + indexable, hidden from the tab bar. */}
       <Tabs.Screen name="tours/[slug]/index" options={{ href: null }} />
+      <Tabs.Screen name="categories/[category]/index" options={{ href: null }} />
+      <Tabs.Screen name="destinations/[place]/index" options={{ href: null }} />
     </Tabs>
   );
 }
