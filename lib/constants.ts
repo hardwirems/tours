@@ -38,3 +38,16 @@ export const CLICK_TABLE_ID = 'clicks'; // Supabase table name for click trackin
 /** Canonical origin for this site. Override per-environment with EXPO_PUBLIC_SITE_URL. */
 export const SITE_URL =
   process.env.EXPO_PUBLIC_SITE_URL ?? 'https://www.guanacasteexperiences.com';
+
+/**
+ * Cloudflare Web Analytics beacon token. Get it from the Cloudflare dashboard:
+ * Web Analytics -> Add a site -> copy the token from the JS snippet.
+ * Paste it here (or set EXPO_PUBLIC_CF_BEACON_TOKEN). Empty = beacon not rendered.
+ */
+export const CF_BEACON_TOKEN = process.env.EXPO_PUBLIC_CF_BEACON_TOKEN ?? '';
+
+/**
+ * Google Search Console HTML-tag verification token (only if NOT using DNS
+ * verification). Leave empty when verifying via DNS TXT at the registrar.
+ */
+export const GSC_VERIFICATION = process.env.EXPO_PUBLIC_GSC_VERIFICATION ?? '';
