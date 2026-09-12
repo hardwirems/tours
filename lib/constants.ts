@@ -37,4 +37,4 @@ export const CLICK_TABLE_ID = 'clicks'; // Supabase table name for click trackin
 
 /** Canonical origin for this site. Override per-environment with EXPO_PUBLIC_SITE_URL. */
 export const SITE_URL =
-  process.env.EXPO_PUBLIC_SITE_URL ?? 'https://guanacaste-tours.pages.dev';
+  process.env.EXPO_PUBLIC_SITE_URL ?? 'https://www.guanacasteexperiences.com';

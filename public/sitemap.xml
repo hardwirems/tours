@@ -1,417 +1,323 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://guanacaste-tours.pages.dev/</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://www.guanacasteexperiences.com/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>daily</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/compare</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://guanacaste-tours.pages.dev/about</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/compare/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours?category=beach-water</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://guanacaste-tours.pages.dev/tours?category=wildlife-nature</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://guanacaste-tours.pages.dev/tours?category=adventure</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://guanacaste-tours.pages.dev/tours?category=culture-daytrip</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://guanacaste-tours.pages.dev/tours?category=multi-day</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://www.guanacasteexperiences.com/about/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/surf-lessons-in-tamarindo-costa-rica</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/1-5-hours-private-horseback-riding-tour-in-playa-conchal/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/guachipelin-adventure-volcano-zipline-river-tubing-combo</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/5-hour-guided-sunset-boat-tour-in-tamarindo-costa-rica/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/diamante-eco-adventure-park-day-pass-with-lunch</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/adventure-combo-tour-horses-tubing-zipline-hot-springs/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/rio-celeste-hiking-sloth-sanctuary-llanos-de-cortes-waterfal</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/adventure-in-volcano-combo-tour-zip-line-waterfall-hot-sprin/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/sunset-catamaran-snorkeling-tour-in-playa-flamingo</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/arenal-volcano-magic-of-nature/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/flamingo-guanacaste-all-inclusive-catamaran-snorkel-adventur</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/atv-and-utv-beach-tour-from-tamarindo-flamingo-and-conchal-b/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/blue-dolphin-public-catamaran-tour-tamarindo</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/atv-beach-and-mountain-tour/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/sloth-wildlife-experience-coffee-chocolate-waterfall</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/atv-or-buggy-guided-tour-from-tamarindo-conchal-or-riu-hotel/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/atv-or-buggy-guided-tour-from-tamarindo-conchal-or-riu-hotel</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/best-surf-lessons-in-tamarindo-and-surf-funcional-surf-skate/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/skip-the-line-diamante-eco-adventure-park-animal-sanctuary-d</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/blue-dolphin-public-catamaran-tour-tamarindo/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/volcano-hike-waterfall-swim-hot-springs-combo-on-rincon-de-l</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/catamaran-snorkel-sunset-cruise-from-tamarindo-or-playas-del/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/surf-lesson-in-tamarindo-stand-up-or-your-money-back</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/catamaran-snorkeling-sunset-sailing-tour/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/tamarindo-estuary-boat-safari</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/diamante-adventure-park-ocean-view-zip-line/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/tropical-rainforest-hanging-bridges-and-jungle-sloths-sanctu</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/diamante-eco-adventure-park-day-pass-with-lunch/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/marlin-del-rey-catamaran-tamarindo-playas-del-coco</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/explore-day-pass-adventure-relaxation-in-one-day/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/la-leona-waterfall-adventure-hike-private-tour</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/flamingo-family-fun-catamaran-snorkel-comfortable-shaded-sea/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/diamante-adventure-park-ocean-view-zip-line</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/flamingo-guanacaste-all-inclusive-catamaran-snorkel-adventur/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/nicaragua-full-day-tour-from-costa-rica</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/frogs-sloths-waterfall-coffee-and-chocolate-tour/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/explore-day-pass-adventure-relaxation-in-one-day</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/fundive-catalina-islands-2-dives-only-for-certified-divers/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/timarouba-catamaran-sunset-cruise-with-open-bar-lunch-snorke</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/guachipelin-adventure-volcano-zipline-river-tubing-combo/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/atv-and-utv-beach-tour-from-tamarindo-flamingo-and-conchal-b</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/guachipelin-zipline-river-tubing-horseback-ride-hot-springs-/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/two-tanks-scuba-diving-tour-at-catalina-islands-north-island</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/guanacaste-zipline-safe-fun-for-kids-2-families/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/la-leona-waterfall-hike</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/horseback-riding-to-conchal-beach-from-tamarindo-flamingo/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/palo-verde-boat-tours-ortega</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/jet-ski-guided-tour-in-playa-conchal/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/best-surf-lessons-in-tamarindo-and-surf-funcional-surf-skate</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/jungle-and-beach-horseback-riding-tour-2h-1-2/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/atv-beach-and-mountain-tour</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/la-fortuna-atv-adventure-with-mud-mask-and-arenal-volcano-vi/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/catamaran-snorkeling-sunset-sailing-tour</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/la-leona-waterfall-adventure-hike-private-tour/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/fundive-catalina-islands-2-dives-only-for-certified-divers</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/la-leona-waterfall-hike/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/guanacaste-zipline-safe-fun-for-kids-2-families</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/marlin-del-rey-catamaran-tamarindo-playas-del-coco/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/jet-ski-guided-tour-in-playa-conchal</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/nature-day-pass-thermals-cultural-tour-in-costa-rica/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/catamaran-snorkel-sunset-cruise-from-tamarindo-or-playas-del</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/nicaragua-full-day-tour-from-costa-rica/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/rain-forest-canopy-tour-from-tamarindo-zipline-hanging-bridg</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/night-turtle-nesting-tour-from-tamarindo/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/palo-verde-boat-safari-coffee-culture-wildlife-flavor</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/palo-verde-boat-safari-coffee-culture-wildlife-flavor/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/la-fortuna-atv-adventure-with-mud-mask-and-arenal-volcano-vi</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/palo-verde-boat-tours-ortega/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/jungle-and-beach-horseback-riding-tour-2h-1-2</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/playa-grande-surf-lessons-on-a-secluded-beach/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/flamingo-family-fun-catamaran-snorkel-comfortable-shaded-sea</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/rain-forest-canopy-tour-from-tamarindo-zipline-hanging-bridg/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/tamarindo-estuary-tour</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/rio-celeste-combo-river-tubing-blue-waterfall-exotic-wildlif/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/zipline-monkey-jungle-family-canopy-tour-in-tamarindo</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/rio-celeste-hiking-sloth-sanctuary-llanos-de-cortes-waterfal/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/adventure-in-volcano-combo-tour-zip-line-waterfall-hot-sprin</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/scuba-diving-for-non-certified-divers-at-catalina-islands-no/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/guachipelin-zipline-river-tubing-horseback-ride-hot-springs-</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/skip-the-line-diamante-eco-adventure-park-animal-sanctuary-d/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/frogs-sloths-waterfall-coffee-and-chocolate-tour</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/sloth-wildlife-experience-coffee-chocolate-waterfall/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/volcano-waterfall-and-hot-springs-private-tour</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/small-group-sunset-sail-for-the-sophisticated-traveler/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/1-5-hours-private-horseback-riding-tour-in-playa-conchal</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/snorkeling-at-catalina-islands-north-island-cr/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/surf-lessons-for-the-whole-family-in-playa-samara</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/sunday-funday-tamarindo-party-bus-beach-and-pool-crawl/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/nature-day-pass-thermals-cultural-tour-in-costa-rica</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/sunset-catamaran-snorkeling-tour-in-playa-flamingo/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/playa-grande-surf-lessons-on-a-secluded-beach</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/surf-lesson-in-tamarindo-stand-up-or-your-money-back/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/try-scuba-diving-basic-diver</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/surf-lessons-for-the-whole-family-in-playa-samara/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/scuba-diving-for-non-certified-divers-at-catalina-islands-no</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/surf-lessons-in-tamarindo-costa-rica/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/snorkeling-at-catalina-islands-north-island-cr</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/tamarindo-estuary-boat-safari/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/rio-celeste-combo-river-tubing-blue-waterfall-exotic-wildlif</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/tamarindo-estuary-tour/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/small-group-sunset-sail-for-the-sophisticated-traveler</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/timarouba-catamaran-sunset-cruise-with-open-bar-lunch-snorke/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/sunday-funday-tamarindo-party-bus-beach-and-pool-crawl</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/tropical-rainforest-hanging-bridges-and-jungle-sloths-sanctu/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/night-turtle-nesting-tour-from-tamarindo</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/try-scuba-diving-basic-diver/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/arenal-volcano-magic-of-nature</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/turtle-watching-night-tours-with-expert-naturalist/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/turtle-watching-night-tours-with-expert-naturalist</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/two-tanks-scuba-diving-tour-at-catalina-islands-north-island/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/horseback-riding-to-conchal-beach-from-tamarindo-flamingo</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/volcano-hike-waterfall-swim-hot-springs-combo-on-rincon-de-l/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/whitewater-rafting-class-iii-and-iv</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/volcano-waterfall-and-hot-springs-private-tour/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/5-hour-guided-sunset-boat-tour-in-tamarindo-costa-rica</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/whitewater-rafting-class-iii-and-iv/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/adventure-combo-tour-horses-tubing-zipline-hot-springs</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/zip-line-and-atv-adventure/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://guanacaste-tours.pages.dev/tours/zip-line-and-atv-adventure</loc>
-    <lastmod>2026-09-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.guanacasteexperiences.com/tours/zipline-monkey-jungle-family-canopy-tour-in-tamarindo/</loc>
+    <lastmod>2026-09-12</lastmod>
     <priority>0.8</priority>
   </url>
 </urlset>

@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { TOURS, CATEGORY_LABELS, searchTours, getToursByCategory, getToursByTown, Tour, TourCategory } from '../../../lib/tours';
 import { TourGrid } from '../../../components/TourCard';
+import { Seo } from '../../../components/Seo';
 
 export const metadata = {
   title: 'All Tours in Guanacaste, Costa Rica — Browse & Book',
@@ -14,9 +15,11 @@ export const metadata = {
     description:
       'Browse every tour and excursion in Guanacaste. Filter by activity type or town — zip-lining, catamaran, ATV, whale watching, volcano hikes and more.',
     type: 'website',
-    url: `${SITE_URL}/tours`,
+    url: `${SITE_URL}/tours/`,
     siteName: 'Guanacaste Tours',
   },
+  // Filter/search states (?category, ?town, ?q) canonicalize to the base list.
+  alternates: { canonical: `${SITE_URL}/tours/` },
 };
 
 export default function ToursScreen() {
@@ -47,6 +50,8 @@ export default function ToursScreen() {
   });
 
   return (
+    <>
+    <Seo metadata={metadata} />
     <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>
@@ -117,6 +122,7 @@ export default function ToursScreen() {
         <TourGrid tours={tours} onPress={(tour: Tour) => router.push(`/tours/${tour.slug}`)} />
       </View>
     </ScrollView>
+    </>
   );
 }
 

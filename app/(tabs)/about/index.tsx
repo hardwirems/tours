@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
+import { Seo } from '../../../components/Seo';
 
 // ---------------------------------------------------------------------------
 // (tabs)/about/index.tsx — About page.
@@ -19,13 +20,26 @@ export const metadata = {
     description:
       'Who runs Guanacaste Tours, how we research every tour, our affiliate disclosure, and how to contact us.',
     type: 'website',
-    url: `${SITE_URL}/about`,
+    url: `${SITE_URL}/about/`,
     siteName: 'Guanacaste Tours',
   },
+  alternates: { canonical: `${SITE_URL}/about/` },
+};
+
+export const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Guanacaste Tours',
+  url: SITE_URL,
+  logo: `${SITE_URL}/icon.png`,
+  description:
+    'A specialist guide to tours, excursions, and adventures in Guanacaste, Costa Rica, with researched recommendations and direct booking links to trusted operators.',
 };
 
 export default function AboutScreen() {
   return (
+    <>
+    <Seo metadata={metadata} jsonLd={jsonLd} />
     <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
       {/* Header image */}
       <View style={styles.hero}>
@@ -139,6 +153,7 @@ export default function AboutScreen() {
         </View>
       </ScrollView>
     </ScrollView>
+    </>
   );
 }
 

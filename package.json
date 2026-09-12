@@ -30,7 +30,7 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "build:web": "expo export --platform web && mv dist/assets/node_modules dist/assets/nm && node -e 'const fs=require(\"fs\"),p=require(\"path\");const d=\"dist/_expo/static/js/web\";for(const f of fs.readdirSync(d).filter(n=>n.endsWith(\".js\"))){const q=p.join(d,f);fs.writeFileSync(q,fs.readFileSync(q,\"utf8\").split(\"/assets/node_modules/\").join(\"/assets/nm/\"))}'",
-    "deploy": "npm run build:web && npx wrangler pages deploy dist/ --project-name guanacaste-tours --branch main"
+    "deploy": "npm run build:web && npx wrangler pages deploy dist/ --project-name guanacaste-experiences --branch main"
   },
   "private": true
 }

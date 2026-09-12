@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput } from 'react-native';
 import { useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import { Seo } from '../../../components/Seo';
 
 // ---------------------------------------------------------------------------
 // (tabs)/dashboard/index.tsx — Internal dashboard ("who booked through this site").
@@ -18,6 +19,7 @@ export default function DashboardScreen() {
   if (!unlocked) {
     return (
       <View style={styles.lockScreen}>
+        <Seo metadata={{ title: 'Dashboard — Guanacaste Tours', robots: { index: false, follow: false } }} />
         <Text style={styles.lockTitle}>Internal Dashboard</Text>
         <Text style={styles.lockSubtitle}>
           Track who books through this site — affiliate clicks, traffic sources, commission estimates.

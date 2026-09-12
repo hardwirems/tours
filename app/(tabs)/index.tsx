@@ -2,6 +2,7 @@ import { SITE_URL } from '../../lib/constants';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform } from 'react-native';
 import { TOURS, CATEGORIES } from '../../lib/tours';
 import { Link } from 'expo-router';
+import { Seo } from '../../components/Seo';
 
 // ---------------------------------------------------------------------------
 // (tabs)/index.tsx — Home tab.
@@ -18,7 +19,7 @@ export const metadata = {
       'The most complete guide to tours and excursions in Guanacaste, Costa Rica. Book zip-lining, catamaran sails, ATV tours, whale watching, volcano hikes, sport fishing and more.',
     type: 'website',
     locale: 'en_US',
-    url: `${SITE_URL}`,
+    url: `${SITE_URL}/`,
     siteName: 'Guanacaste Tours',
     images: [
       {
@@ -41,7 +42,7 @@ export const metadata = {
     apple: '/icon.png',
   },
   alternates: {
-    canonical: `${SITE_URL}`,
+    canonical: `${SITE_URL}/`,
   },
 };
 
@@ -51,16 +52,18 @@ export const jsonLd = {
   name: 'Guanacaste Tours',
   description:
     'The complete guide to tours, excursions, and adventures in Guanacaste, Costa Rica. Book zip-lining, catamaran sails, ATV, whale watching, volcano hikes, sport fishing, snorkeling and more.',
-  url: `${SITE_URL}`,
+  url: `${SITE_URL}/`,
   potentialAction: {
     '@type': 'SearchAction',
-    target: `${SITE_URL}/search?q={search_term_string}`,
+    target: `${SITE_URL}/tours?q={search_term_string}`,
     'query-input': 'required name=search_term_string',
   },
 }
 
 export default function HomeScreen() {
   return (
+    <>
+    <Seo metadata={metadata} jsonLd={jsonLd} />
     <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
       {/* Hero */}
       <View style={styles.hero}>
@@ -141,6 +144,7 @@ export default function HomeScreen() {
         </Text>
       </View>
     </ScrollView>
+    </>
   );
 }
 

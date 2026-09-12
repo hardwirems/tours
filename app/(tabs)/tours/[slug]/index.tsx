@@ -1,15 +1,15 @@
 import { SITE_URL } from '../../../../lib/constants';
 import { useRouter, useLocalSearchParams } from 'expo-router';
-import { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, Platform } from 'react-native';
-import { getTourBySlug } from '../../../../lib/tours';
+import { getTourBySlug, TOURS } from '../../../../lib/tours';
 import { TourDetail } from '../../../../components/TourCard';
+import { Seo } from '../../../../components/Seo';
 
 export const metadata = ({ params }: { params: { slug: string } }) => {
   const tour = getTourBySlug(params.slug);
   if (!tour) return { title: 'Tour not found — Guanacaste Tours' };
 
-  const url = `${SITE_URL}/tours/${tour.slug}`;
+  const url = `${SITE_URL}/tours/${tour.slug}/`;
   return {
     title: `${tour.title} — Guanacaste Tours`,
     description: tour.description.slice(0, 160),
@@ -33,10 +33,10 @@ export const jsonLd = ({ params }: { params: { slug: string } }) => {
 
   return {
     '@context': 'https://schema.org',
-    '@type': tour.schemaType,
+    '@type': tour.schemaType ?? 'Product',
     name: tour.title,
     description: tour.description,
-    url: `${SITE_URL}/tours/${tour.slug}`,
+    url: `${SITE_URL}/tours/${tour.slug}/`,
     image: tour.ogImage ?? tour.images[0]?.src,
     startDate: '2026-01-01T00:00',
     price: { '@type': 'Offer', priceCurrency: 'USD', price: tour.priceFrom, priceValidUntil: '2026-12-31', availability: 'https://schema.org/InStock' },
@@ -56,38 +56,44 @@ export const jsonLd = ({ params }: { params: { slug: string } }) => {
 export default function TourDetailScreen() {
   const router = useRouter();
   const params = useLocalSearchParams<{ slug: string }>();
-  const [tour, setTour] = useState<ReturnType<typeof getTourBySlug>>(null);
-
-  useEffect(() => {
-    const t = getTourBySlug(params.slug);
-    setTour(t);
-  }, [params.slug]);
+  // Resolve synchronously so the tour content renders in the static HTML export
+  // (crawlers see the real page, not a client-only fallback).
+  const tour = getTourBySlug(params.slug);
 
   if (!tour) {
     return (
-      <View style={styles.notFound}>
-        <Text style={styles.notFoundText}>Tour not found</Text>
-      </View>
+      <>
+        <Seo metadata={{ title: 'Tour not found — Guanacaste Tours', robots: { index: false, follow: true } }} />
+        <View style={styles.notFound}>
+          <Text style={styles.notFoundText}>Tour not found</Text>
+        </View>
+      </>
     );
   }
 
   return (
-    <TourDetail
-      tour={tour}
-      onBack={() => router.push('/tours')}
-      onBook={() => {
-        if (typeof window !== 'undefined' && window.location) {
-          window.location.href = `/go/${tour.primaryAffiliate}/${tour.slug}`;
-        } else if (Platform.OS === 'ios' || Platform.OS === 'android') {
-          import('expo-web-browser').then((m) => m.openBrowserAsync(tour.affiliateUrl, { readerMode: false, modalTitle: tour.title }));
-        }
-      }}
-      onOpenBookingLink={() => {
-        if (typeof window !== 'undefined' && window.location) {
-          window.location.href = `/go/${tour.primaryAffiliate}/${tour.slug}`;
-        }
-      }}
-    />
+    <>
+      <Seo
+        metadata={metadata({ params: { slug: tour.slug } })}
+        jsonLd={jsonLd({ params: { slug: tour.slug } })}
+      />
+      <TourDetail
+        tour={tour}
+        onBack={() => router.push('/tours')}
+        onBook={() => {
+          if (typeof window !== 'undefined' && window.location) {
+            window.location.href = `/go/${tour.primaryAffiliate}/${tour.slug}`;
+          } else if (Platform.OS === 'ios' || Platform.OS === 'android') {
+            import('expo-web-browser').then((m) => m.openBrowserAsync(tour.affiliateUrl, { readerMode: false, modalTitle: tour.title }));
+          }
+        }}
+        onOpenBookingLink={() => {
+          if (typeof window !== 'undefined' && window.location) {
+            window.location.href = `/go/${tour.primaryAffiliate}/${tour.slug}`;
+          }
+        }}
+      />
+    </>
   );
 }
 
@@ -95,3 +101,7 @@ const styles = StyleSheet.create({
   notFound: { flex: 1, backgroundColor: '#FFFFFF', alignItems: 'center', justifyContent: 'center', padding: 20 },
   notFoundText: { color: '#6B7280', fontSize: 16, fontWeight: '600' },
 });
+
+export async function generateStaticParams() {
+  return TOURS.map((tour) => ({ slug: tour.slug }));
+}
