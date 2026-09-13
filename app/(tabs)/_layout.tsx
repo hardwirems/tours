@@ -1,8 +1,12 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
+import { View, Platform } from 'react-native';
+import { SiteHeader } from '../../components/SiteHeader';
+import { color } from '../../lib/theme';
 
 // ------------------------------------------------------------
-// (tabs) layout — bottom tab bar for native + web.
+// (tabs) layout. Web: sticky top SiteHeader + hidden bottom bar.
+// Native: bottom tab bar.
 // ------------------------------------------------------------
 
 const TABS = [
@@ -14,44 +18,47 @@ const TABS = [
 ] as const;
 
 export default function TabsLayout() {
+  const isWeb = Platform.OS === 'web';
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: '#0B4155',
-        tabBarInactiveTintColor: '#9CA3AF',
-        tabBarStyle: {
-          backgroundColor: '#FFFFFF',
-          borderTopColor: '#E5E7EB',
-          borderTopWidth: 1,
-          paddingBottom: 4,
-          paddingTop: 4,
-          height: 56,
-        },
-        tabBarLabelStyle: {
-          fontSize: 11,
-          fontWeight: '600',
-          marginBottom: 2,
-        },
-        headerShown: false,
-      }}
-    >
-      {TABS.map((tab) => (
-        <Tabs.Screen
-          key={tab.name}
-          name={tab.name}
-          options={{
-            title: tab.label,
-            tabBarIcon: ({ size, color }: { size: number; color: string }) => (
-              <Ionicons name={tab.icon} size={size} color={color} />
-            ),
-          }}
-        />
-      ))}
+    <View style={{ flex: 1, backgroundColor: color.ground }}>
+      <SiteHeader />
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: color.primary,
+          tabBarInactiveTintColor: '#9CA3AF',
+          tabBarStyle: isWeb
+            ? { display: 'none' }
+            : {
+                backgroundColor: '#FFFFFF',
+                borderTopColor: color.border,
+                borderTopWidth: 1,
+                paddingBottom: 4,
+                paddingTop: 4,
+                height: 56,
+              },
+          tabBarLabelStyle: { fontSize: 11, fontWeight: '600', marginBottom: 2 },
+          headerShown: false,
+        }}
+      >
+        {TABS.map((tab) => (
+          <Tabs.Screen
+            key={tab.name}
+            name={tab.name}
+            options={{
+              title: tab.label,
+              tabBarIcon: ({ size, color: c }: { size: number; color: string }) => (
+                <Ionicons name={tab.icon} size={size} color={c} />
+              ),
+            }}
+          />
+        ))}
 
-      {/* Dynamic content routes — reachable + indexable, hidden from the tab bar. */}
-      <Tabs.Screen name="tours/[slug]/index" options={{ href: null }} />
-      <Tabs.Screen name="categories/[category]/index" options={{ href: null }} />
-      <Tabs.Screen name="destinations/[place]/index" options={{ href: null }} />
-    </Tabs>
+        {/* Dynamic + index content routes — reachable + indexable, not tabs. */}
+        <Tabs.Screen name="tours/[slug]/index" options={{ href: null }} />
+        <Tabs.Screen name="categories/[category]/index" options={{ href: null }} />
+        <Tabs.Screen name="destinations/index" options={{ href: null }} />
+        <Tabs.Screen name="destinations/[place]/index" options={{ href: null }} />
+      </Tabs>
+    </View>
   );
 }
