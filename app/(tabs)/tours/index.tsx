@@ -5,6 +5,8 @@ import { Ionicons } from '@expo/vector-icons';
 import { TOURS, CATEGORY_LABELS, searchTours, getToursByCategory, getToursByTown, Tour, TourCategory } from '../../../lib/tours';
 import { TourGrid } from '../../../components/TourCard';
 import { Seo } from '../../../components/Seo';
+import { SiteFooter } from '../../../components/SiteFooter';
+import { color, font, space, radius, layout } from '../../../lib/theme';
 
 export const metadata = {
   title: 'All Tours in Guanacaste, Costa Rica — Browse & Book',
@@ -54,10 +56,11 @@ export default function ToursScreen() {
     <Seo metadata={metadata} />
     <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
       <View style={styles.header}>
-        <Text style={styles.headerTitle}>
-          {category ? CATEGORY_LABELS[category as TourCategory] : town ? town : 'All tours'}
+        <Text style={styles.eyebrow}>Guanacaste · Costa Rica</Text>
+        <Text accessibilityRole="header" aria-level={1} style={styles.headerTitle}>
+          {category ? CATEGORY_LABELS[category as TourCategory] : town ? `Tours in ${town}` : 'All Guanacaste tours'}
         </Text>
-        <Text style={styles.headerSubtitle}>{tours.length} tours found</Text>
+        <Text style={styles.headerSubtitle}>{tours.length} {tours.length === 1 ? 'tour' : 'tours'}</Text>
       </View>
 
       <View style={styles.searchBar}>
@@ -121,41 +124,45 @@ export default function ToursScreen() {
       <View style={styles.gridContainer}>
         <TourGrid tours={tours} onPress={(tour: Tour) => router.push(`/tours/${tour.slug}`)} />
       </View>
+
+      <SiteFooter />
     </ScrollView>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  containerContent: { flexGrow: 1, paddingBottom: 32 },
-  container: { flex: 1, backgroundColor: '#FFFFFF' },
+  containerContent: { flexGrow: 1, paddingBottom: 0 },
+  container: { flex: 1, backgroundColor: color.ground },
   header: {
-    padding: 18, paddingBottom: 12, borderBottomWidth: 1, borderBottomColor: '#E5E7EB', backgroundColor: '#FFFFFF',
+    paddingHorizontal: layout.gutter, paddingTop: space[8], paddingBottom: space[4],
+    borderBottomWidth: 1, borderBottomColor: color.border, backgroundColor: color.surface,
   },
-  headerTitle: { color: '#0B4155', fontSize: 24, fontWeight: '800', marginBottom: 2 },
-  headerSubtitle: { color: '#6B7280', fontSize: 13, fontWeight: '500' },
+  eyebrow: { color: color.sky, fontFamily: font.body, fontSize: 12, fontWeight: '700', letterSpacing: 1.4, textTransform: 'uppercase', marginBottom: space[2] },
+  headerTitle: { color: color.ink, fontFamily: font.display, fontSize: 34, fontWeight: '600', letterSpacing: -0.4, marginBottom: space[1] },
+  headerSubtitle: { color: color.muted, fontFamily: font.body, fontSize: 14, fontWeight: '600' },
   searchBar: {
-    flexDirection: 'row', alignItems: 'center', backgroundColor: '#F9FAFB', margin: 14, marginBottom: 6,
-    paddingHorizontal: 12, paddingVertical: 10, borderRadius: 10, borderWidth: 1, borderColor: '#E5E7EB', gap: 8,
+    flexDirection: 'row', alignItems: 'center', backgroundColor: color.surface, marginHorizontal: layout.gutter, marginTop: space[4], marginBottom: space[2],
+    paddingHorizontal: space[4], paddingVertical: 12, borderRadius: radius.md, borderWidth: 1, borderColor: color.border, gap: space[2],
   },
-  searchInput: { flex: 1, color: '#1A1A1A', fontSize: 14, fontWeight: '500', padding: 0 },
-  filters: { paddingHorizontal: 14, paddingBottom: 4 },
-  chipsContainer: { gap: 6, paddingBottom: 4 },
+  searchInput: { flex: 1, color: color.ink, fontFamily: font.body, fontSize: 15, fontWeight: '500', padding: 0 },
+  filters: { paddingHorizontal: layout.gutter, paddingBottom: space[1] },
+  chipsContainer: { gap: space[2], paddingBottom: space[1] },
   chip: {
-    paddingHorizontal: 12, paddingVertical: 6, backgroundColor: '#F5F5F5', borderRadius: 999, marginRight: 6,
-    borderWidth: 1, borderColor: '#E5E7EB',
+    paddingHorizontal: space[4], paddingVertical: 8, backgroundColor: color.surface, borderRadius: radius.pill, marginRight: space[2],
+    borderWidth: 1, borderColor: color.border,
   },
-  chipActive: { backgroundColor: '#0B4155', borderColor: '#0B4155' },
-  chipText: { color: '#6B7280', fontSize: 12, fontWeight: '600' },
+  chipActive: { backgroundColor: color.primary, borderColor: color.primary },
+  chipText: { color: color.body, fontFamily: font.body, fontSize: 13, fontWeight: '600' },
   chipTextActive: { color: '#FFFFFF' },
-  townFilters: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: 14, paddingVertical: 6 },
-  townLabel: { color: '#6B7280', fontSize: 12, fontWeight: '600', marginRight: 8 },
+  townFilters: { flexDirection: 'row', alignItems: 'center', paddingHorizontal: layout.gutter, paddingVertical: space[2] },
+  townLabel: { color: color.muted, fontFamily: font.body, fontSize: 12, fontWeight: '600', marginRight: space[2] },
   chipSmall: {
-    paddingHorizontal: 10, paddingVertical: 4, backgroundColor: '#F5F5F5', borderRadius: 999, marginRight: 6,
-    borderWidth: 1, borderColor: '#E5E7EB',
+    paddingHorizontal: space[3], paddingVertical: 6, backgroundColor: color.surface, borderRadius: radius.pill, marginRight: space[2],
+    borderWidth: 1, borderColor: color.border,
   },
-  chipSmallActive: { backgroundColor: '#0B4155', borderColor: '#0B4155' },
-  chipSmallText: { color: '#6B7280', fontSize: 11, fontWeight: '600' },
+  chipSmallActive: { backgroundColor: color.primary, borderColor: color.primary },
+  chipSmallText: { color: color.body, fontFamily: font.body, fontSize: 12, fontWeight: '600' },
   chipSmallTextActive: { color: '#FFFFFF' },
-  gridContainer: { flex: 1 },
+  gridContainer: { flex: 1, paddingTop: space[3] },
 });

@@ -5,6 +5,7 @@ import {
 import { TOURS, CATEGORIES } from '../../lib/tours';
 import { Link } from 'expo-router';
 import { Seo } from '../../components/Seo';
+import { SiteFooter } from '../../components/SiteFooter';
 import { DESTINATIONS } from '../../lib/seo-content';
 import { color, font, type, space, radius, shadow, layout } from '../../lib/theme';
 
@@ -168,6 +169,8 @@ export default function HomeScreen() {
             </Text>
           </View>
         </View>
+
+        <SiteFooter />
       </ScrollView>
     </>
   );
