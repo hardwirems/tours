@@ -44,7 +44,7 @@ export const SITE_URL =
  * Web Analytics -> Add a site -> copy the token from the JS snippet.
  * Paste it here (or set EXPO_PUBLIC_CF_BEACON_TOKEN). Empty = beacon not rendered.
  */
-export const CF_BEACON_TOKEN = process.env.EXPO_PUBLIC_CF_BEACON_TOKEN ?? '';
+export const CF_BEACON_TOKEN = process.env.EXPO_PUBLIC_CF_BEACON_TOKEN ?? '78806ea072104767b89a184ed06cf388';
 
 /**
  * Google Search Console HTML-tag verification token (only if NOT using DNS
