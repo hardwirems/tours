@@ -54,12 +54,12 @@ export const jsonLd = ({ params }: { params: { slug: string } }) => {
     },
   };
 
-  // NOTE (policy): this aggregateRating reflects the OPERATOR's (Viator) ratings,
-  // not reviews collected by this site. Google's review-snippet policy expects
-  // first-party ratings; emitting operator ratings as our AggregateRating risks a
-  // manual action. Kept pending a product decision — to be fully policy-safe,
-  // drop this block and keep the rating on-page with clear "rated on Viator"
-  // attribution instead.
+  // NOTE (policy, decided 2026-09-13): this aggregateRating reflects the
+  // OPERATOR's (Viator) ratings, not reviews collected by this site. Google's
+  // review-snippet policy expects first-party ratings, so this carries some risk
+  // of a manual action. Owner elected to KEEP the stars for the search-CTR
+  // benefit. To reverse later, drop this block and keep the rating on-page with
+  // clear "rated on Viator" attribution.
   if (tour.rating != null && tour.reviewCount != null) {
     product.aggregateRating = {
       '@type': 'AggregateRating',
