@@ -1,7 +1,8 @@
 import { SITE_URL } from '../../../../lib/constants';
-import { useLocalSearchParams, useRouter, Link } from 'expo-router';
+import { useRouter, Link } from 'expo-router';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { getToursByTown, Tour } from '../../../../lib/tours';
+import { useRouteParam } from '../../../../lib/useRouteParam';
 import { DESTINATIONS, getDestinationBySlug, Destination } from '../../../../lib/seo-content';
 import { TourGrid } from '../../../../components/TourCard';
 import { Seo } from '../../../../components/Seo';
@@ -44,8 +45,8 @@ function buildJsonLd(dest: Destination, url: string, tours: Tour[]) {
 
 export default function DestinationScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ place: string }>();
-  const dest = getDestinationBySlug(params.place);
+  const place = useRouteParam('place');
+  const dest = place ? getDestinationBySlug(place) : undefined;
   const tours = dest ? getToursByTown(dest.town) : [];
 
   if (!dest) {

@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity, StyleSheet, Platform, useWindowDimensions, ScrollView } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Platform, ScrollView } from 'react-native';
 import { Link, usePathname } from 'expo-router';
 import { useEffect, useRef, useState } from 'react';
 import { color, font, space, radius, layout, shadow } from '../lib/theme';
@@ -32,13 +32,13 @@ function Wordmark() {
 }
 
 export function SiteHeader() {
-  const { width } = useWindowDimensions();
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const triggerRef = useRef<View>(null);
-  // Default to the full nav during static render (width 0) so links are crawlable;
-  // collapse to the menu only once the client measures a narrow screen.
-  const compact = width > 0 && width < 900;
+  // Both the full nav and the hamburger are always rendered; a CSS media query
+  // (see globals.css [data-nav]) decides which is visible at the current width.
+  // Rendering the same DOM on server and client avoids a hydration mismatch
+  // (React #418) and keeps the nav links crawlable at every viewport.
 
   // Close the menu whenever the route changes.
   useEffect(() => { setOpen(false); }, [pathname]);
@@ -66,41 +66,42 @@ export function SiteHeader() {
       <View style={[styles.inner, { maxWidth: layout.maxWidth }]}>
         <Wordmark />
 
-        {!compact ? (
-          <View style={styles.navRow}>
-            {NAV.map((item) => (
-              <Link key={item.href} href={item.href} asChild>
-                <TouchableOpacity accessibilityRole="link" style={styles.navItem}>
-                  <Text style={[styles.navLabel, isActive(item.href) && styles.navLabelActive]}>{item.label}</Text>
-                </TouchableOpacity>
-              </Link>
-            ))}
-            <Link href="/tours" asChild>
-              <TouchableOpacity accessibilityRole="link" style={styles.cta}>
-                <Text style={styles.ctaText}>Browse tours</Text>
+        {/* Desktop nav — hidden below 900px via CSS */}
+        <View style={styles.navRow} dataSet={{ nav: 'desktop' }}>
+          {NAV.map((item) => (
+            <Link key={item.href} href={item.href} asChild>
+              <TouchableOpacity accessibilityRole="link" style={styles.navItem}>
+                <Text style={[styles.navLabel, isActive(item.href) && styles.navLabelActive]}>{item.label}</Text>
               </TouchableOpacity>
             </Link>
-          </View>
-        ) : (
-          <View ref={triggerRef} collapsable={false}>
-            <TouchableOpacity
-              accessibilityRole="button"
-              accessibilityLabel={open ? 'Close menu' : 'Open menu'}
-              aria-expanded={open}
-              style={styles.menuButton}
-              onPress={() => setOpen((v) => !v)}
-            >
-              <View style={styles.bar} />
-              <View style={styles.bar} />
-              <View style={styles.bar} />
+          ))}
+          <Link href="/tours" asChild>
+            <TouchableOpacity accessibilityRole="link" style={styles.cta}>
+              <Text style={styles.ctaText}>Browse tours</Text>
             </TouchableOpacity>
-          </View>
-        )}
+          </Link>
+        </View>
+
+        {/* Hamburger — hidden at/above 900px via CSS */}
+        <View ref={triggerRef} collapsable={false} dataSet={{ nav: 'mobile' }}>
+          <TouchableOpacity
+            accessibilityRole="button"
+            accessibilityLabel={open ? 'Close menu' : 'Open menu'}
+            aria-expanded={open}
+            style={styles.menuButton}
+            onPress={() => setOpen((v) => !v)}
+          >
+            <View style={styles.bar} />
+            <View style={styles.bar} />
+            <View style={styles.bar} />
+          </TouchableOpacity>
+        </View>
       </View>
 
-      {/* Mobile menu overlay */}
-      {open && compact ? (
-        <View style={styles.overlay} accessibilityViewIsModal aria-modal role="dialog" aria-label="Menu">
+      {/* Mobile menu overlay — only openable via the hamburger (mobile), and
+          hidden on desktop by CSS as a belt-and-braces guard. */}
+      {open ? (
+        <View style={styles.overlay} dataSet={{ nav: 'mobile' }} accessibilityViewIsModal aria-modal role="dialog" aria-label="Menu">
           <TouchableOpacity style={styles.overlayScrim} accessibilityLabel="Close menu" onPress={() => setOpen(false)} />
           <View style={styles.sheet}>
             <View style={styles.sheetHeader}>

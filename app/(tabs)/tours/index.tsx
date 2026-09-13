@@ -1,7 +1,7 @@
 import { SITE_URL } from '../../../lib/constants';
 import { View, Text, StyleSheet, ScrollView, TextInput, TouchableOpacity } from 'react-native';
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from '../../../components/Icon';
 import { TOURS, CATEGORY_LABELS, searchTours, getToursByCategory, getToursByTown, Tour, TourCategory } from '../../../lib/tours';
 import { TourGrid } from '../../../components/TourCard';
 import { Seo } from '../../../components/Seo';
@@ -64,7 +64,7 @@ export default function ToursScreen() {
       </View>
 
       <View style={styles.searchBar}>
-        <Ionicons name="search" size={18} color="#6B7280" />
+        <Icon name="search" size={18} color="#6B7280" />
         <TextInput
           style={styles.searchInput}
           placeholder="Search tours, towns, activities..."
@@ -73,7 +73,7 @@ export default function ToursScreen() {
         />
         {query.length > 0 && (
           <TouchableOpacity onPress={() => router.push('/tours')}>
-            <Ionicons name="close-circle" size={20} color="#6B7280" />
+            <Icon name="close-circle" size={20} color="#6B7280" />
           </TouchableOpacity>
         )}
       </View>

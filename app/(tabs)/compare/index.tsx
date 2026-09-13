@@ -1,7 +1,7 @@
 import { SITE_URL } from '../../../lib/constants';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from '../../../components/Icon';
 import { TOURS, CATEGORY_LABELS, Tour } from '../../../lib/tours';
 import { TourCard } from '../../../components/TourCard';
 
@@ -54,7 +54,7 @@ export default function CompareScreen() {
         <TourCard tour={tourA} onPress={() => router.push(`/tours/${tourA.slug}`)} featured />
 
         <View style={styles.vsDivider}>
-          <Ionicons name="swap-horizontal" size={22} color="#E8A849" />
+          <Icon name="swap-horizontal" size={22} color="#E8A849" />
           <Text style={styles.vsText}>VS</Text>
         </View>
 

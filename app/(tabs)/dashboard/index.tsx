@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, TextInput } from 'react-native';
 import { useState } from 'react';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from '../../../components/Icon';
 import { Seo } from '../../../components/Seo';
 
 // ---------------------------------------------------------------------------
@@ -146,7 +146,7 @@ export default function DashboardScreen() {
               'Daily: review "clicked but no booking" — improve page content or CTA.',
             ].map((item) => (
               <View key={item} style={styles.noteItem}>
-                <Ionicons name="checkmark-circle" size={14} color="#10B981" />
+                <Icon name="checkmark-circle" size={14} color="#10B981" />
                 <Text style={styles.noteText}>{item}</Text>
               </View>
             ))}

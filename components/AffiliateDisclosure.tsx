@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet, TouchableOpacity, Platform } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from './Icon';
 import { Tour, AffiliateProgram, AFFILIATE_LABELS } from '../lib/tours';
 
 // ---------------------------------------------------------------------------
@@ -19,7 +19,7 @@ export function AffiliateDisclosure({ program, mini = false }: AffiliateDisclosu
   if (mini) {
     return (
       <View style={styles.miniRow}>
-        <Ionicons name="information-circle" size={10} color="#6B7280" />
+        <Icon name="information-circle" size={10} color="#6B7280" />
         <Text style={styles.miniText}>
           We may earn a commission, at no extra cost to you.
         </Text>
@@ -29,7 +29,7 @@ export function AffiliateDisclosure({ program, mini = false }: AffiliateDisclosu
 
   return (
     <View style={styles.card}>
-      <Ionicons name="information-circle" size={18} color="#0B4155" />
+      <Icon name="information-circle" size={18} color="#0B4155" />
       <View style={styles.cardBody}>
         <Text style={styles.cardTitle}>Affiliate disclosure</Text>
         <Text style={styles.cardText}>
@@ -55,7 +55,7 @@ export function AffiliateDisclosureBar({ program }: AffiliateDisclosureProps) {
 
   return (
     <View style={styles.bar}>
-      <Ionicons name="checkmark-circle" size={13} color="#10B981" />
+      <Icon name="checkmark-circle" size={13} color="#10B981" />
       <Text style={styles.barText}>
         We may earn a commission when you book through {label}. No extra cost to you.
       </Text>

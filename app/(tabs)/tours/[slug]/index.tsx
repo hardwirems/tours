@@ -1,7 +1,8 @@
 import { SITE_URL } from '../../../../lib/constants';
-import { useRouter, useLocalSearchParams } from 'expo-router';
+import { useRouter } from 'expo-router';
 import { View, Text, StyleSheet, Platform } from 'react-native';
 import { getTourBySlug, TOURS } from '../../../../lib/tours';
+import { useRouteParam } from '../../../../lib/useRouteParam';
 import { TourDetail } from '../../../../components/TourCard';
 import { Seo } from '../../../../components/Seo';
 
@@ -55,10 +56,10 @@ export const jsonLd = ({ params }: { params: { slug: string } }) => {
 
 export default function TourDetailScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ slug: string }>();
-  // Resolve synchronously so the tour content renders in the static HTML export
-  // (crawlers see the real page, not a client-only fallback).
-  const tour = getTourBySlug(params.slug);
+  // Resolve synchronously (and hydration-stably) so the tour content renders in
+  // the static HTML export and the first client render matches it.
+  const slug = useRouteParam('slug');
+  const tour = slug ? getTourBySlug(slug) : undefined;
 
   if (!tour) {
     return (

@@ -1,4 +1,4 @@
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from '../../components/Icon';
 import { Tabs } from 'expo-router';
 import { View, Platform } from 'react-native';
 import { SiteHeader } from '../../components/SiteHeader';
@@ -47,7 +47,7 @@ export default function TabsLayout() {
             options={{
               title: tab.label,
               tabBarIcon: ({ size, color: c }: { size: number; color: string }) => (
-                <Ionicons name={tab.icon} size={size} color={c} />
+                <Icon name={tab.icon} size={size} color={c} />
               ),
             }}
           />

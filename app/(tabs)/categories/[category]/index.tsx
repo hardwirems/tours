@@ -1,7 +1,8 @@
 import { SITE_URL } from '../../../../lib/constants';
-import { useLocalSearchParams, useRouter, Link } from 'expo-router';
+import { useRouter, Link } from 'expo-router';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { CATEGORIES, getToursByCategory, Tour } from '../../../../lib/tours';
+import { useRouteParam } from '../../../../lib/useRouteParam';
 import { CATEGORY_CONTENT, HubContent } from '../../../../lib/seo-content';
 import { TourGrid } from '../../../../components/TourCard';
 import { Seo } from '../../../../components/Seo';
@@ -44,8 +45,7 @@ function buildJsonLd(content: HubContent, url: string, tours: Tour[]) {
 
 export default function CategoryScreen() {
   const router = useRouter();
-  const params = useLocalSearchParams<{ category: string }>();
-  const category = params.category;
+  const category = useRouteParam('category');
   const content = CATEGORY_CONTENT[category];
   const label = CATEGORIES[category];
   const tours = category ? getToursByCategory(category) : [];

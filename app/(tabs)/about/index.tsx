@@ -2,7 +2,7 @@ import { SITE_URL } from '../../../lib/constants';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { Image } from 'react-native';
 import { useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from '../../../components/Icon';
 import { Seo } from '../../../components/Seo';
 import { SiteFooter } from '../../../components/SiteFooter';
 
@@ -92,7 +92,7 @@ export default function AboutScreen() {
               'We only recommend tours we believe are worth your time and money.',
             ].map((item) => (
               <View key={item} style={styles.listItem}>
-                <Ionicons name="checkmark-circle" size={16} color="#10B981" />
+                <Icon name="checkmark-circle" size={16} color="#10B981" />
                 <Text style={styles.listItemText}>{item}</Text>
               </View>
             ))}
@@ -128,15 +128,15 @@ export default function AboutScreen() {
             Reach out — we read every message.
           </Text>
           <View style={styles.contactRow}>
-            <Ionicons name="mail-outline" size={16} color="#0B4155" />
+            <Icon name="mail-outline" size={16} color="#0B4155" />
             <Text style={styles.contactText}>rosenbeck17@gmail.com</Text>
           </View>
           <View style={styles.contactRow}>
-            <Ionicons name="location-outline" size={16} color="#0B4155" />
+            <Icon name="location-outline" size={16} color="#0B4155" />
             <Text style={styles.contactText}>Guanacaste, Costa Rica</Text>
           </View>
           <View style={styles.contactRow}>
-            <Ionicons name="calendar-outline" size={16} color="#0B4155" />
+            <Icon name="calendar-outline" size={16} color="#0B4155" />
             <Text style={styles.contactText}>Published: August 2026 · Updated monthly</Text>
           </View>
         </View>

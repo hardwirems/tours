@@ -1,6 +1,6 @@
 import { SITE_URL } from '../../lib/constants';
 import {
-  View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform, useWindowDimensions,
+  View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform,
 } from 'react-native';
 import { TOURS, CATEGORIES } from '../../lib/tours';
 import { Link } from 'expo-router';
@@ -57,18 +57,14 @@ export const jsonLd = {
 const cardShadow = Platform.select({ web: { boxShadow: shadow.card } as object, default: {} });
 
 export default function HomeScreen() {
-  const { width } = useWindowDimensions();
-  const narrow = width < 720;
-  const heroH = narrow ? 500 : 600;
-  const h1Size = narrow ? 34 : 50;
-  const h1Line = narrow ? 39 : 55;
-
+  // Hero sizing is CSS-driven (globals.css [data-hero]) so server and client render
+  // identical DOM — no hydration mismatch, no first-paint size jump.
   return (
     <>
       <Seo metadata={metadata} jsonLd={jsonLd} />
       <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
         {/* Hero */}
-        <View style={[styles.hero, { minHeight: heroH }]} nativeID="main">
+        <View style={styles.hero} dataSet={{ hero: 'wrap' }} nativeID="main">
           <Image source={require('../../assets/hero.jpeg')} style={styles.heroImage} resizeMode="cover" />
           <View style={styles.heroScrim} />
           <View style={[styles.heroInner, { maxWidth: layout.maxWidth }]}>
@@ -76,7 +72,8 @@ export default function HomeScreen() {
             <Text
               accessibilityRole="header"
               aria-level={1}
-              style={[styles.heroTitle, { fontSize: h1Size, lineHeight: h1Line }]}
+              style={styles.heroTitle}
+              dataSet={{ hero: 'title' }}
             >
               Find your perfect Guanacaste adventure
             </Text>
@@ -182,7 +179,7 @@ const styles = StyleSheet.create({
   page: { width: '100%', maxWidth: layout.maxWidth, alignSelf: 'center' },
 
   // Hero
-  hero: { backgroundColor: color.primary, justifyContent: 'flex-end', overflow: 'hidden' },
+  hero: { backgroundColor: color.primary, justifyContent: 'flex-end', overflow: 'hidden', minHeight: 600 },
   heroImage: { width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 },
   heroScrim: {
     position: 'absolute', bottom: 0, left: 0, right: 0, top: 0,
@@ -196,7 +193,7 @@ const styles = StyleSheet.create({
     color: color.sunLight, fontFamily: font.body, fontSize: type.eyebrow.size, fontWeight: '700',
     letterSpacing: 1.6, textTransform: 'uppercase', marginBottom: space[3],
   },
-  heroTitle: { color: color.onDark, fontFamily: font.display, fontWeight: '600', letterSpacing: -0.5, maxWidth: 760, marginBottom: space[4] },
+  heroTitle: { color: color.onDark, fontFamily: font.display, fontWeight: '600', letterSpacing: -0.5, maxWidth: 760, marginBottom: space[4], fontSize: 50, lineHeight: 55 },
   heroSubtitle: { color: color.onDarkMuted, fontFamily: font.body, fontSize: 17, lineHeight: 26, maxWidth: 560, marginBottom: space[6] },
   heroActions: { flexDirection: 'row', flexWrap: 'wrap', gap: space[3], alignItems: 'center' },
   ctaPrimary: { backgroundColor: color.coral, paddingHorizontal: space[6], paddingVertical: 14, borderRadius: radius.pill, minHeight: 48, justifyContent: 'center' },

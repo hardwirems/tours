@@ -132,6 +132,57 @@ html {
   }
 }
 
+/* Responsive site nav — both variants render in the DOM (hydration-stable +
+   crawlable); CSS alone toggles which is visible. Matches SiteHeader dataSet. */
+@media (max-width: 899px) {
+  [data-nav='desktop'] {
+    display: none !important;
+  }
+}
+@media (min-width: 900px) {
+  [data-nav='mobile'] {
+    display: none !important;
+  }
+}
+
+/* Homepage hero — desktop sizing is the base (in JS styles); shrink on small
+   screens via CSS so server/client DOM is identical (no hydration size jump). */
+@media (max-width: 719px) {
+  [data-hero='wrap'] {
+    min-height: 500px !important;
+  }
+  [data-hero='title'] {
+    font-size: 34px !important;
+    line-height: 39px !important;
+  }
+}
+
+/* Tour detail — single column with the booking card on top (mobile); at >=980px
+   a two-column layout with a sticky booking sidebar. One booking-card node, CSS
+   `order` places it, so server/client render identical DOM (no React #418). */
+[data-td='aside'] {
+  order: -1;
+}
+@media (min-width: 980px) {
+  [data-td='body'] {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    column-gap: 32px;
+  }
+  [data-td='main'] {
+    flex: 1 1 auto !important;
+    min-width: 0;
+  }
+  [data-td='aside'] {
+    order: 0 !important;
+    width: 340px !important;
+    flex: 0 0 340px !important;
+    position: sticky !important;
+    top: 82px;
+    align-self: flex-start;
+  }
+}
+
 /* Utility: screen reader only */
 .sr-only {
   position: absolute;

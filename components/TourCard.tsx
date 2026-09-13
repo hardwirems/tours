@@ -1,6 +1,6 @@
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, useWindowDimensions } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform } from 'react-native';
 import { Image } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from './Icon';
 import { Link } from 'expo-router';
 import { Tour, CATEGORY_LABELS, AFFILIATE_LABELS, AFFILIATE_PROGRAMS, AffiliateProgram } from '../lib/tours';
 import { AffiliateDisclosure } from './AffiliateDisclosure';
@@ -33,7 +33,7 @@ export function TourCard({ tour, onPress, featured = false }: TourCardProps) {
         </View>
         {tour.rating != null && (
           <View style={styles.ratingBadge}>
-            <Ionicons name="star" size={12} color={color.sun} />
+            <Icon name="star" size={12} color={color.sun} />
             <Text style={styles.ratingText}>{tour.rating}</Text>
           </View>
         )}
@@ -41,11 +41,11 @@ export function TourCard({ tour, onPress, featured = false }: TourCardProps) {
 
       <View style={styles.body}>
         <Text style={styles.location} numberOfLines={1}>
-          <Ionicons name="location-outline" size={12} color={color.sky} /> {location}
+          <Icon name="location-outline" size={12} color={color.sky} /> {location}
         </Text>
         <Text style={styles.title} numberOfLines={2}>{tour.title}</Text>
         <View style={styles.metaRow}>
-          <Ionicons name="time-outline" size={14} color={color.muted} />
+          <Icon name="time-outline" size={14} color={color.muted} />
           <Text style={styles.metaText}>{tour.duration}</Text>
         </View>
         <View style={styles.priceRow}>
@@ -68,7 +68,7 @@ export function TourGrid({ tours, onPress, emptyMessage = 'No tours found in thi
   if (tours.length === 0) {
     return (
       <View style={styles.emptyContainer}>
-        <Ionicons name="search-outline" size={44} color={color.muted} />
+        <Icon name="search-outline" size={44} color={color.muted} />
         <Text style={styles.emptyText}>{emptyMessage}</Text>
       </View>
     );
@@ -93,7 +93,7 @@ interface TourDetailProps {
 function Fact({ icon, label, value }: { icon: any; label: string; value: string }) {
   return (
     <View style={styles.dFactRow}>
-      <View style={styles.dFactIcon}><Ionicons name={icon} size={16} color={color.primary} /></View>
+      <View style={styles.dFactIcon}><Icon name={icon} size={16} color={color.primary} /></View>
       <View style={{ flex: 1 }}>
         <Text style={styles.dFactLabel}>{label}</Text>
         <Text style={styles.dFactValue}>{value}</Text>
@@ -112,8 +112,10 @@ function Section({ title, children }: { title: string; children: React.ReactNode
 }
 
 export function TourDetail({ tour, onBook }: TourDetailProps) {
-  const { width } = useWindowDimensions();
-  const twoCol = width >= 980;
+  // Layout is CSS-driven (see globals.css [data-td]): the booking card lives in a
+  // single, stable DOM position (the aside) and CSS flex `order` places it at the
+  // top on mobile and as a sticky right column at >=980px. Rendering identical DOM
+  // on server and client avoids a hydration mismatch (React #418) and layout shift.
   const location = tour.towns?.[0] ?? 'Guanacaste';
   const included = tour.includes ?? tour.whatIncluded ?? [];
   const partner =
@@ -156,14 +158,14 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
           <Text style={styles.dCategory}>{CATEGORY_LABELS[tour.category]}</Text>
           <Text accessibilityRole="header" aria-level={1} style={styles.dTitle}>{tour.title}</Text>
           <View style={styles.dHeroMeta}>
-            <Text style={styles.dHeroMetaItem}><Ionicons name="location-outline" size={14} color="#fff" /> {location}</Text>
+            <Text style={styles.dHeroMetaItem}><Icon name="location-outline" size={14} color="#fff" /> {location}</Text>
             {tour.rating != null ? (
               <Text style={styles.dHeroMetaItem}>
-                <Ionicons name="star" size={14} color={color.sun} /> {tour.rating}
+                <Icon name="star" size={14} color={color.sun} /> {tour.rating}
                 {tour.reviewCount != null ? ` (${tour.reviewCount})` : ''}
               </Text>
             ) : null}
-            <Text style={styles.dHeroMetaItem}><Ionicons name="time-outline" size={14} color="#fff" /> {tour.duration}</Text>
+            <Text style={styles.dHeroMetaItem}><Icon name="time-outline" size={14} color="#fff" /> {tour.duration}</Text>
           </View>
         </View>
       </View>
@@ -178,10 +180,8 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
       </View>
 
       {/* Body */}
-      <View style={[styles.dBody, { maxWidth: layout.maxWidth }, twoCol ? styles.dBodyRow : null]}>
-        <View style={[styles.dMain, twoCol ? { flex: 1 } : null]}>
-          {!twoCol ? bookingCard : null}
-
+      <View style={[styles.dBody, { maxWidth: layout.maxWidth }]} dataSet={{ td: 'body' }}>
+        <View style={styles.dMain} dataSet={{ td: 'main' }}>
           <Section title="About this tour">
             <Text style={styles.dParagraph}>{tour.description}</Text>
           </Section>
@@ -191,7 +191,7 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
               <View style={styles.dCheckList}>
                 {included.map((item) => (
                   <View key={item} style={styles.dCheckItem}>
-                    <Ionicons name="checkmark-circle" size={16} color={color.success} />
+                    <Icon name="checkmark-circle" size={16} color={color.success} />
                     <Text style={styles.dCheckText}>{item}</Text>
                   </View>
                 ))}
@@ -204,7 +204,7 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
               <View style={styles.dCheckList}>
                 {tour.whatToBring.map((item) => (
                   <View key={item} style={styles.dCheckItem}>
-                    <Ionicons name="ellipse" size={7} color={color.sky} style={{ marginTop: 7 }} />
+                    <Icon name="ellipse" size={7} color={color.sky} style={{ marginTop: 7 }} />
                     <Text style={styles.dCheckText}>{item}</Text>
                   </View>
                 ))}
@@ -225,7 +225,7 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
 
           {tour.seasonalNote ? (
             <View style={styles.dNote}>
-              <Ionicons name="partly-sunny-outline" size={18} color={color.sky} />
+              <Icon name="partly-sunny-outline" size={18} color={color.sky} />
               <Text style={styles.dNoteText}>{tour.seasonalNote}</Text>
             </View>
           ) : null}
@@ -234,7 +234,7 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
             <Section title="Good to know">
               {tour.tips.map((tip) => (
                 <View key={tip} style={styles.dCheckItem}>
-                  <Ionicons name="bulb-outline" size={15} color={color.sun} />
+                  <Icon name="bulb-outline" size={15} color={color.sun} />
                   <Text style={styles.dCheckText}>{tip}</Text>
                 </View>
               ))}
@@ -253,7 +253,7 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
           ) : null}
         </View>
 
-        {twoCol ? <View style={styles.dSidebar}>{bookingCard}</View> : null}
+        <View style={styles.dSidebar} dataSet={{ td: 'aside' }}>{bookingCard}</View>
       </View>
 
       <SiteFooter />
@@ -318,10 +318,10 @@ const styles = StyleSheet.create({
   dCrumbSep: { color: color.faint, fontFamily: font.body, fontSize: 13 },
   dCrumbCurrent: { color: color.muted, fontFamily: font.body, fontSize: 13, flexShrink: 1 },
 
+  // Mobile-first base; the row layout + sticky sidebar are applied by CSS at >=980px.
   dBody: { width: '100%', alignSelf: 'center', paddingHorizontal: layout.gutter },
-  dBodyRow: { flexDirection: 'row', alignItems: 'flex-start', gap: space[8] },
   dMain: { width: '100%' },
-  dSidebar: { width: 340, ...Platform.select({ web: { position: 'sticky' as 'absolute', top: 82 } }) },
+  dSidebar: { width: '100%' },
 
   dBookCard: { backgroundColor: color.surface, borderRadius: radius.lg, borderWidth: 1, borderColor: color.border, padding: space[5], marginBottom: space[6] },
   dPriceRow: { flexDirection: 'row', alignItems: 'baseline', marginBottom: space[4] },
