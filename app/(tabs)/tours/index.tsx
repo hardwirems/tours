@@ -54,7 +54,7 @@ export default function ToursScreen() {
   return (
     <>
     <Seo metadata={metadata} />
-    <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
+    <ScrollView nativeID="main" style={styles.container} contentContainerStyle={styles.containerContent}>
       <View style={styles.header}>
         <Text style={styles.eyebrow}>Guanacaste · Costa Rica</Text>
         <Text accessibilityRole="header" aria-level={1} style={styles.headerTitle}>
@@ -72,7 +72,12 @@ export default function ToursScreen() {
           onChangeText={(text) => router.push(`/tours?q=${encodeURIComponent(text)}`)}
         />
         {query.length > 0 && (
-          <TouchableOpacity onPress={() => router.push('/tours')}>
+          <TouchableOpacity
+            accessibilityRole="link"
+            accessibilityLabel="Clear search"
+            href="/tours"
+            onPress={() => router.push('/tours')}
+          >
             <Icon name="close-circle" size={20} color="#6B7280" />
           </TouchableOpacity>
         )}
@@ -85,6 +90,9 @@ export default function ToursScreen() {
           contentContainerStyle={styles.chipsContainer}
         >
           <TouchableOpacity
+            accessibilityRole="link"
+            aria-current={!category ? true : undefined}
+            href="/tours"
             style={[styles.chip, !category && styles.chipActive]}
             onPress={() => router.push('/tours')}
           >
@@ -93,6 +101,9 @@ export default function ToursScreen() {
           {Object.entries(CATEGORY_LABELS).map(([key, label]) => (
             <TouchableOpacity
               key={key}
+              accessibilityRole="link"
+              aria-current={category === key ? true : undefined}
+              href={`/tours?category=${key}`}
               style={[styles.chip, category === key && styles.chipActive]}
               onPress={() => router.push(`/tours?category=${key}`)}
             >
@@ -112,6 +123,9 @@ export default function ToursScreen() {
           {['Tamarindo', 'Playa Flamingo', 'Liberia', 'Playa Hermosa'].map((t) => (
             <TouchableOpacity
               key={t}
+              accessibilityRole="link"
+              aria-current={town === t ? true : undefined}
+              href={`/tours?town=${encodeURIComponent(t)}`}
               style={[styles.chipSmall, town === t && styles.chipSmallActive]}
               onPress={() => router.push(`/tours?town=${encodeURIComponent(t)}`)}
             >

@@ -60,6 +60,14 @@ export default function Root({ children }: PropsWithChildren) {
       <body>
         <a href="#main" className="skip-link">Skip to content</a>
         {children}
+        {/* Move keyboard focus into the main content when the skip link is used,
+            so the next Tab continues inside the content rather than the header. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.skip-link');if(!a)return;var m=document.getElementById('main');if(m){m.setAttribute('tabindex','-1');m.focus({preventScroll:false});}});",
+          }}
+        />
       </body>
     </html>
   );

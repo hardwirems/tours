@@ -41,7 +41,7 @@ export default function AboutScreen() {
   return (
     <>
     <Seo metadata={metadata} jsonLd={jsonLd} />
-    <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
+    <ScrollView nativeID="main" style={styles.container} contentContainerStyle={styles.containerContent}>
       {/* Header image */}
       <View style={styles.hero}>
         <Image

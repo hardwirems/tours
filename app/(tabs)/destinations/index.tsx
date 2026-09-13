@@ -48,7 +48,7 @@ export default function DestinationsIndex() {
   return (
     <>
       <Seo metadata={metadata} jsonLd={jsonLd} />
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <ScrollView nativeID="main" style={styles.container} contentContainerStyle={styles.content}>
         <View style={[styles.page, { maxWidth: layout.maxWidth }]}>
           <View style={styles.header}>
             <Text style={styles.eyebrow}>Guanacaste · Costa Rica</Text>

@@ -82,12 +82,16 @@ export default function CompareScreen() {
         <View style={styles.ctaSection}>
           <Text style={styles.ctaText}>Ready to book? Compare more tours or go to the full listing.</Text>
           <TouchableOpacity
+            accessibilityRole="link"
+            href={`/tours/${tourA.slug}`}
             style={styles.ctaButton}
             onPress={() => router.push(`/tours/${tourA.slug}`)}
           >
             <Text style={styles.ctaButtonText}>View {tourA.title} →</Text>
           </TouchableOpacity>
           <TouchableOpacity
+            accessibilityRole="link"
+            href="/tours"
             style={styles.ctaButtonSecondary}
             onPress={() => router.push('/tours')}
           >

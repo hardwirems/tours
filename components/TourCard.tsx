@@ -24,6 +24,7 @@ export function TourCard({ tour, onPress, featured = false }: TourCardProps) {
       onPress={onPress}
       accessibilityRole="link"
       accessibilityLabel={`${tour.title} in ${location}, from $${tour.priceFrom}`}
+      href={`/tours/${tour.slug}`}
       style={[styles.card, webCardShadow, featured && styles.cardFeatured]}
     >
       <View style={styles.imageWrapper}>
@@ -120,9 +121,10 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
   const included = tour.includes ?? tour.whatIncluded ?? [];
   const partner =
     (tour.primaryAffiliate && AFFILIATE_PROGRAMS[tour.primaryAffiliate]?.name) || 'our booking partner';
+  const bookHref = `/go/${tour.primaryAffiliate ?? 'getyourguide'}/${tour.slug}`;
   const goBook = () => {
     if (typeof window !== 'undefined' && window.location) {
-      window.location.href = `/go/${tour.primaryAffiliate ?? 'getyourguide'}/${tour.slug}`;
+      window.location.href = bookHref;
     } else { onBook(); }
   };
 
@@ -133,7 +135,15 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
         <Text style={styles.dPriceValue}>${tour.priceFrom}</Text>
         <Text style={styles.dPriceUnit}> {tour.priceNote || 'per person'}</Text>
       </View>
-      <TouchableOpacity accessibilityRole="link" accessibilityLabel={`Check availability and book on ${partner}`} style={styles.dBookBtn} onPress={goBook} activeOpacity={0.9}>
+      <TouchableOpacity
+        accessibilityRole="link"
+        accessibilityLabel={`Check availability and book on ${partner}`}
+        href={bookHref}
+        hrefAttrs={{ rel: 'sponsored noopener' }}
+        style={styles.dBookBtn}
+        onPress={goBook}
+        activeOpacity={0.9}
+      >
         <Text style={styles.dBookBtnText}>Check availability & book</Text>
       </TouchableOpacity>
       <Text style={styles.dBookNote}>You'll finish booking securely on {partner}.</Text>

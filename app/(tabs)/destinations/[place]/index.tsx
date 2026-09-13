@@ -62,7 +62,7 @@ export default function DestinationScreen() {
   return (
     <>
       <Seo metadata={buildMeta(dest, url)} jsonLd={buildJsonLd(dest, url, tours)} />
-      <ScrollView style={styles.container} contentContainerStyle={styles.content}>
+      <ScrollView nativeID="main" style={styles.container} contentContainerStyle={styles.content}>
         <View style={styles.header}>
           <Text style={styles.eyebrow}>Guanacaste, Costa Rica</Text>
           <Text role="heading" aria-level={1} style={styles.h1}>{dest.h1}</Text>
