@@ -4,6 +4,7 @@ import { Link, useRouter } from 'expo-router';
 import { getToursByTown } from '../../../lib/tours';
 import { DESTINATIONS } from '../../../lib/seo-content';
 import { Seo } from '../../../components/Seo';
+import { SiteFooter } from '../../../components/SiteFooter';
 import { color, font, space, radius, shadow, layout } from '../../../lib/theme';
 
 export const metadata = {
@@ -85,6 +86,7 @@ export default function DestinationsIndex() {
             })}
           </View>
         </View>
+        <SiteFooter />
       </ScrollView>
     </>
   );

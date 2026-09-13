@@ -5,6 +5,8 @@ import { getToursByTown, Tour } from '../../../../lib/tours';
 import { DESTINATIONS, getDestinationBySlug, Destination } from '../../../../lib/seo-content';
 import { TourGrid } from '../../../../components/TourCard';
 import { Seo } from '../../../../components/Seo';
+import { SiteFooter } from '../../../../components/SiteFooter';
+import { color, font } from '../../../../lib/theme';
 
 function buildMeta(dest: Destination, url: string) {
   return {
@@ -80,6 +82,7 @@ export default function DestinationScreen() {
           </View>
           <Link href="/tours" style={styles.allLink}>See all Guanacaste tours →</Link>
         </View>
+        <SiteFooter />
       </ScrollView>
     </>
   );
@@ -90,11 +93,11 @@ export function generateStaticParams() {
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#FFFFFF' },
-  content: { flexGrow: 1, paddingBottom: 32 },
-  header: { padding: 20, borderBottomWidth: 1, borderBottomColor: '#E5E7EB' },
-  eyebrow: { color: '#1D7FA8', fontSize: 12, fontWeight: '700', letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 6 },
-  h1: { color: '#0B4155', fontSize: 30, fontWeight: '800', lineHeight: 36, marginBottom: 12 },
+  container: { flex: 1, backgroundColor: color.ground },
+  content: { flexGrow: 1, paddingBottom: 0 },
+  header: { padding: 20, paddingTop: 32, borderBottomWidth: 1, borderBottomColor: '#E5E7EB' },
+  eyebrow: { color: '#1D7FA8', fontFamily: font.body, fontSize: 12, fontWeight: '700', letterSpacing: 1.2, textTransform: 'uppercase', marginBottom: 6 },
+  h1: { color: color.ink, fontFamily: font.display, fontSize: 32, fontWeight: '600', letterSpacing: -0.4, lineHeight: 38, marginBottom: 12 },
   intro: { color: '#374151', fontSize: 15, lineHeight: 23, maxWidth: 680 },
   count: { color: '#6B7280', fontSize: 13, fontWeight: '600', marginTop: 12 },
   grid: { flex: 1 },

@@ -4,6 +4,7 @@ import { Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
 import { Seo } from '../../../components/Seo';
+import { SiteFooter } from '../../../components/SiteFooter';
 
 // ---------------------------------------------------------------------------
 // (tabs)/about/index.tsx — About page.
@@ -152,6 +153,7 @@ export default function AboutScreen() {
           </Text>
         </View>
       </ScrollView>
+      <SiteFooter />
     </ScrollView>
     </>
   );
