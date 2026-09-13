@@ -68,7 +68,7 @@ export default function DestinationsIndex() {
                   <TouchableOpacity
                     accessibilityRole="link"
                     accessibilityLabel={`${d.town} — ${tours.length} tours`}
-                    style={[styles.card, cardShadow]}
+                    style={StyleSheet.flatten([styles.card, cardShadow])}
                     activeOpacity={0.92}
                   >
                     <View style={styles.imageWrap}>

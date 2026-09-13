@@ -9,12 +9,13 @@ export const color = {
   primary: '#0B4155', // deep ocean teal
   primaryDeep: '#082F3B',
   primarySoft: '#123C4C',
-  sky: '#1D7FA8', // ocean blue (links, secondary)
+  sky: '#1B7699', // ocean blue (links, secondary) — AA on warm ground
   skyLight: '#E6F4FE',
 
-  // Action / warmth (Guanacaste sunset)
-  coral: '#E0533D', // primary CTA
-  coralDeep: '#C24329',
+  // Action / warmth (Guanacaste sunset). Coral darkened to pass 4.5:1 with
+  // white for button labels and as text on white/ground.
+  coral: '#C6432F', // primary CTA
+  coralDeep: '#A83828',
   sun: '#E8A849', // gold accent, ratings
   sunLight: '#FDF3E0',
   sand: '#F5E6CC',

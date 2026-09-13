@@ -121,7 +121,7 @@ export default function HomeScreen() {
             <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.cardScrollContent}>
               {TOURS.slice(0, 6).map((tour) => (
                 <Link key={tour.slug} href={`/tours/${tour.slug}`} asChild>
-                  <TouchableOpacity style={[styles.tourPreview, cardShadow]} activeOpacity={0.9}>
+                  <TouchableOpacity style={StyleSheet.flatten([styles.tourPreview, cardShadow])} activeOpacity={0.9}>
                     <Image source={{ uri: tour.images[0]?.src }} style={styles.tourPreviewImage} resizeMode="cover" />
                     <View style={styles.tourPreviewBody}>
                       <Text style={styles.tourPreviewTitle} numberOfLines={2}>{tour.title}</Text>
@@ -179,7 +179,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: color.ground },
   containerContent: { flexGrow: 1, paddingBottom: space[10] },
-  page: { width: '100%', maxWidth: layout.maxWidth, marginHorizontal: 'auto' as unknown as number },
+  page: { width: '100%', maxWidth: layout.maxWidth, alignSelf: 'center' },
 
   // Hero
   hero: { backgroundColor: color.primary, justifyContent: 'flex-end', overflow: 'hidden' },
