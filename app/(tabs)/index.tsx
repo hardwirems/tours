@@ -1,13 +1,15 @@
 import { SITE_URL } from '../../lib/constants';
-import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform } from 'react-native';
+import {
+  View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform, useWindowDimensions,
+} from 'react-native';
 import { TOURS, CATEGORIES } from '../../lib/tours';
 import { Link } from 'expo-router';
 import { Seo } from '../../components/Seo';
 import { DESTINATIONS } from '../../lib/seo-content';
+import { color, font, type, space, radius, shadow, layout } from '../../lib/theme';
 
 // ---------------------------------------------------------------------------
-// (tabs)/index.tsx — Home tab.
-// On web: SSR home page. Exports metadata for Google/GPTBot/ClaudeBot.
+// (tabs)/index.tsx — Home. Static-rendered; SEO metadata/jsonLd below.
 // ---------------------------------------------------------------------------
 
 export const metadata = {
@@ -23,12 +25,7 @@ export const metadata = {
     url: `${SITE_URL}/`,
     siteName: 'Guanacaste Tours',
     images: [
-      {
-        url: '/images/og-home.jpg',
-        width: 1200,
-        height: 630,
-        alt: 'Sunset over Tamarindo beach with catamaran — Guanacaste Tours',
-      },
+      { url: '/images/og-home.jpg', width: 1200, height: 630, alt: 'Sunset over Tamarindo beach with catamaran — Guanacaste Tours' },
     ],
   },
   twitter: {
@@ -38,13 +35,8 @@ export const metadata = {
       'The most complete guide to tours and excursions in Guanacaste, Costa Rica. Real prices, real reviews, book direct.',
     images: ['/images/og-home.jpg'],
   },
-  icons: {
-    icon: '/favicon.png',
-    apple: '/icon.png',
-  },
-  alternates: {
-    canonical: `${SITE_URL}/`,
-  },
+  icons: { icon: '/favicon.png', apple: '/icon.png' },
+  alternates: { canonical: `${SITE_URL}/` },
 };
 
 export const jsonLd = {
@@ -59,139 +51,186 @@ export const jsonLd = {
     target: `${SITE_URL}/tours?q={search_term_string}`,
     'query-input': 'required name=search_term_string',
   },
-}
+};
+
+const cardShadow = Platform.select({ web: { boxShadow: shadow.card } as object, default: {} });
 
 export default function HomeScreen() {
+  const { width } = useWindowDimensions();
+  const narrow = width < 720;
+  const heroH = narrow ? 500 : 600;
+  const h1Size = narrow ? 34 : 50;
+  const h1Line = narrow ? 39 : 55;
+
   return (
     <>
-    <Seo metadata={metadata} jsonLd={jsonLd} />
-    <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
-      {/* Hero */}
-      <View style={styles.hero}>
-        <Image
-          source={require('../../assets/hero.jpeg')}
-          style={styles.heroImage}
-          resizeMode="cover"
-        />
-        <View style={styles.heroOverlay}>
-          <Text style={styles.heroEyebrow}>Guanacaste, Costa Rica</Text>
-          <Text style={styles.heroTitle}>Your complete guide to tours & excursions</Text>
-          <Text style={styles.heroSubtitle}>
-            Zip-lining, catamaran sunsets, ATV, whale watching, volcano hikes, sport fishing — all in one place.
-          </Text>
-        </View>
-      </View>
-
-      {/* Search bar */}
-      <View style={styles.searchSection}>
-        <Text style={styles.sectionTitle}>What kind of tour?</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chipsContent}>
-          {Object.entries(CATEGORIES).map(([key, label]) => (
-              <Link href={`/categories/${key}`} asChild>
-                <TouchableOpacity key={key} style={styles.chip}>
-              <Text style={styles.chipText}>{label}</Text>
-            </TouchableOpacity>
+      <Seo metadata={metadata} jsonLd={jsonLd} />
+      <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
+        {/* Hero */}
+        <View style={[styles.hero, { minHeight: heroH }]} nativeID="main">
+          <Image source={require('../../assets/hero.jpeg')} style={styles.heroImage} resizeMode="cover" />
+          <View style={styles.heroScrim} />
+          <View style={[styles.heroInner, { maxWidth: layout.maxWidth }]}>
+            <Text style={styles.heroEyebrow}>Guanacaste · Costa Rica</Text>
+            <Text
+              accessibilityRole="header"
+              aria-level={1}
+              style={[styles.heroTitle, { fontSize: h1Size, lineHeight: h1Line }]}
+            >
+              Find your perfect Guanacaste adventure
+            </Text>
+            <Text style={styles.heroSubtitle}>
+              Zip-lines, catamaran sunsets, volcano hikes, wildlife and more — compare real tours and
+              book with trusted operators, all in one place.
+            </Text>
+            <View style={styles.heroActions}>
+              <Link href="/tours" asChild>
+                <TouchableOpacity accessibilityRole="button" style={styles.ctaPrimary} activeOpacity={0.9}>
+                  <Text style={styles.ctaPrimaryText}>Browse all tours</Text>
+                </TouchableOpacity>
               </Link>
-          ))}
-        </ScrollView>
-      </View>
-
-      {/* Featured tours */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Top-rated tours in Guanacaste</Text>
-        <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.cardScrollContent} style={styles.cardScroll}>
-          {TOURS.slice(0, 6).map((tour) => (
-            <Link href={`/tours/${tour.slug}`} asChild>
-              <TouchableOpacity key={tour.slug} style={styles.tourPreview}>
-              <Image
-                source={{ uri: tour.images[0]?.src }}
-                style={styles.tourPreviewImage}
-                resizeMode="cover"
-              />
-              <Text style={styles.tourPreviewTitle} numberOfLines={2}>{tour.title}</Text>
-              <Text style={styles.tourPreviewMeta}>From ${tour.priceFrom} · {tour.duration}</Text>
-            </TouchableOpacity>
-            </Link>
-          ))}
-        </ScrollView>
-      </View>
-
-      {/* Categories */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Browse by category</Text>
-        <View style={styles.categoryGrid}>
-          {Object.entries(CATEGORIES).map(([key, label]) => (
-            <Link href={`/categories/${key}`} asChild>
-              <TouchableOpacity key={key} style={styles.categoryCard}>
-              <Text style={styles.categoryLabel}>{label}</Text>
-            </TouchableOpacity>
-            </Link>
-          ))}
-        </View>
-      </View>
-
-      {/* Destinations */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Popular destinations</Text>
-        <View style={styles.categoryGrid}>
-          {DESTINATIONS.map((d) => (
-            <Link key={d.slug} href={`/destinations/${d.slug}`} asChild>
-              <TouchableOpacity style={styles.categoryCard}>
-                <Text style={styles.categoryLabel}>{d.town}</Text>
-              </TouchableOpacity>
-            </Link>
-          ))}
-        </View>
-      </View>
-
-      {/* Trust / affiliate partners */}
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Book through trusted partners</Text>
-        <View style={styles.partnersRow}>
-          {['GetYourGuide', 'Viator', 'Booking.com', 'Discover Cars'].map((label) => (
-            <View key={label} style={styles.partnerBadge}>
-              <Text style={styles.partnerLabel}>{label}</Text>
+              <Link href="/categories/adventure" asChild>
+                <TouchableOpacity accessibilityRole="button" style={styles.ctaSecondary} activeOpacity={0.9}>
+                  <Text style={styles.ctaSecondaryText}>Explore by activity</Text>
+                </TouchableOpacity>
+              </Link>
             </View>
-          ))}
+          </View>
         </View>
-        <Text style={styles.disclosure}>
-          We may earn a commission when you book through our links — at no extra cost to you.
-        </Text>
-      </View>
-    </ScrollView>
+
+        <View style={styles.page}>
+          {/* Categories */}
+          <View style={styles.section}>
+            <Text accessibilityRole="header" aria-level={2} style={styles.sectionTitle}>What kind of trip?</Text>
+            <View style={styles.categoryGrid}>
+              {Object.entries(CATEGORIES).map(([key, label]) => (
+                <Link key={key} href={`/categories/${key}`} asChild>
+                  <TouchableOpacity style={styles.categoryCard} activeOpacity={0.85}>
+                    <Text style={styles.categoryLabel}>{label}</Text>
+                    <Text style={styles.categoryArrow}>→</Text>
+                  </TouchableOpacity>
+                </Link>
+              ))}
+            </View>
+          </View>
+
+          {/* Featured tours */}
+          <View style={styles.section}>
+            <Text accessibilityRole="header" aria-level={2} style={styles.sectionTitle}>Top-rated tours in Guanacaste</Text>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.cardScrollContent}>
+              {TOURS.slice(0, 6).map((tour) => (
+                <Link key={tour.slug} href={`/tours/${tour.slug}`} asChild>
+                  <TouchableOpacity style={[styles.tourPreview, cardShadow]} activeOpacity={0.9}>
+                    <Image source={{ uri: tour.images[0]?.src }} style={styles.tourPreviewImage} resizeMode="cover" />
+                    <View style={styles.tourPreviewBody}>
+                      <Text style={styles.tourPreviewTitle} numberOfLines={2}>{tour.title}</Text>
+                      <Text style={styles.tourPreviewMeta}>
+                        <Text style={styles.tourPreviewPrice}>From ${tour.priceFrom}</Text> · {tour.duration}
+                      </Text>
+                    </View>
+                  </TouchableOpacity>
+                </Link>
+              ))}
+            </ScrollView>
+          </View>
+
+          {/* Destinations */}
+          <View style={styles.section}>
+            <Text accessibilityRole="header" aria-level={2} style={styles.sectionTitle}>Popular destinations</Text>
+            <View style={styles.categoryGrid}>
+              {DESTINATIONS.map((d) => (
+                <Link key={d.slug} href={`/destinations/${d.slug}`} asChild>
+                  <TouchableOpacity style={styles.categoryCard} activeOpacity={0.85}>
+                    <Text style={styles.categoryLabel}>{d.town}</Text>
+                    <Text style={styles.categoryArrow}>→</Text>
+                  </TouchableOpacity>
+                </Link>
+              ))}
+            </View>
+          </View>
+
+          {/* Trust */}
+          <View style={styles.trust}>
+            <Text accessibilityRole="header" aria-level={2} style={styles.trustTitle}>Book with confidence</Text>
+            <Text style={styles.trustBody}>
+              Every tour links to a trusted booking partner — GetYourGuide, Viator and others — with their
+              own secure checkout and cancellation terms.
+            </Text>
+            <View style={styles.partnersRow}>
+              {['GetYourGuide', 'Viator', 'Booking.com', 'Discover Cars'].map((label) => (
+                <View key={label} style={styles.partnerBadge}>
+                  <Text style={styles.partnerLabel}>{label}</Text>
+                </View>
+              ))}
+            </View>
+            <Text style={styles.disclosure}>
+              We may earn a commission when you book through our links — at no extra cost to you.
+            </Text>
+          </View>
+        </View>
+      </ScrollView>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  containerContent: { flexGrow: 1, paddingBottom: 32 },
-  container: { flex: 1, backgroundColor: '#FFFFFF' },
-  hero: { height: 520, backgroundColor: '#0B4155', justifyContent: 'flex-end' },
+  container: { flex: 1, backgroundColor: color.ground },
+  containerContent: { flexGrow: 1, paddingBottom: space[10] },
+  page: { width: '100%', maxWidth: layout.maxWidth, marginHorizontal: 'auto' as unknown as number },
+
+  // Hero
+  hero: { backgroundColor: color.primary, justifyContent: 'flex-end', overflow: 'hidden' },
   heroImage: { width: '100%', height: '100%', position: 'absolute', top: 0, left: 0 },
-  heroOverlay: {
-    position: 'absolute', bottom: 0, left: 0, right: 0,
-    padding: 20, backgroundColor: 'rgba(11, 65, 85, 0.65)',
+  heroScrim: {
+    position: 'absolute', bottom: 0, left: 0, right: 0, top: 0,
+    ...Platform.select({
+      web: { backgroundImage: 'linear-gradient(180deg, rgba(8,47,59,0.15) 0%, rgba(8,47,59,0.35) 45%, rgba(8,47,59,0.86) 100%)' } as object,
+      default: { backgroundColor: 'rgba(8,47,59,0.55)' },
+    }),
   },
-  heroEyebrow: { color: '#FDF3E0', fontSize: 13, fontWeight: '600', letterSpacing: 1.5, textTransform: 'uppercase', marginBottom: 6 },
-  heroTitle: { color: '#FFFFFF', fontSize: 46, fontWeight: '800', lineHeight: 52, marginBottom: 8 },
-  heroSubtitle: { color: '#FDF3E0', fontSize: 18, lineHeight: 27, opacity: 0.95, maxWidth: 620, marginBottom: 16 },
-  searchSection: { padding: 20, backgroundColor: '#FFFFFF', borderBottomWidth: 1, borderBottomColor: '#E5E7EB' },
-  section: { padding: 20, backgroundColor: '#FFFFFF', borderBottomWidth: 1, borderBottomColor: '#E5E7EB' },
-  sectionTitle: { color: '#0B4155', fontSize: 18, fontWeight: '800', marginBottom: 14 },
-  chipsContent: { paddingVertical: 4 },
-  chip: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#E6F4FE', paddingHorizontal: 14, paddingVertical: 8, borderRadius: 999, marginRight: 8, gap: 6 },
-  chipText: { color: '#0B4155', fontSize: 13, fontWeight: '600' },
-  cardScroll: { maxHeight: 220 },
-  cardScrollContent: { paddingRight: 12 },
-  tourPreview: { width: 300, backgroundColor: '#FFFFFF', borderRadius: 12, overflow: 'hidden', marginRight: 12, ...Platform.select({ web: { WebkitBoxShadow: '0 4px 12px rgba(11,65,85,0.08)', boxShadow: '0 4px 12px rgba(11,65,85,0.08)' } }) },
-  tourPreviewImage: { width: '100%', height: 180 },
-  tourPreviewTitle: { color: '#0B4155', fontSize: 15, fontWeight: '700', lineHeight: 21, marginBottom: 8, paddingHorizontal: 14 },
-  tourPreviewMeta: { color: '#6B7280', fontSize: 12, fontWeight: '500', paddingHorizontal: 14, paddingBottom: 14, paddingTop: 2 },
-  categoryGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: 10 },
-  categoryCard: { width: '31%', backgroundColor: '#F9FAFB', borderRadius: 12, padding: 14, alignItems: 'center', borderWidth: 1, borderColor: '#E5E7EB' },
-  categoryLabel: { color: '#0B4155', fontSize: 13, fontWeight: '600', marginTop: 6, textAlign: 'center' },
-  partnersRow: { flexDirection: 'row', gap: 8, flexWrap: 'wrap' },
-  partnerBadge: { backgroundColor: '#E6F4FE', paddingHorizontal: 10, paddingVertical: 4, borderRadius: 999, borderWidth: 1, borderColor: '#1D7FA8' },
-  partnerLabel: { color: '#1D7FA8', fontSize: 11, fontWeight: '700' },
-  disclosure: { color: '#6B7280', fontSize: 12, marginTop: 10, lineHeight: 17 },
+  heroInner: { width: '100%', alignSelf: 'center', paddingHorizontal: layout.gutter, paddingBottom: space[10], paddingTop: space[16] },
+  heroEyebrow: {
+    color: color.sunLight, fontFamily: font.body, fontSize: type.eyebrow.size, fontWeight: '700',
+    letterSpacing: 1.6, textTransform: 'uppercase', marginBottom: space[3],
+  },
+  heroTitle: { color: color.onDark, fontFamily: font.display, fontWeight: '600', letterSpacing: -0.5, maxWidth: 760, marginBottom: space[4] },
+  heroSubtitle: { color: color.onDarkMuted, fontFamily: font.body, fontSize: 17, lineHeight: 26, maxWidth: 560, marginBottom: space[6] },
+  heroActions: { flexDirection: 'row', flexWrap: 'wrap', gap: space[3], alignItems: 'center' },
+  ctaPrimary: { backgroundColor: color.coral, paddingHorizontal: space[6], paddingVertical: 14, borderRadius: radius.pill, minHeight: 48, justifyContent: 'center' },
+  ctaPrimaryText: { color: '#fff', fontFamily: font.body, fontSize: 15, fontWeight: '700', letterSpacing: 0.2 },
+  ctaSecondary: {
+    backgroundColor: 'rgba(255,255,255,0.12)', borderWidth: 1, borderColor: 'rgba(255,255,255,0.7)',
+    paddingHorizontal: space[6], paddingVertical: 14, borderRadius: radius.pill, minHeight: 48, justifyContent: 'center',
+  },
+  ctaSecondaryText: { color: '#fff', fontFamily: font.body, fontSize: 15, fontWeight: '700', letterSpacing: 0.2 },
+
+  // Sections
+  section: { paddingHorizontal: layout.gutter, paddingTop: space[8] },
+  sectionTitle: { color: color.ink, fontFamily: font.display, fontSize: 26, fontWeight: '600', letterSpacing: -0.3, marginBottom: space[5] },
+
+  categoryGrid: { flexDirection: 'row', flexWrap: 'wrap', gap: space[3] },
+  categoryCard: {
+    minWidth: 150, flexGrow: 1, flexBasis: 150, backgroundColor: color.surface, borderRadius: radius.md,
+    paddingVertical: space[4], paddingHorizontal: space[4], borderWidth: 1, borderColor: color.border,
+    flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between',
+  },
+  categoryLabel: { color: color.primary, fontFamily: font.body, fontSize: 15, fontWeight: '600', flexShrink: 1, paddingRight: space[2] },
+  categoryArrow: { color: color.coral, fontFamily: font.body, fontSize: 16, fontWeight: '700' },
+
+  cardScrollContent: { paddingRight: space[4], gap: space[4] },
+  tourPreview: { width: 288, backgroundColor: color.surface, borderRadius: radius.lg, overflow: 'hidden', borderWidth: 1, borderColor: color.border },
+  tourPreviewImage: { width: '100%', height: 176 },
+  tourPreviewBody: { padding: space[4] },
+  tourPreviewTitle: { color: color.ink, fontFamily: font.body, fontSize: 15.5, fontWeight: '700', lineHeight: 21, marginBottom: space[2] },
+  tourPreviewMeta: { color: color.muted, fontFamily: font.body, fontSize: 13, fontWeight: '500' },
+  tourPreviewPrice: { color: color.primary, fontWeight: '700' },
+
+  // Trust
+  trust: { marginTop: space[10], marginHorizontal: layout.gutter, backgroundColor: color.surface, borderRadius: radius.xl, borderWidth: 1, borderColor: color.border, padding: space[6] },
+  trustTitle: { color: color.ink, fontFamily: font.display, fontSize: 22, fontWeight: '600', marginBottom: space[3] },
+  trustBody: { color: color.body, fontFamily: font.body, fontSize: 15, lineHeight: 23, maxWidth: 620, marginBottom: space[5] },
+  partnersRow: { flexDirection: 'row', gap: space[2], flexWrap: 'wrap' },
+  partnerBadge: { backgroundColor: color.skyLight, paddingHorizontal: 12, paddingVertical: 6, borderRadius: radius.pill },
+  partnerLabel: { color: color.sky, fontFamily: font.body, fontSize: 12, fontWeight: '700' },
+  disclosure: { color: color.muted, fontFamily: font.body, fontSize: 12.5, marginTop: space[4], lineHeight: 18 },
 });

@@ -21,6 +21,14 @@ export default function Root({ children }: PropsWithChildren) {
           <meta name="google-site-verification" content={GSC_VERIFICATION} />
         ) : null}
 
+        {/* Fonts — Fraunces (display) + DM Sans (body). Preconnect + swap, only used weights. */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
+        />
+
         <ScrollViewStyleReset />
 
         {/* Google Analytics 4 (gtag.js) */}
@@ -49,7 +57,10 @@ export default function Root({ children }: PropsWithChildren) {
           />
         ) : null}
       </head>
-      <body>{children}</body>
+      <body>
+        <a href="#main" className="skip-link">Skip to content</a>
+        {children}
+      </body>
     </html>
   );
 }
