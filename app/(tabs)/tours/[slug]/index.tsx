@@ -32,26 +32,69 @@ export const jsonLd = ({ params }: { params: { slug: string } }) => {
   const tour = getTourBySlug(params.slug);
   if (!tour) return null;
 
-  return {
+  const url = `${SITE_URL}/tours/${tour.slug}/`;
+
+  // Product node. Offer must live under `offers` (not `price`) or Google ignores
+  // the price. `durationMinutes` is expressed as ISO-8601 on the Offer-less
+  // Product only when meaningful; fabricated guide/organizer nodes removed.
+  const product: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': tour.schemaType ?? 'Product',
     name: tour.title,
     description: tour.description,
-    url: `${SITE_URL}/tours/${tour.slug}/`,
+    url,
     image: tour.ogImage ?? tour.images[0]?.src,
-    startDate: '2026-01-01T00:00',
-    price: { '@type': 'Offer', priceCurrency: 'USD', price: tour.priceFrom, priceValidUntil: '2026-12-31', availability: 'https://schema.org/InStock' },
-    duration: tour.durationMinutes ? `${tour.durationMinutes} minutes` : tour.duration,
-    tourGuide: { '@type': 'Person', name: 'Guanacaste Tours Guide', url: `${SITE_URL}/about` },
-    organizer: { '@type': 'Organization', name: 'Guanacaste Tours', url: `${SITE_URL}` },
-    aggregateRating: tour.rating != null && tour.reviewCount != null
-      ? { '@type': 'AggregateRating', ratingValue: tour.rating, reviewCount: tour.reviewCount }
-      : undefined,
-    FAQPage: {
-      '@type': 'FAQPage',
-      mainEntity: tour.faq.map((item) => ({ '@type': 'Question', name: item.question, acceptedAnswer: { '@type': 'Answer', text: item.answer } })),
+    offers: {
+      '@type': 'Offer',
+      priceCurrency: 'USD',
+      price: tour.priceFrom,
+      priceValidUntil: '2026-12-31',
+      availability: 'https://schema.org/InStock',
+      url,
     },
   };
+
+  // NOTE (policy): this aggregateRating reflects the OPERATOR's (Viator) ratings,
+  // not reviews collected by this site. Google's review-snippet policy expects
+  // first-party ratings; emitting operator ratings as our AggregateRating risks a
+  // manual action. Kept pending a product decision — to be fully policy-safe,
+  // drop this block and keep the rating on-page with clear "rated on Viator"
+  // attribution instead.
+  if (tour.rating != null && tour.reviewCount != null) {
+    product.aggregateRating = {
+      '@type': 'AggregateRating',
+      ratingValue: tour.rating,
+      reviewCount: tour.reviewCount,
+    };
+  }
+
+  // Breadcrumb matches the on-page trail (Home / Tours / <title>).
+  const breadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Tours', item: `${SITE_URL}/tours/` },
+      { '@type': 'ListItem', position: 3, name: tour.title, item: url },
+    ],
+  };
+
+  // FAQPage must be its own node, not a property of Product, to earn the FAQ
+  // rich result.
+  const faq =
+    tour.faq.length > 0
+      ? {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: tour.faq.map((item) => ({
+            '@type': 'Question',
+            name: item.question,
+            acceptedAnswer: { '@type': 'Answer', text: item.answer },
+          })),
+        }
+      : null;
+
+  return faq ? [product, breadcrumb, faq] : [product, breadcrumb];
 };
 
 export default function TourDetailScreen() {
