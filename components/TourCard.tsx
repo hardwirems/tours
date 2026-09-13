@@ -3,6 +3,9 @@ import { Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { Tour, CATEGORY_LABELS, AFFILIATE_LABELS, AffiliateProgram } from '../lib/tours';
 import { AffiliateDisclosure } from './AffiliateDisclosure';
+import { color, font, space, radius, shadow } from '../lib/theme';
+
+const webCardShadow = Platform.select({ web: { boxShadow: shadow.card } as object, default: {} });
 
 // ---------------------------------------------------------------------------
 // TourCard — the building block for tour listings.
@@ -17,101 +20,44 @@ interface TourCardProps {
 }
 
 export function TourCard({ tour, onPress, featured = false }: TourCardProps) {
+  const location = tour.towns?.[0] ?? 'Guanacaste';
   return (
     <TouchableOpacity
-      activeOpacity={0.85}
+      activeOpacity={0.92}
       onPress={onPress}
-      style={[styles.card, featured && styles.cardFeatured]}
+      accessibilityRole="link"
+      accessibilityLabel={`${tour.title} in ${location}, from $${tour.priceFrom}`}
+      style={[styles.card, webCardShadow, featured && styles.cardFeatured]}
     >
-      {/* Image */}
       <View style={styles.imageWrapper}>
-        <Image
-          source={{ uri: tour.images[0]?.src }}
-          style={styles.image}
-          resizeMode="cover"
-        />
-        {/* Category badge */}
+        <Image source={{ uri: tour.images[0]?.src }} style={styles.image} resizeMode="cover" />
         <View style={styles.categoryBadge}>
           <Text style={styles.categoryBadgeText}>{CATEGORY_LABELS[tour.category]}</Text>
         </View>
-        {/* Rating badge */}
         {tour.rating != null && (
           <View style={styles.ratingBadge}>
-            <Ionicons name="star" size={14} color="#E8A849" />
+            <Ionicons name="star" size={12} color={color.sun} />
             <Text style={styles.ratingText}>{tour.rating}</Text>
-          </View>
-        )}
-        {/* "Booked recently" badge */}
-        {tour.bookedRecent && (
-          <View style={styles.recentBadge}>
-            <Ionicons name="checkmark-circle" size={10} color="#10B981" />
-            <Text style={styles.recentText}>{tour.bookedRecent}</Text>
           </View>
         )}
       </View>
 
-      {/* Body */}
       <View style={styles.body}>
-        <Text style={[styles.title, featured && styles.titleFeatured]} numberOfLines={2}>
-          {tour.title}
+        <Text style={styles.location} numberOfLines={1}>
+          <Ionicons name="location-outline" size={12} color={color.sky} /> {location}
         </Text>
-        <Text style={styles.description} numberOfLines={2}>
-          {tour.description}
-        </Text>
+        <Text style={styles.title} numberOfLines={2}>{tour.title}</Text>
 
-        {/* Quick facts strip */}
-        <View style={styles.factsRow}>
-          <View style={styles.fact}>
-            <Ionicons name="time-outline" size={13} color="#6B7280" />
-            <Text style={styles.factText}>{tour.duration}</Text>
-          </View>
-          <View style={styles.fact}>
-            <Text style={styles.factLabel}>From</Text>
-            <Text style={styles.factPrice}>${tour.priceFrom}</Text>
-          </View>
-          {tour.difficulty && (
-            <View style={styles.fact}>
-              <Ionicons
-                name={
-                  tour.difficulty === 'easy'
-                    ? 'checkmark-circle'
-                    : tour.difficulty === 'moderate'
-                    ? 'checkmark-circle'
-                    : 'flame'
-                }
-                size={13}
-                color={
-                  tour.difficulty === 'easy'
-                    ? '#10B981'
-                    : tour.difficulty === 'moderate'
-                    ? '#E8A849'
-                    : '#C0392B'
-                }
-              />
-              <Text style={styles.factText}>
-                {tour.difficulty.charAt(0).toUpperCase() + tour.difficulty.slice(1)}
-              </Text>
-            </View>
-          )}
+        <View style={styles.metaRow}>
+          <Ionicons name="time-outline" size={14} color={color.muted} />
+          <Text style={styles.metaText}>{tour.duration}</Text>
         </View>
 
-        {/* Booking CTA */}
-        <TouchableOpacity
-          style={styles.cta}
-          onPress={() => {
-            if (typeof window !== 'undefined' && window.location) {
-              window.location.href = `/go/${tour.primaryAffiliate ?? 'getyourguide'}/${tour.slug}`;
-            } else {
-              onPress();
-            }
-          }}
-        >
-          <Text style={styles.ctaText}>{tour.affiliateLabel}</Text>
-          <Ionicons name="arrow-forward" size={15} color="#FFFFFF" />
-        </TouchableOpacity>
-
-        {/* Mini disclosure */}
-        <AffiliateDisclosure program={tour.primaryAffiliate as AffiliateProgram | undefined} mini />
+        <View style={styles.priceRow}>
+          <Text style={styles.priceFrom}>from </Text>
+          <Text style={styles.priceValue}>${tour.priceFrom}</Text>
+          <Text style={styles.viewLink}>View tour →</Text>
+        </View>
       </View>
     </TouchableOpacity>
   );
@@ -375,163 +321,45 @@ export function TourDetail({ tour, onBook, onBack, onOpenBookingLink }: TourDeta
 
 const styles = StyleSheet.create({
   card: {
-    flexGrow: 1,
-    flexBasis: 320,
-    maxWidth: 420,
-    backgroundColor: '#FFFFFF',
-    borderRadius: 12,
-    overflow: 'hidden',
-    ...Platform.select({
-      web: {
-        WebkitBoxShadow: '0 4px 12px rgba(11, 65, 85, 0.08)',
-        boxShadow: '0 4px 12px rgba(11, 65, 85, 0.08)',
-      },
-    }),
+    flexGrow: 1, flexBasis: 300, maxWidth: 460,
+    backgroundColor: color.surface, borderRadius: radius.lg, overflow: 'hidden',
+    borderWidth: 1, borderColor: color.border,
   },
-  cardFeatured: {
-    borderWidth: 2,
-    borderColor: '#E8A849',
-  },
-  imageWrapper: {
-    height: 148,
-    backgroundColor: '#E5E7EB',
-    position: 'relative',
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-  },
+  cardFeatured: { borderColor: color.sun, borderWidth: 2 },
+  imageWrapper: { height: 190, backgroundColor: color.border, position: 'relative' },
+  image: { width: '100%', height: '100%' },
   categoryBadge: {
-    position: 'absolute',
-    top: 8,
-    left: 8,
-    backgroundColor: 'rgba(11, 65, 85, 0.85)',
-    paddingHorizontal: 7,
-    paddingVertical: 2,
-    borderRadius: 6,
+    position: 'absolute', top: 10, left: 10,
+    backgroundColor: 'rgba(8,47,59,0.82)', paddingHorizontal: 9, paddingVertical: 4, borderRadius: radius.pill,
   },
   categoryBadgeText: {
-    color: '#FFFFFF',
-    fontSize: 9,
-    fontWeight: '700',
-    textTransform: 'uppercase',
-    letterSpacing: 0.4,
+    color: '#fff', fontFamily: font.body, fontSize: 10, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5,
   },
   ratingBadge: {
-    position: 'absolute',
-    top: 8,
-    right: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.92)',
-    paddingHorizontal: 5,
-    paddingVertical: 2,
-    borderRadius: 999,
-    gap: 2,
+    position: 'absolute', top: 10, right: 10, flexDirection: 'row', alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.95)', paddingHorizontal: 8, paddingVertical: 3, borderRadius: radius.pill, gap: 3,
   },
-  ratingText: {
-    color: '#0B4155',
-    fontSize: 10,
-    fontWeight: '700',
-  },
-  recentBadge: {
-    position: 'absolute',
-    bottom: 8,
-    left: 8,
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: 'rgba(255, 255, 255, 0.9)',
-    paddingHorizontal: 5,
-    paddingVertical: 2,
-    borderRadius: 999,
-    gap: 2,
-  },
-  recentText: {
-    color: '#10B981',
-    fontSize: 9,
-    fontWeight: '600',
-  },
-  body: {
-    padding: 12,
-    flex: 1,
-    justifyContent: 'space-between',
-  },
+  ratingText: { color: color.ink, fontFamily: font.body, fontSize: 12, fontWeight: '700' },
+  body: { padding: space[4] },
+  location: { color: color.sky, fontFamily: font.body, fontSize: 12.5, fontWeight: '600', marginBottom: space[2] },
   title: {
-    color: '#0B4155',
-    fontSize: 14,
-    fontWeight: '700',
-    lineHeight: 19,
-    minHeight: 38,
-    marginBottom: 5,
+    color: color.ink, fontFamily: font.body, fontSize: 16, fontWeight: '700', lineHeight: 22,
+    marginBottom: space[3], minHeight: 44,
   },
-  titleFeatured: {
-    fontSize: 15,
+  metaRow: { flexDirection: 'row', alignItems: 'center', gap: 5, marginBottom: space[3] },
+  metaText: { color: color.muted, fontFamily: font.body, fontSize: 13, fontWeight: '500' },
+  priceRow: {
+    flexDirection: 'row', alignItems: 'baseline',
+    borderTopWidth: 1, borderTopColor: color.border, paddingTop: space[3],
   },
-  description: {
-    color: '#6B7280',
-    fontSize: 12,
-    lineHeight: 17,
-    minHeight: 34,
-    marginBottom: 9,
-  },
-  factsRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 12,
-    marginBottom: 10,
-  },
-  fact: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 3,
-  },
-  factText: {
-    color: '#6B7280',
-    fontSize: 11,
-    fontWeight: '500',
-  },
-  factLabel: {
-    color: '#6B7280',
-    fontSize: 10,
-    fontWeight: '500',
-  },
-  factPrice: {
-    color: '#0B4155',
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  cta: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    backgroundColor: '#0B4155',
-    paddingVertical: 9,
-    paddingHorizontal: 10,
-    borderRadius: 8,
-    alignSelf: 'flex-start',
-  },
-  ctaText: {
-    color: '#FFFFFF',
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  emptyContainer: {
-    alignItems: 'center',
-    paddingVertical: 40,
-    paddingHorizontal: 20,
-  },
-  emptyText: {
-    color: '#6B7280',
-    fontSize: 14,
-    marginTop: 10,
-  },
+  priceFrom: { color: color.muted, fontFamily: font.body, fontSize: 13 },
+  priceValue: { color: color.primary, fontFamily: font.body, fontSize: 18, fontWeight: '700' },
+  viewLink: { color: color.coral, fontFamily: font.body, fontSize: 13, fontWeight: '700', marginLeft: 'auto' },
+  emptyContainer: { alignItems: 'center', paddingVertical: space[10], paddingHorizontal: space[5] },
+  emptyText: { color: color.muted, fontFamily: font.body, fontSize: 15, marginTop: space[3] },
   grid: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'stretch',
-    gap: 16,
-    paddingHorizontal: 16,
-    paddingVertical: 4,
+    flexDirection: 'row', flexWrap: 'wrap', alignItems: 'stretch',
+    gap: space[4], paddingHorizontal: space[5], paddingVertical: space[2],
   },
   // --- Detail ---
   detailContainer: {
