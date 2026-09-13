@@ -12,7 +12,9 @@ import { color, font, space, radius, layout } from '../lib/theme';
 function Col({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <View style={styles.col}>
-      <Text accessibilityRole="header" aria-level={2} style={styles.colTitle}>{title}</Text>
+      {/* Footer group labels are styled text, not page headings, so they don't
+          clutter the document's heading outline. */}
+      <Text style={styles.colTitle}>{title}</Text>
       {children}
     </View>
   );

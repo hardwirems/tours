@@ -65,7 +65,7 @@ export default function HomeScreen() {
       <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
         {/* Hero */}
         <View style={styles.hero} dataSet={{ hero: 'wrap' }} nativeID="main">
-          <Image source={require('../../assets/hero.jpeg')} style={styles.heroImage} resizeMode="cover" />
+          <Image source={require('../../assets/hero.webp')} style={styles.heroImage} resizeMode="cover" />
           <View style={styles.heroScrim} />
           <View style={[styles.heroInner, { maxWidth: layout.maxWidth }]}>
             <Text style={styles.heroEyebrow}>Guanacaste · Costa Rica</Text>

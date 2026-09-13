@@ -24,6 +24,31 @@ export const metadata = {
   alternates: { canonical: `${SITE_URL}/tours/` },
 };
 
+// Breadcrumb + ItemList so the tours index can earn a carousel/list rich result.
+// The static render lists every tour (query filters are client-side only).
+export const jsonLd = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Tours', item: `${SITE_URL}/tours/` },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'All Guanacaste tours',
+    numberOfItems: TOURS.length,
+    itemListElement: TOURS.map((t, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      url: `${SITE_URL}/tours/${t.slug}/`,
+      name: t.title,
+    })),
+  },
+];
+
 export default function ToursScreen() {
   const router = useRouter();
   const params = useLocalSearchParams<{ category?: string; town?: string; q?: string }>();
@@ -53,7 +78,7 @@ export default function ToursScreen() {
 
   return (
     <>
-    <Seo metadata={metadata} />
+    <Seo metadata={metadata} jsonLd={jsonLd} />
     <ScrollView nativeID="main" style={styles.container} contentContainerStyle={styles.containerContent}>
       <View style={styles.header}>
         <Text style={styles.eyebrow}>Guanacaste · Costa Rica</Text>
@@ -67,6 +92,7 @@ export default function ToursScreen() {
         <Icon name="search" size={18} color="#6B7280" />
         <TextInput
           style={styles.searchInput}
+          accessibilityLabel="Search tours, towns, or activities"
           placeholder="Search tours, towns, activities..."
           value={query}
           onChangeText={(text) => router.push(`/tours?q=${encodeURIComponent(text)}`)}

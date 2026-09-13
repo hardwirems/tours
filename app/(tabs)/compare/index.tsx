@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { Icon } from '../../../components/Icon';
 import { TOURS, CATEGORY_LABELS, Tour } from '../../../lib/tours';
 import { TourCard } from '../../../components/TourCard';
+import { Seo } from '../../../components/Seo';
 
 // ---------------------------------------------------------------------------
 // (tabs)/compare/index.tsx — Compare tours side-by-side.
@@ -25,8 +26,10 @@ export const metadata = {
 export default function CompareScreen() {
   const router = useRouter();
 
-  const tourA = TOURS.find((t: Tour) => t.slug === 'zip-lining-guanacaste')!;
-  const tourB = TOURS.find((t: Tour) => t.slug === 'catamaran-sunset-tamarindo')!;
+  // Fall back to the first two tours so this (unlinked, noindexed) page never
+  // throws during static render if those sample slugs are absent.
+  const tourA = TOURS.find((t: Tour) => t.slug === 'zip-lining-guanacaste') ?? TOURS[0];
+  const tourB = TOURS.find((t: Tour) => t.slug === 'catamaran-sunset-tamarindo') ?? TOURS[1];
 
   const compareRows = [
     { label: 'Duration', a: tourA.duration, b: tourB.duration },
@@ -40,6 +43,8 @@ export default function CompareScreen() {
   ];
 
   return (
+    <>
+    <Seo metadata={{ title: 'Compare Tours — Guanacaste Experiences', robots: { index: false, follow: true } }} />
     <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Compare tours</Text>
@@ -100,6 +105,7 @@ export default function CompareScreen() {
         </View>
       </ScrollView>
     </ScrollView>
+    </>
   );
 }
 
