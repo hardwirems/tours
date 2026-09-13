@@ -29,7 +29,12 @@ export default function Root({ children }: PropsWithChildren) {
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
             <script
               dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`,
+                __html:
+                  `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}` +
+                  // Consent Mode: default denied; restore a prior "granted" choice immediately.
+                  `var _c='denied';try{if(localStorage.getItem('cookie_consent')==='granted')_c='granted';}catch(e){}` +
+                  `gtag('consent','default',{analytics_storage:_c,ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});` +
+                  `gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`,
               }}
             />
           </>

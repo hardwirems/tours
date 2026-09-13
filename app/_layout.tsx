@@ -1,6 +1,7 @@
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import './globals.css';
+import { ConsentBanner } from '../components/ConsentBanner';
 
 export default function RootLayout() {
   return (
@@ -13,6 +14,7 @@ export default function RootLayout() {
           animation: 'slide_from_right',
         }}
       />
+      <ConsentBanner />
     </>
   );
 }
