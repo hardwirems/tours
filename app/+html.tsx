@@ -1,6 +1,6 @@
 import { ScrollViewStyleReset } from 'expo-router/html';
 import { type PropsWithChildren } from 'react';
-import { CF_BEACON_TOKEN, GSC_VERIFICATION } from '../lib/constants';
+import { CF_BEACON_TOKEN, GSC_VERIFICATION, GA_MEASUREMENT_ID } from '../lib/constants';
 
 // ---------------------------------------------------------------------------
 // Root HTML document for the static web export. Per-page <title>/meta/canonical
@@ -22,6 +22,18 @@ export default function Root({ children }: PropsWithChildren) {
         ) : null}
 
         <ScrollViewStyleReset />
+
+        {/* Google Analytics 4 (gtag.js) */}
+        {GA_MEASUREMENT_ID ? (
+          <>
+            <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`,
+              }}
+            />
+          </>
+        ) : null}
 
         {/* Cloudflare Web Analytics — privacy-first, no cookies. */}
         {CF_BEACON_TOKEN ? (

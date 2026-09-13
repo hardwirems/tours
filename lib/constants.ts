@@ -46,6 +46,9 @@ export const SITE_URL =
  */
 export const CF_BEACON_TOKEN = process.env.EXPO_PUBLIC_CF_BEACON_TOKEN ?? '78806ea072104767b89a184ed06cf388';
 
+/** Google Analytics 4 Measurement ID (public — rendered in page HTML). Empty = gtag not loaded. */
+export const GA_MEASUREMENT_ID = process.env.EXPO_PUBLIC_GA_ID ?? 'G-XCDXJQ2412';
+
 /**
  * Google Search Console HTML-tag verification token (only if NOT using DNS
  * verification). Leave empty when verifying via DNS TXT at the registrar.
