@@ -1,23 +1,20 @@
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Platform, useWindowDimensions } from 'react-native';
 import { Image } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { Tour, CATEGORY_LABELS, AFFILIATE_LABELS, AffiliateProgram } from '../lib/tours';
+import { Link } from 'expo-router';
+import { Tour, CATEGORY_LABELS, AFFILIATE_LABELS, AFFILIATE_PROGRAMS, AffiliateProgram } from '../lib/tours';
 import { AffiliateDisclosure } from './AffiliateDisclosure';
-import { color, font, space, radius, shadow } from '../lib/theme';
+import { SiteFooter } from './SiteFooter';
+import { color, font, space, radius, shadow, layout } from '../lib/theme';
 
 const webCardShadow = Platform.select({ web: { boxShadow: shadow.card } as object, default: {} });
+const cap = (s?: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
 
 // ---------------------------------------------------------------------------
-// TourCard — the building block for tour listings.
-// Image, name, category, price from, duration, difficulty, affiliate CTA.
-// Clickable → pushes to tour detail.
+// TourCard — listing card (home, /tours, /categories, /destinations).
 // ---------------------------------------------------------------------------
 
-interface TourCardProps {
-  tour: Tour
-  onPress: () => void
-  featured?: boolean
-}
+interface TourCardProps { tour: Tour; onPress: () => void; featured?: boolean }
 
 export function TourCard({ tour, onPress, featured = false }: TourCardProps) {
   const location = tour.towns?.[0] ?? 'Guanacaste';
@@ -47,12 +44,10 @@ export function TourCard({ tour, onPress, featured = false }: TourCardProps) {
           <Ionicons name="location-outline" size={12} color={color.sky} /> {location}
         </Text>
         <Text style={styles.title} numberOfLines={2}>{tour.title}</Text>
-
         <View style={styles.metaRow}>
           <Ionicons name="time-outline" size={14} color={color.muted} />
           <Text style={styles.metaText}>{tour.duration}</Text>
         </View>
-
         <View style={styles.priceRow}>
           <Text style={styles.priceFrom}>from </Text>
           <Text style={styles.priceValue}>${tour.priceFrom}</Text>
@@ -64,255 +59,206 @@ export function TourCard({ tour, onPress, featured = false }: TourCardProps) {
 }
 
 // ---------------------------------------------------------------------------
-// TourGrid — responsive grid of tour cards for category / search pages.
+// TourGrid — responsive grid for listing / category / destination pages.
 // ---------------------------------------------------------------------------
 
-interface TourGridProps {
-  tours: Tour[]
-  onPress: (tour: Tour) => void
-  emptyMessage?: string
-}
+interface TourGridProps { tours: Tour[]; onPress: (tour: Tour) => void; emptyMessage?: string }
 
 export function TourGrid({ tours, onPress, emptyMessage = 'No tours found in this category.' }: TourGridProps) {
   if (tours.length === 0) {
     return (
       <View style={styles.emptyContainer}>
-        <Ionicons name="search-outline" size={44} color="#6B7280" />
+        <Ionicons name="search-outline" size={44} color={color.muted} />
         <Text style={styles.emptyText}>{emptyMessage}</Text>
       </View>
-    )
+    );
   }
-
   return (
     <View style={styles.grid}>
       {tours.map((tour) => (
         <TourCard key={tour.slug} tour={tour} onPress={() => onPress(tour)} />
       ))}
     </View>
-  )
+  );
 }
 
 // ---------------------------------------------------------------------------
-// TourDetail — full tour content page (used inside tour/[slug]/page.tsx).
-// Hero, facts, description, itinerary, FAQ, booking, disclosure.
+// TourDetail — full experience page (hero, content + booking sidebar).
 // ---------------------------------------------------------------------------
 
 interface TourDetailProps {
-  tour: Tour
-  onBook: () => void
-  onBack: () => void
-  onOpenBookingLink: () => void
+  tour: Tour; onBook: () => void; onBack: () => void; onOpenBookingLink: () => void;
 }
 
-export function TourDetail({ tour, onBook, onBack, onOpenBookingLink }: TourDetailProps) {
+function Fact({ icon, label, value }: { icon: any; label: string; value: string }) {
   return (
-    <View style={styles.detailContainer}>
-      {/* Back button */}
-      <TouchableOpacity style={styles.backButton} onPress={onBack}>
-        <Ionicons name="chevron-back" size={22} color="#0B4155" />
-        <Text style={styles.backText}>All tours</Text>
-      </TouchableOpacity>
+    <View style={styles.dFactRow}>
+      <View style={styles.dFactIcon}><Ionicons name={icon} size={16} color={color.primary} /></View>
+      <View style={{ flex: 1 }}>
+        <Text style={styles.dFactLabel}>{label}</Text>
+        <Text style={styles.dFactValue}>{value}</Text>
+      </View>
+    </View>
+  );
+}
 
-      {/* Hero image */}
-      <View style={styles.detailHero}>
-        <Image
-          source={{ uri: tour.images[0]?.src }}
-          style={styles.detailHeroImage}
-          resizeMode="cover"
-        />
-        <View style={styles.detailHeroOverlay}>
-          <Text style={styles.detailCategory}>{CATEGORY_LABELS[tour.category]}</Text>
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
+  return (
+    <View style={styles.dSection}>
+      <Text accessibilityRole="header" aria-level={2} style={styles.dSectionTitle}>{title}</Text>
+      {children}
+    </View>
+  );
+}
+
+export function TourDetail({ tour, onBook }: TourDetailProps) {
+  const { width } = useWindowDimensions();
+  const twoCol = width >= 980;
+  const location = tour.towns?.[0] ?? 'Guanacaste';
+  const included = tour.includes ?? tour.whatIncluded ?? [];
+  const partner =
+    (tour.primaryAffiliate && AFFILIATE_PROGRAMS[tour.primaryAffiliate]?.name) || 'our booking partner';
+  const goBook = () => {
+    if (typeof window !== 'undefined' && window.location) {
+      window.location.href = `/go/${tour.primaryAffiliate ?? 'getyourguide'}/${tour.slug}`;
+    } else { onBook(); }
+  };
+
+  const bookingCard = (
+    <View style={[styles.dBookCard, webCardShadow]}>
+      <View style={styles.dPriceRow}>
+        <Text style={styles.dPriceFrom}>from </Text>
+        <Text style={styles.dPriceValue}>${tour.priceFrom}</Text>
+        <Text style={styles.dPriceUnit}> {tour.priceNote || 'per person'}</Text>
+      </View>
+      <TouchableOpacity accessibilityRole="link" accessibilityLabel={`Check availability and book on ${partner}`} style={styles.dBookBtn} onPress={goBook} activeOpacity={0.9}>
+        <Text style={styles.dBookBtnText}>Check availability & book</Text>
+      </TouchableOpacity>
+      <Text style={styles.dBookNote}>You'll finish booking securely on {partner}.</Text>
+      <View style={styles.dFacts}>
+        <Fact icon="time-outline" label="Duration" value={tour.duration} />
+        <Fact icon="fitness-outline" label="Difficulty" value={cap(tour.difficulty)} />
+        {tour.minAge != null ? <Fact icon="person-outline" label="Minimum age" value={`${tour.minAge}+`} /> : null}
+        <Fact icon="language-outline" label="Languages" value={tour.languages?.join(' · ') ?? 'English'} />
+        <Fact icon="car-outline" label="Pickup" value={tour.pickup === 'hotel' ? 'Hotel pickup' : tour.pickup === 'meeting-point' ? 'Meeting point' : 'Hotel or meeting point'} />
+      </View>
+      <AffiliateDisclosure program={tour.primaryAffiliate as AffiliateProgram | undefined} mini />
+    </View>
+  );
+
+  return (
+    <ScrollView style={styles.dScroll} contentContainerStyle={styles.dScrollContent} nativeID="main">
+      {/* Hero */}
+      <View style={styles.dHero}>
+        <Image source={{ uri: tour.images[0]?.src }} style={styles.dHeroImg} resizeMode="cover" />
+        <View style={styles.dHeroScrim} />
+        <View style={[styles.dHeroInner, { maxWidth: layout.maxWidth }]}>
+          <Text style={styles.dCategory}>{CATEGORY_LABELS[tour.category]}</Text>
+          <Text accessibilityRole="header" aria-level={1} style={styles.dTitle}>{tour.title}</Text>
+          <View style={styles.dHeroMeta}>
+            <Text style={styles.dHeroMetaItem}><Ionicons name="location-outline" size={14} color="#fff" /> {location}</Text>
+            {tour.rating != null ? (
+              <Text style={styles.dHeroMetaItem}>
+                <Ionicons name="star" size={14} color={color.sun} /> {tour.rating}
+                {tour.reviewCount != null ? ` (${tour.reviewCount})` : ''}
+              </Text>
+            ) : null}
+            <Text style={styles.dHeroMetaItem}><Ionicons name="time-outline" size={14} color="#fff" /> {tour.duration}</Text>
+          </View>
         </View>
       </View>
 
-      {/* Content */}
-      <ScrollView
-        style={styles.detailScroll}
-        contentContainerStyle={styles.detailContent}
-        showsVerticalScrollIndicator={false}
-      >
-        {/* Title + rating */}
-        <View style={styles.detailHeader}>
-          <Text style={styles.detailTitle}>{tour.title}</Text>
-          {tour.rating != null && (
-            <View style={styles.detailRating}>
-              <Ionicons name="star" size={16} color="#E8A849" />
-              <Text style={styles.detailRatingText}>{tour.rating}</Text>
-              {tour.reviewCount != null && (
-                <Text style={styles.detailReviews}> ({tour.reviewCount} reviews)</Text>
-              )}
-            </View>
-          )}
-        </View>
+      {/* Breadcrumb */}
+      <View style={[styles.dCrumbWrap, { maxWidth: layout.maxWidth }]}>
+        <Link href="/" asChild><TouchableOpacity accessibilityRole="link"><Text style={styles.dCrumbLink}>Home</Text></TouchableOpacity></Link>
+        <Text style={styles.dCrumbSep}>/</Text>
+        <Link href="/tours" asChild><TouchableOpacity accessibilityRole="link"><Text style={styles.dCrumbLink}>Tours</Text></TouchableOpacity></Link>
+        <Text style={styles.dCrumbSep}>/</Text>
+        <Text style={styles.dCrumbCurrent} numberOfLines={1}>{tour.title}</Text>
+      </View>
 
-        {/* Price CTA */}
-        <View style={styles.detailPriceCta}>
-          <Text style={styles.detailPriceLabel}>From</Text>
-          <Text style={styles.detailPriceValue}>${tour.priceFrom}</Text>
-          <Text style={styles.detailPriceNote}>{tour.priceNote}</Text>
-          <TouchableOpacity
-            style={styles.detailBookButton}
-            onPress={() => {
-              if (typeof window !== 'undefined' && window.location) {
-                window.location.href = `/go/${tour.primaryAffiliate ?? 'getyourguide'}/${tour.slug}`;
-              } else {
-                onOpenBookingLink()
-              }
-            }}
-          >
-            <Text style={styles.detailBookButtonText}>Check availability & book →</Text>
-          </TouchableOpacity>
-        </View>
+      {/* Body */}
+      <View style={[styles.dBody, { maxWidth: layout.maxWidth }, twoCol ? styles.dBodyRow : null]}>
+        <View style={[styles.dMain, twoCol ? { flex: 1 } : null]}>
+          {!twoCol ? bookingCard : null}
 
-        {/* Quick facts */}
-        <View style={styles.detailFacts}>
-          <View style={styles.factRow}>
-            <View style={styles.factIcon}>
-              <Ionicons name="time-outline" size={16} color="#0B4155" />
-            </View>
-            <View style={styles.factInfo}>
-              <Text style={styles.factLabel}>Duration</Text>
-              <Text style={styles.factValue}>{tour.duration}</Text>
-            </View>
-          </View>
-          <View style={styles.factRow}>
-            <View style={styles.factIcon}>
-              <Ionicons name="fitness-outline" size={16} color="#0B4155" />
-            </View>
-            <View style={styles.factInfo}>
-              <Text style={styles.factLabel}>Difficulty</Text>
-              <Text style={styles.factValue}>
-                {tour.difficulty.charAt(0).toUpperCase() + tour.difficulty.slice(1)}
-              </Text>
-            </View>
-          </View>
-          {tour.minAge != null && (
-            <View style={styles.factRow}>
-              <View style={styles.factIcon}>
-                <Ionicons name="person-outline" size={16} color="#0B4155" />
+          <Section title="About this tour">
+            <Text style={styles.dParagraph}>{tour.description}</Text>
+          </Section>
+
+          {included.length > 0 ? (
+            <Section title="What's included">
+              <View style={styles.dCheckList}>
+                {included.map((item) => (
+                  <View key={item} style={styles.dCheckItem}>
+                    <Ionicons name="checkmark-circle" size={16} color={color.success} />
+                    <Text style={styles.dCheckText}>{item}</Text>
+                  </View>
+                ))}
               </View>
-              <View style={styles.factInfo}>
-                <Text style={styles.factLabel}>Minimum age</Text>
-                <Text style={styles.factValue}>{tour.minAge}+</Text>
+            </Section>
+          ) : null}
+
+          {tour.whatToBring?.length ? (
+            <Section title="What to bring">
+              <View style={styles.dCheckList}>
+                {tour.whatToBring.map((item) => (
+                  <View key={item} style={styles.dCheckItem}>
+                    <Ionicons name="ellipse" size={7} color={color.sky} style={{ marginTop: 7 }} />
+                    <Text style={styles.dCheckText}>{item}</Text>
+                  </View>
+                ))}
               </View>
+            </Section>
+          ) : null}
+
+          {tour.itinerary?.length ? (
+            <Section title="Itinerary">
+              {tour.itinerary.map((step, i) => (
+                <View key={step} style={styles.dStep}>
+                  <View style={styles.dStepNum}><Text style={styles.dStepNumText}>{i + 1}</Text></View>
+                  <Text style={styles.dStepText}>{step}</Text>
+                </View>
+              ))}
+            </Section>
+          ) : null}
+
+          {tour.seasonalNote ? (
+            <View style={styles.dNote}>
+              <Ionicons name="partly-sunny-outline" size={18} color={color.sky} />
+              <Text style={styles.dNoteText}>{tour.seasonalNote}</Text>
             </View>
-          )}
-          <View style={styles.factRow}>
-            <View style={styles.factIcon}>
-              <Ionicons name="language-outline" size={16} color="#0B4155" />
-            </View>
-            <View style={styles.factInfo}>
-              <Text style={styles.factLabel}>Languages</Text>
-              <Text style={styles.factValue}>{tour.languages?.join(' · ') ?? 'English'}</Text>
-            </View>
-          </View>
-          <View style={styles.factRow}>
-            <View style={styles.factIcon}>
-              <Ionicons name="car-outline" size={16} color="#0B4155" />
-            </View>
-            <View style={styles.factInfo}>
-              <Text style={styles.factLabel}>Pickup</Text>
-              <Text style={styles.factValue}>
-                {tour.pickup === 'hotel'
-                  ? 'Hotel pickup'
-                  : tour.pickup === 'meeting-point'
-                  ? 'Meeting point'
-                  : 'Both'}
-              </Text>
-            </View>
-          </View>
+          ) : null}
+
+          {tour.tips?.length ? (
+            <Section title="Good to know">
+              {tour.tips.map((tip) => (
+                <View key={tip} style={styles.dCheckItem}>
+                  <Ionicons name="bulb-outline" size={15} color={color.sun} />
+                  <Text style={styles.dCheckText}>{tip}</Text>
+                </View>
+              ))}
+            </Section>
+          ) : null}
+
+          {tour.faq.length > 0 ? (
+            <Section title="Frequently asked questions">
+              {tour.faq.map((item) => (
+                <View key={item.question} style={styles.dFaq}>
+                  <Text style={styles.dFaqQ}>{item.question}</Text>
+                  <Text style={styles.dFaqA}>{item.answer}</Text>
+                </View>
+              ))}
+            </Section>
+          ) : null}
         </View>
 
-        {/* What's included */}
-        <View style={styles.detailSection}>
-          <Text style={styles.detailSectionTitle}>What's included</Text>
-          <View style={styles.checkList}>
-            {tour.includes?.map((item) => (
-              <View key={item} style={styles.checkItem}>
-                <Ionicons name="checkmark-circle" size={15} color="#10B981" />
-                <Text style={styles.checkText}>{item}</Text>
-              </View>
-            ))}
-          </View>
-        </View>
+        {twoCol ? <View style={styles.dSidebar}>{bookingCard}</View> : null}
+      </View>
 
-        {/* What to bring */}
-        <View style={styles.detailSection}>
-          <Text style={styles.detailSectionTitle}>What to bring</Text>
-          <Text style={styles.detailBullets}>
-            {tour.whatToBring.map((item) => `•  ${item}`).join('\n')}
-          </Text>
-        </View>
-
-        {/* Description */}
-        <View style={styles.detailSection}>
-          <Text style={styles.detailSectionTitle}>About this tour</Text>
-          <Text style={styles.detailDescription}>{tour.description}</Text>
-        </View>
-
-        {/* Itinerary */}
-        <View style={styles.detailSection}>
-          <Text style={styles.detailSectionTitle}>Itinerary</Text>
-          {tour.itinerary?.map((step, i) => (
-            <View key={step} style={styles.itineraryStep}>
-              <View style={styles.itineraryNumber}>
-                <Text style={styles.itineraryNumberText}>{i + 1}</Text>
-              </View>
-              <Text style={styles.itineraryText}>{step}</Text>
-            </View>
-          ))}
-        </View>
-
-        {/* Seasonal note */}
-        <View style={styles.seasonalBox}>
-          <Ionicons name="cloud-outline" size={16} color="#1D7FA8" />
-          <Text style={styles.seasonalText}>{tour.seasonalNote}</Text>
-        </View>
-
-        {/* Tips */}
-        <View style={styles.detailSection}>
-          <Text style={styles.detailSectionTitle}>Tips</Text>
-          {tour.tips?.map((tip) => (
-            <View key={tip} style={styles.tipItem}>
-              <Ionicons name="bulb-outline" size={14} color="#E8A849" />
-              <Text style={styles.tipText}>{tip}</Text>
-            </View>
-          ))}
-        </View>
-
-        {/* FAQ */}
-        {tour.faq.length > 0 && (
-          <View style={styles.detailSection}>
-            <Text style={styles.detailSectionTitle}>Frequently asked questions</Text>
-            {tour.faq.map((item) => (
-              <View key={item.question} style={styles.faqItem}>
-                <Text style={styles.faqQ}>{item.question}</Text>
-                <Text style={styles.faqA}>{item.answer}</Text>
-              </View>
-            ))}
-          </View>
-        )}
-
-        {/* Booking section with disclosure */}
-        <View style={styles.detailBookingSection}>
-          <AffiliateDisclosure program={tour.primaryAffiliate as AffiliateProgram | undefined} />
-          <TouchableOpacity style={styles.detailBookButtonLarge} onPress={onBook}>
-            <Text style={styles.detailBookButtonLargeText}>
-              {tour.affiliateLabel} — Book now
-            </Text>
-          </TouchableOpacity>
-        </View>
-
-        {/* Related hint */}
-        <View style={styles.relatedSection}>
-          <Text style={styles.relatedTitle}>You might also like</Text>
-          <Text style={styles.relatedHint}>
-            More tours in {CATEGORY_LABELS[tour.category]} coming soon.
-          </Text>
-        </View>
-      </ScrollView>
-    </View>
-  )
+      <SiteFooter />
+    </ScrollView>
+  );
 }
 
 // ---------------------------------------------------------------------------
@@ -320,6 +266,7 @@ export function TourDetail({ tour, onBook, onBack, onOpenBookingLink }: TourDeta
 // ---------------------------------------------------------------------------
 
 const styles = StyleSheet.create({
+  // Listing card
   card: {
     flexGrow: 1, flexBasis: 300, maxWidth: 460,
     backgroundColor: color.surface, borderRadius: radius.lg, overflow: 'hidden',
@@ -332,9 +279,7 @@ const styles = StyleSheet.create({
     position: 'absolute', top: 10, left: 10,
     backgroundColor: 'rgba(8,47,59,0.82)', paddingHorizontal: 9, paddingVertical: 4, borderRadius: radius.pill,
   },
-  categoryBadgeText: {
-    color: '#fff', fontFamily: font.body, fontSize: 10, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5,
-  },
+  categoryBadgeText: { color: '#fff', fontFamily: font.body, fontSize: 10, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5 },
   ratingBadge: {
     position: 'absolute', top: 10, right: 10, flexDirection: 'row', alignItems: 'center',
     backgroundColor: 'rgba(255,255,255,0.95)', paddingHorizontal: 8, paddingVertical: 3, borderRadius: radius.pill, gap: 3,
@@ -342,317 +287,69 @@ const styles = StyleSheet.create({
   ratingText: { color: color.ink, fontFamily: font.body, fontSize: 12, fontWeight: '700' },
   body: { padding: space[4] },
   location: { color: color.sky, fontFamily: font.body, fontSize: 12.5, fontWeight: '600', marginBottom: space[2] },
-  title: {
-    color: color.ink, fontFamily: font.body, fontSize: 16, fontWeight: '700', lineHeight: 22,
-    marginBottom: space[3], minHeight: 44,
-  },
+  title: { color: color.ink, fontFamily: font.body, fontSize: 16, fontWeight: '700', lineHeight: 22, marginBottom: space[3], minHeight: 44 },
   metaRow: { flexDirection: 'row', alignItems: 'center', gap: 5, marginBottom: space[3] },
   metaText: { color: color.muted, fontFamily: font.body, fontSize: 13, fontWeight: '500' },
-  priceRow: {
-    flexDirection: 'row', alignItems: 'baseline',
-    borderTopWidth: 1, borderTopColor: color.border, paddingTop: space[3],
-  },
+  priceRow: { flexDirection: 'row', alignItems: 'baseline', borderTopWidth: 1, borderTopColor: color.border, paddingTop: space[3] },
   priceFrom: { color: color.muted, fontFamily: font.body, fontSize: 13 },
   priceValue: { color: color.primary, fontFamily: font.body, fontSize: 18, fontWeight: '700' },
   viewLink: { color: color.coral, fontFamily: font.body, fontSize: 13, fontWeight: '700', marginLeft: 'auto' },
   emptyContainer: { alignItems: 'center', paddingVertical: space[10], paddingHorizontal: space[5] },
   emptyText: { color: color.muted, fontFamily: font.body, fontSize: 15, marginTop: space[3] },
-  grid: {
-    flexDirection: 'row', flexWrap: 'wrap', alignItems: 'stretch',
-    gap: space[4], paddingHorizontal: space[5], paddingVertical: space[2],
+  grid: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'stretch', gap: space[4], paddingHorizontal: space[5], paddingVertical: space[2] },
+
+  // Detail
+  dScroll: { flex: 1, backgroundColor: color.ground },
+  dScrollContent: { flexGrow: 1 },
+  dHero: { height: 420, backgroundColor: color.primary, justifyContent: 'flex-end', overflow: 'hidden' },
+  dHeroImg: { ...StyleSheet.absoluteFillObject, width: '100%', height: '100%' },
+  dHeroScrim: {
+    ...StyleSheet.absoluteFillObject,
+    ...Platform.select({ web: { backgroundImage: 'linear-gradient(180deg, rgba(8,47,59,0.1) 30%, rgba(8,47,59,0.82) 100%)' } as object, default: { backgroundColor: 'rgba(8,47,59,0.5)' } }),
   },
-  // --- Detail ---
-  detailContainer: {
-    flex: 1,
-    backgroundColor: '#FFFFFF',
-  },
-  backButton: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 6,
-    position: 'absolute',
-    top: 44,
-    left: 10,
-    zIndex: 10,
-    backgroundColor: 'rgba(255,255,255,0.92)',
-    borderRadius: 999,
-    paddingHorizontal: 10,
-  },
-  backText: {
-    color: '#0B4155',
-    fontSize: 13,
-    fontWeight: '600',
-    marginLeft: 3,
-  },
-  detailHero: {
-    height: 520,
-    backgroundColor: '#0B4155',
-    position: 'relative',
-  },
-  detailHeroImage: {
-    width: '100%',
-    height: '100%',
-  },
-  detailHeroOverlay: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    padding: 12,
-    backgroundColor: 'rgba(11, 65, 85, 0.72)',
-  },
-  detailCategory: {
-    color: '#FDF3E0',
-    fontSize: 11,
-    fontWeight: '700',
-    textTransform: 'uppercase',
-    letterSpacing: 1.2,
-  },
-  detailScroll: {
-    flex: 1,
-  },
-  detailContent: {
-    padding: 14,
-    paddingBottom: 36,
-  },
-  detailHeader: {
-    marginBottom: 14,
-  },
-  detailTitle: {
-    color: '#0B4155',
-    fontSize: 20,
-    fontWeight: '800',
-    lineHeight: 26,
-  },
-  detailRating: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 3,
-    marginTop: 5,
-  },
-  detailRatingText: {
-    color: '#0B4155',
-    fontSize: 14,
-    fontWeight: '700',
-  },
-  detailReviews: {
-    color: '#6B7280',
-    fontSize: 12,
-    marginLeft: 1,
-  },
-  detailPriceCta: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    backgroundColor: '#FDF3E0',
-    borderRadius: 10,
-    padding: 12,
-    marginBottom: 16,
-    gap: 6,
-    borderWidth: 1,
-    borderColor: '#E8A849',
-  },
-  detailPriceLabel: {
-    color: '#6B7280',
-    fontSize: 12,
-    fontWeight: '500',
-  },
-  detailPriceValue: {
-    color: '#0B4155',
-    fontSize: 20,
-    fontWeight: '800',
-  },
-  detailPriceNote: {
-    color: '#6B7280',
-    fontSize: 11,
-    marginLeft: 3,
-  },
-  detailBookButton: {
-    backgroundColor: '#0B4155',
-    paddingVertical: 9,
-    paddingHorizontal: 12,
-    borderRadius: 8,
-    marginLeft: 'auto',
-    flex: 1,
-    alignItems: 'center',
-  },
-  detailBookButtonText: {
-    color: '#FFFFFF',
-    fontSize: 12,
-    fontWeight: '700',
-  },
-  detailFacts: {
-    backgroundColor: '#F9FAFB',
-    borderRadius: 10,
-    padding: 12,
-    marginBottom: 14,
-  },
-  factRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    marginBottom: 8,
-  },
-  factIcon: {
-    width: 28,
-    height: 28,
-    borderRadius: 7,
-    backgroundColor: '#E6F4FE',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginRight: 8,
-  },
-  factInfo: {
-    flex: 1,
-  },
-  factLabel: {
-    color: '#6B7280',
-    fontSize: 10,
-    fontWeight: '500',
-    marginBottom: 1,
-  },
-  factValue: {
-    color: '#0B4155',
-    fontSize: 13,
-    fontWeight: '600',
-  },
-  detailSection: {
-    marginBottom: 14,
-  },
-  detailSectionTitle: {
-    color: '#0B4155',
-    fontSize: 14,
-    fontWeight: '700',
-    marginBottom: 6,
-    paddingBottom: 3,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-  },
-  checkList: {
-    gap: 4,
-  },
-  checkItem: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 6,
-  },
-  checkText: {
-    flex: 1,
-    color: '#1A1A1A',
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  detailBullets: {
-    color: '#1A1A1A',
-    fontSize: 12,
-    lineHeight: 18,
-  },
-  detailDescription: {
-    color: '#1A1A1A',
-    fontSize: 12,
-    lineHeight: 18,
-  },
-  itineraryStep: {
-    flexDirection: 'row',
-    marginBottom: 8,
-    gap: 8,
-  },
-  itineraryNumber: {
-    width: 22,
-    height: 22,
-    borderRadius: 11,
-    backgroundColor: '#0B4155',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: 1,
-  },
-  itineraryNumberText: {
-    color: '#FFFFFF',
-    fontSize: 11,
-    fontWeight: '700',
-  },
-  itineraryText: {
-    flex: 1,
-    color: '#1A1A1A',
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  seasonalBox: {
-    flexDirection: 'row',
-    backgroundColor: '#E6F4FE',
-    borderRadius: 10,
-    padding: 12,
-    gap: 8,
-    marginBottom: 14,
-    borderWidth: 1,
-    borderColor: '#1D7FA8',
-  },
-  seasonalText: {
-    flex: 1,
-    color: '#0B4155',
-    fontSize: 12,
-    lineHeight: 17,
-  },
-  tipItem: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    gap: 6,
-    marginBottom: 4,
-  },
-  tipText: {
-    flex: 1,
-    color: '#1A1A1A',
-    fontSize: 11,
-    lineHeight: 16,
-  },
-  faqItem: {
-    marginBottom: 8,
-    paddingBottom: 8,
-    borderBottomWidth: 1,
-    borderBottomColor: '#E5E7EB',
-  },
-  faqQ: {
-    color: '#0B4155',
-    fontSize: 12,
-    fontWeight: '600',
-    marginBottom: 2,
-  },
-  faqA: {
-    color: '#6B7280',
-    fontSize: 11,
-    lineHeight: 16,
-  },
-  detailBookingSection: {
-    marginTop: 4,
-    paddingTop: 12,
-    borderTopWidth: 1,
-    borderTopColor: '#E5E7EB',
-    gap: 8,
-  },
-  detailBookButtonLarge: {
-    backgroundColor: '#E8A849',
-    paddingVertical: 12,
-    borderRadius: 10,
-    alignItems: 'center',
-  },
-  detailBookButtonLargeText: {
-    color: '#0B4155',
-    fontSize: 14,
-    fontWeight: '800',
-  },
-  relatedSection: {
-    marginTop: 16,
-    paddingTop: 12,
-    borderTopWidth: 1,
-    borderTopColor: '#E5E7EB',
-  },
-  relatedTitle: {
-    color: '#0B4155',
-    fontSize: 14,
-    fontWeight: '700',
-    marginBottom: 4,
-  },
-  relatedHint: {
-    color: '#6B7280',
-    fontSize: 12,
-    lineHeight: 17,
-  },
-})
+  dHeroInner: { width: '100%', alignSelf: 'center', paddingHorizontal: layout.gutter, paddingBottom: space[6] },
+  dCategory: { color: color.sunLight, fontFamily: font.body, fontSize: 12, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 1.2, marginBottom: space[2] },
+  dTitle: { color: '#fff', fontFamily: font.display, fontSize: 34, fontWeight: '600', lineHeight: 40, letterSpacing: -0.4, maxWidth: 780, marginBottom: space[3] },
+  dHeroMeta: { flexDirection: 'row', flexWrap: 'wrap', gap: space[5] },
+  dHeroMetaItem: { color: '#fff', fontFamily: font.body, fontSize: 14, fontWeight: '600' },
+
+  dCrumbWrap: { width: '100%', alignSelf: 'center', flexDirection: 'row', alignItems: 'center', gap: space[2], paddingHorizontal: layout.gutter, paddingVertical: space[4] },
+  dCrumbLink: { color: color.sky, fontFamily: font.body, fontSize: 13, fontWeight: '600' },
+  dCrumbSep: { color: color.faint, fontFamily: font.body, fontSize: 13 },
+  dCrumbCurrent: { color: color.muted, fontFamily: font.body, fontSize: 13, flexShrink: 1 },
+
+  dBody: { width: '100%', alignSelf: 'center', paddingHorizontal: layout.gutter },
+  dBodyRow: { flexDirection: 'row', alignItems: 'flex-start', gap: space[8] },
+  dMain: { width: '100%' },
+  dSidebar: { width: 340, ...Platform.select({ web: { position: 'sticky' as 'absolute', top: 82 } }) },
+
+  dBookCard: { backgroundColor: color.surface, borderRadius: radius.lg, borderWidth: 1, borderColor: color.border, padding: space[5], marginBottom: space[6] },
+  dPriceRow: { flexDirection: 'row', alignItems: 'baseline', marginBottom: space[4] },
+  dPriceFrom: { color: color.muted, fontFamily: font.body, fontSize: 14 },
+  dPriceValue: { color: color.primary, fontFamily: font.display, fontSize: 32, fontWeight: '600' },
+  dPriceUnit: { color: color.muted, fontFamily: font.body, fontSize: 13 },
+  dBookBtn: { backgroundColor: color.coral, borderRadius: radius.pill, paddingVertical: 15, alignItems: 'center' },
+  dBookBtnText: { color: '#fff', fontFamily: font.body, fontSize: 16, fontWeight: '700' },
+  dBookNote: { color: color.muted, fontFamily: font.body, fontSize: 12.5, textAlign: 'center', marginTop: space[3] },
+  dFacts: { marginTop: space[5], gap: space[3], borderTopWidth: 1, borderTopColor: color.border, paddingTop: space[4] },
+  dFactRow: { flexDirection: 'row', alignItems: 'center' },
+  dFactIcon: { width: 34, height: 34, borderRadius: radius.md, backgroundColor: color.skyLight, alignItems: 'center', justifyContent: 'center', marginRight: space[3] },
+  dFactLabel: { color: color.muted, fontFamily: font.body, fontSize: 11.5, fontWeight: '600' },
+  dFactValue: { color: color.ink, fontFamily: font.body, fontSize: 14.5, fontWeight: '600' },
+
+  dSection: { marginBottom: space[8] },
+  dSectionTitle: { color: color.ink, fontFamily: font.display, fontSize: 22, fontWeight: '600', letterSpacing: -0.2, marginBottom: space[4] },
+  dParagraph: { color: color.body, fontFamily: font.body, fontSize: 16, lineHeight: 26 },
+  dCheckList: { gap: space[3] },
+  dCheckItem: { flexDirection: 'row', alignItems: 'flex-start', gap: space[3] },
+  dCheckText: { flex: 1, color: color.body, fontFamily: font.body, fontSize: 15, lineHeight: 23 },
+  dStep: { flexDirection: 'row', gap: space[3], marginBottom: space[4] },
+  dStepNum: { width: 26, height: 26, borderRadius: 13, backgroundColor: color.primary, alignItems: 'center', justifyContent: 'center', marginTop: 1 },
+  dStepNumText: { color: '#fff', fontFamily: font.body, fontSize: 13, fontWeight: '700' },
+  dStepText: { flex: 1, color: color.body, fontFamily: font.body, fontSize: 15, lineHeight: 23 },
+  dNote: { flexDirection: 'row', gap: space[3], backgroundColor: color.skyLight, borderRadius: radius.md, padding: space[4], marginBottom: space[8] },
+  dNoteText: { flex: 1, color: color.primary, fontFamily: font.body, fontSize: 14.5, lineHeight: 22 },
+  dFaq: { marginBottom: space[4], paddingBottom: space[4], borderBottomWidth: 1, borderBottomColor: color.border },
+  dFaqQ: { color: color.ink, fontFamily: font.body, fontSize: 16, fontWeight: '700', marginBottom: space[2] },
+  dFaqA: { color: color.body, fontFamily: font.body, fontSize: 15, lineHeight: 23 },
+});
