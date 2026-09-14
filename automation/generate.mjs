@@ -69,21 +69,31 @@ async function callModel(topic) {
 async function sourceImage(topic, root) {
   if (!process.env.PEXELS_API_KEY) return null;
   const q = encodeURIComponent(topic.imageBrief || `${topic.title} Costa Rica`);
-  const res = await fetch(`${PEXELS}?query=${q}&orientation=landscape&per_page=15`, { headers: { Authorization: process.env.PEXELS_API_KEY } });
+  const res = await fetch(`${PEXELS}?query=${q}&orientation=landscape&per_page=30`, { headers: { Authorization: process.env.PEXELS_API_KEY } });
   if (!res.ok) return null;
   const { photos = [] } = await res.json();
-  const photo = photos.find((p) => /costa rica|guanacaste|nicoya|tamarindo|nosara|liberia/i.test(p.alt || ''));
-  if (!photo) return null; // no image whose subject we can trust — hold rather than mislabel
+  // Only consider photos with a real description, so the alt text and provenance
+  // are always truthful about what the image actually shows.
+  const withAlt = photos.filter((p) => (p.alt || '').trim().length > 0);
+  const PLACE = /costa rica|guanacaste|nicoya|tamarindo|nosara|s[aá]mara|liberia|flamingo|conchal|papagayo|rinc[oó]n|arenal/i;
+  const THEME = /beach|ocean|sea|coast|shore|palm|tropical|surf|sunset|sunrise|jungle|rainforest|forest|waterfall|volcano|wildlife|monkey|sloth|bird|boat|catamaran|snorkel|dive|river|mountain|nature|hot spring/i;
+  // Prefer a photo that names a real place here; otherwise an on-theme photo used
+  // honestly as a REPRESENTATIVE image; if nothing is on-theme, hold for a human
+  // rather than attach a misleading picture.
+  const photo = withAlt.find((p) => PLACE.test(p.alt)) || withAlt.find((p) => THEME.test(p.alt));
+  if (!photo) return null;
+  const named = PLACE.test(photo.alt);
   const out = join(root, 'public/images/blog', `${topic.slug}.webp`);
   const tmp = join(process.env.TMPDIR || '/tmp', `${topic.slug}.jpg`);
   execFileSync('curl', ['-sL', '-o', tmp, `${photo.src.large2x}`]);
   execFileSync('cwebp', ['-q', '80', '-resize', '1600', '0', tmp, '-o', out]);
   execFileSync('cwebp', ['-q', '80', '-resize', '800', '0', tmp, '-o', out.replace('.webp', '-800.webp')]);
   return {
-    src: `/images/blog/${topic.slug}.webp`, alt: photo.alt || topic.title, width: 1600, height: 1067,
+    src: `/images/blog/${topic.slug}.webp`, alt: photo.alt, width: 1600, height: 1067,
     credit: { source: 'Pexels', sourceUrl: photo.url, author: photo.photographer, license: 'Pexels License',
       licenseUrl: 'https://www.pexels.com/license/', downloaded: new Date().toISOString().slice(0, 10),
-      attributionRequired: false, depicts: photo.alt || 'Costa Rica' },
+      attributionRequired: false,
+      depicts: named ? photo.alt : `${photo.alt} — representative image for this guide, not a specific named location in Guanacaste.` },
   };
 }
 
