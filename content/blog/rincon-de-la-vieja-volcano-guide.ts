@@ -13,7 +13,7 @@ export const post: BlogPost = {
   author: { name: 'Guanacaste Experiences editorial team', role: 'Travel editors' },
   published: '2026-09-13',
   reviewBy: '2027-03-01',
-  draft: true,
+  draft: false,
   hero: {
     src: '/images/blog/rincon-de-la-vieja-waterfall.webp',
     alt: 'A waterfall dropping through dense green forest in Guanacaste, Costa Rica',

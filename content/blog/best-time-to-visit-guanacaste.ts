@@ -14,7 +14,7 @@ export const post: BlogPost = {
   published: '2026-09-13',
   reviewBy: '2027-03-01',
   featured: true,
-  draft: true,
+  draft: false,
   hero: {
     src: '/images/blog/best-time-guanacaste-sunset.webp',
     alt: 'Sunset with layered clouds over a beach on the Guanacaste coast, Costa Rica',

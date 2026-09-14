@@ -6,7 +6,33 @@
     <atom:link href="https://www.guanacasteexperiences.com/blog-rss.xml" rel="self" type="application/rss+xml" />
     <description>Practical, well-sourced guides to travelling in Guanacaste, Costa Rica.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Sep 2026 02:45:09 GMT</lastBuildDate>
-
+    <lastBuildDate>Mon, 14 Sep 2026 03:05:35 GMT</lastBuildDate>
+    <item>
+      <title>Rincón de la Vieja: A Practical Guide to the Volcano, Waterfalls &amp; Hot Springs</title>
+      <link>https://www.guanacasteexperiences.com/blog/rincon-de-la-vieja-volcano-guide/</link>
+      <guid isPermaLink="true">https://www.guanacasteexperiences.com/blog/rincon-de-la-vieja-volcano-guide/</guid>
+      <pubDate>Sun, 13 Sep 2026 09:00:00 GMT</pubDate>
+      <category>Activities</category>
+      <description>How to visit Rincón de la Vieja in Guanacaste: the national park’s trails, mud pots and waterfalls, plus the adjacent ranches with ziplines and hot springs.</description>
+      <enclosure url="https://www.guanacasteexperiences.com/images/blog/rincon-de-la-vieja-waterfall.webp" type="image/webp" />
+    </item>
+    <item>
+      <title>Getting Around Guanacaste: Rental Car, Shuttle, or Tour Pickup?</title>
+      <link>https://www.guanacasteexperiences.com/blog/getting-around-guanacaste-transport/</link>
+      <guid isPermaLink="true">https://www.guanacasteexperiences.com/blog/getting-around-guanacaste-transport/</guid>
+      <pubDate>Sun, 13 Sep 2026 09:00:00 GMT</pubDate>
+      <category>Practical</category>
+      <description>How to get around Guanacaste, Costa Rica: flying into Liberia (LIR), when a rental car is worth it, shuttles and transfers, road realities, and tour pickups.</description>
+      <enclosure url="https://www.guanacasteexperiences.com/images/blog/getting-around-guanacaste-street.webp" type="image/webp" />
+    </item>
+    <item>
+      <title>The Best Time to Visit Guanacaste: Dry Season vs. Green Season</title>
+      <link>https://www.guanacasteexperiences.com/blog/best-time-to-visit-guanacaste/</link>
+      <guid isPermaLink="true">https://www.guanacasteexperiences.com/blog/best-time-to-visit-guanacaste/</guid>
+      <pubDate>Sun, 13 Sep 2026 09:00:00 GMT</pubDate>
+      <category>Seasons &amp; Weather</category>
+      <description>When to visit Guanacaste, Costa Rica: how the dry and green seasons compare on weather, crowds, prices and scenery — and which one fits the trip you want.</description>
+      <enclosure url="https://www.guanacasteexperiences.com/images/blog/best-time-guanacaste-sunset.webp" type="image/webp" />
+    </item>
   </channel>
 </rss>

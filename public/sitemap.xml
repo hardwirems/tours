@@ -487,4 +487,27 @@
   </url>
 
 
+
+  <!-- BLOG:START -->
+  <url>
+    <loc>https://www.guanacasteexperiences.com/blog/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/blog/rincon-de-la-vieja-volcano-guide/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/blog/getting-around-guanacaste-transport/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/blog/best-time-to-visit-guanacaste/</loc>
+    <lastmod>2026-09-13</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <!-- BLOG:END -->
 </urlset>
