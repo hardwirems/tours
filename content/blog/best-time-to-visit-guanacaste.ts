@@ -32,7 +32,7 @@ export const post: BlogPost = {
   cta: { label: 'Browse Guanacaste tours', href: '/tours' },
   relatedTours: ['surf-lessons-in-tamarindo-costa-rica', 'sunset-catamaran-snorkeling-tour-in-playa-flamingo', 'bioluminescent-kayak-tour'],
   relatedDestinations: ['tamarindo', 'playa-flamingo'],
-  relatedPosts: [],
+  relatedPosts: ['rincon-de-la-vieja-volcano-guide', 'getting-around-guanacaste-transport'],
   sources: [
     { title: 'Instituto Costarricense de Turismo — Visit Costa Rica (weather & when to go)', url: 'https://www.visitcostarica.com/en/costa-rica/planning-your-trip/weather', accessed: '2026-09-13', supports: 'Costa Rica’s dry and rainy (“green”) season framing and the Guanacaste/North Pacific being the country’s driest region.' },
     { title: 'Instituto Meteorológico Nacional de Costa Rica (IMN) — climate regions', url: 'https://www.imn.ac.cr/', accessed: '2026-09-13', supports: 'North Pacific climate pattern: a long dry season and a wet season concentrated May–November.' },

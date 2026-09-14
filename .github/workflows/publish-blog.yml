@@ -1,0 +1,66 @@
+name: Publish blog article
+
+# Weekly article pipeline. INSTALLED BUT DISABLED: every job is guarded by the
+# repository variable BLOG_AUTOMATION_ENABLED. Until an operator sets it to
+# 'true' (Stage 2, after approval), scheduled runs no-op. Manual runs can still
+# produce a Stage-1 DRAFT for review (they never publish unless enabled).
+on:
+  schedule:
+    # 14:00 UTC Wednesday ≈ 08:00 in America/Costa_Rica (UTC-6). Adjust if the
+    # business timezone differs. One run per week.
+    - cron: '0 14 * * 3'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'draft (Stage 1, review only) or publish (Stage 2, requires enabled)'
+        type: choice
+        default: draft
+        options: [draft, publish]
+
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    outputs:
+      run: ${{ steps.g.outputs.run }}
+    steps:
+      - id: g
+        run: |
+          # Scheduled runs require the enable flag. Manual dispatch may run in draft mode.
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then echo "run=true" >> "$GITHUB_OUTPUT"
+          elif [ "${{ vars.BLOG_AUTOMATION_ENABLED }}" = "true" ]; then echo "run=true" >> "$GITHUB_OUTPUT"
+          else echo "run=false" >> "$GITHUB_OUTPUT"; echo "Automation disabled (BLOG_AUTOMATION_ENABLED != true) — skipping."; fi
+
+  pipeline:
+    needs: guard
+    if: needs.guard.outputs.run == 'true'
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      BLOG_AUTOMATION_ENABLED: ${{ vars.BLOG_AUTOMATION_ENABLED }}
+      BLOG_TZ: ${{ vars.BLOG_TZ }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: '22' }
+      - run: sudo apt-get update && sudo apt-get install -y webp   # cwebp for image optimization
+      - run: npm ci
+      - name: Run pipeline
+        run: |
+          MODE="${{ github.event.inputs.mode || 'publish' }}"
+          if [ "$MODE" = "publish" ]; then node automation/publish.mjs --publish; else node automation/publish.mjs; fi
+      - name: Commit new draft/post + state
+        run: |
+          git config user.name "blog-bot"; git config user.email "blog-bot@users.noreply.github.com"
+          git add content/blog automation/state.json automation/runs.log public/images/blog public/sitemap.xml public/blog-rss.xml || true
+          git commit -m "chore(blog): automated pipeline run" || echo "nothing to commit"
+          git push || echo "no push (draft review or no changes)"
+      - name: Surface a review item on failure/hold
+        if: failure()
+        run: echo "::error::Blog pipeline did not publish — see automation/runs.log. A draft may be waiting for review."

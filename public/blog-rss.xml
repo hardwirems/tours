@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Guanacaste Experiences — Travel Blog</title>
+    <link>https://www.guanacasteexperiences.com/blog/</link>
+    <atom:link href="https://www.guanacasteexperiences.com/blog-rss.xml" rel="self" type="application/rss+xml" />
+    <description>Practical, well-sourced guides to travelling in Guanacaste, Costa Rica.</description>
+    <language>en</language>
+    <lastBuildDate>Mon, 14 Sep 2026 02:07:34 GMT</lastBuildDate>
+
+  </channel>
+</rss>
