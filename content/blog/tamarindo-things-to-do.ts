@@ -20,8 +20,8 @@ export const post: BlogPost = {
   hero: {
     "src": "/images/blog/tamarindo-things-to-do.webp",
     "alt": "Explore the serene rocky coastline of Tamarindo Beach, Costa Rica under clear blue skies.",
-    "width": 1600,
-    "height": 1067,
+    "width": 1400,
+    "height": 934,
     "credit": {
       "source": "Pexels",
       "sourceUrl": "https://www.pexels.com/photo/rocky-coast-and-sea-16037119/",

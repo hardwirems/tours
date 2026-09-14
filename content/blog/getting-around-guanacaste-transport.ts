@@ -17,7 +17,7 @@ export const post: BlogPost = {
   hero: {
     src: '/images/blog/getting-around-guanacaste-street.webp',
     alt: 'A quiet palm-lined town street with a mountain in the distance, Costa Rica',
-    width: 2400, height: 1500, focal: '50% 55%',
+    width: 1400, height: 875, focal: '50% 55%',
     credit: {
       source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/palm-tree-by-street-in-town-17302420/',
       author: 'Jean-Daniel Francoeur', license: 'Pexels License', licenseUrl: 'https://www.pexels.com/license/',

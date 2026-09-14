@@ -18,8 +18,8 @@ export const post: BlogPost = {
   hero: {
     src: '/images/blog/best-time-guanacaste-sunset.webp',
     alt: 'Sunset with layered clouds over a beach on the Guanacaste coast, Costa Rica',
-    width: 2400,
-    height: 1350,
+    width: 1400,
+    height: 788,
     credit: {
       source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/clouds-at-sunset-over-beach-15365641/',
       author: 'Jean Paul Montanaro', license: 'Pexels License', licenseUrl: 'https://www.pexels.com/license/',

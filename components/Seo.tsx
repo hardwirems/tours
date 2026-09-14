@@ -33,7 +33,19 @@ function abs(u?: string): string | undefined {
   return `${SITE_URL}${u.startsWith('/') ? '' : '/'}${u}`;
 }
 
-export function Seo({ metadata = {}, jsonLd }: { metadata?: SeoMeta; jsonLd?: unknown }) {
+export function Seo({
+  metadata = {},
+  jsonLd,
+  preloadImage,
+}: {
+  metadata?: SeoMeta;
+  jsonLd?: unknown;
+  // Same-origin URL of the LCP image (e.g. a post hero). Emitted as a
+  // <link rel="preload" as="image"> so the browser fetches it during head parse
+  // instead of waiting for the JS bundle to mount the <img>. Pass the exact src
+  // the <Image> uses (relative /images/… path) so the preload matches the request.
+  preloadImage?: string;
+}) {
   const og = metadata.openGraph ?? {};
   const tw = metadata.twitter ?? {};
   const canonical = abs(metadata.alternates?.canonical);
@@ -50,6 +62,9 @@ export function Seo({ metadata = {}, jsonLd }: { metadata?: SeoMeta; jsonLd?: un
       {metadata.title ? <title>{metadata.title}</title> : null}
       {metadata.description ? <meta name="description" content={metadata.description} /> : null}
       {canonical ? <link rel="canonical" href={canonical} /> : null}
+      {preloadImage ? (
+        <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
+      ) : null}
       <meta name="robots" content={robotsContent} />
 
       {/* Open Graph */}

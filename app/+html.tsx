@@ -24,13 +24,24 @@ export default function Root({ children }: PropsWithChildren) {
         {/* Blog RSS feed autodiscovery */}
         <link rel="alternate" type="application/rss+xml" title="Guanacaste Experiences — Travel Blog" href="/blog-rss.xml" />
 
-        {/* Fonts — Fraunces (display) + DM Sans (body). Preconnect + swap, only used weights. */}
+        {/* Fonts — Fraunces (display) + DM Sans (body). Loaded OFF the critical path:
+            an inline injector attaches the stylesheet with media="print", then flips it
+            to "all" once it loads, so the font CSS never render-blocks (display=swap keeps
+            text visible in the fallback meanwhile). <noscript> preserves no-JS/crawlers. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){var u='https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap';var l=document.createElement('link');l.rel='stylesheet';l.href=u;l.media='print';l.onload=function(){this.media='all';};document.head.appendChild(l);})();",
+          }}
         />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&display=swap"
+          />
+        </noscript>
 
         <ScrollViewStyleReset />
 

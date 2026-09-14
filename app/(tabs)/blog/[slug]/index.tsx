@@ -111,7 +111,7 @@ export default function BlogArticle() {
 
   return (
     <>
-      <Seo metadata={metaFor(post)} jsonLd={articleJsonLd(post)} />
+      <Seo metadata={metaFor(post)} jsonLd={articleJsonLd(post)} preloadImage={post.hero.src} />
       <ScrollView nativeID="main" style={styles.container} contentContainerStyle={styles.content}>
         {/* Hero */}
         <View style={styles.hero}>
