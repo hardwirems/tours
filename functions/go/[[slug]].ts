@@ -84,6 +84,15 @@ const URL_MAP: Record<string, string> = {
   'viator/private-surf-lessons-in-santa-teresa-beach': 'https://www.viator.com/tours/Santa-Teresa/Surf-lessons-in-Santa-Teresa-Costa-Rica/d25896-283312P2?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
   'viator/volcano-combo-7-activities-in-1-day-natural-hot-springs': 'https://www.viator.com/tours/Playa-Flamingo/Horse-Back-Ridding-Blue-Zone-Adventures/d24471-167483P2?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
   'viator/double-kayak-bioluminescence-tour-in-costa-rica': 'https://www.viator.com/tours/Santa-Teresa/Bioluminescence-Costa-Rica-Kayak/d25896-439152P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/2-hour-cooking-class-in-nosara': 'https://www.viator.com/tours/Guanacaste-and-Northwest/Cooking-Class-Nosara/d4137-12541P27?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/half-day-mountain-tour-in-nosara': 'https://www.viator.com/tours/Guanacaste-and-Northwest/Naranjal-Coffee-Mountain-Tour/d4137-331349P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/discover-the-magic-of-nosara-cycling-tour': 'https://www.viator.com/tours/Guanacaste-and-Northwest/Bamboo-Rides-Nosara-Cycling-TOURS/d4137-389530P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/hiking-and-birdwatching-nosara': 'https://www.viator.com/tours/Guanacaste-and-Northwest/Hiking-Tours-Nosara/d4137-444953P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/waterfall-rappelling-nosara': 'https://www.viator.com/tours/Guanacaste-and-Northwest/Waterfall-Rappelling-Nosara/d4137-12541P24?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/small-group-safari-float-in-nosara-river': 'https://www.viator.com/tours/Guanacaste-and-Northwest/Safari-Float-Nosara-River/d4137-12541P25?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/2-hour-surf-lesson-in-montezuma': 'https://www.viator.com/tours/Puntarenas/Unforgettable-surf-lesson-in-Montezuma/d4506-126683P9?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/half-day-surf-and-adventure-in-montezuma': 'https://www.viator.com/tours/Puntarenas/Beginner-Surfing-Classes-in-Montezuma/d4506-46028P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/three-days-of-group-surf-lessons-in-montezuma': 'https://www.viator.com/tours/Puntarenas/Three-surf-lessons-pack-in-Montezuma/d4506-46028P4?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
 }
 
 function resolveUrl(slug: string): string | null {

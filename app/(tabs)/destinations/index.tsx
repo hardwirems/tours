@@ -54,9 +54,9 @@ export default function DestinationsIndex() {
             <Text style={styles.eyebrow}>Guanacaste & the Nicoya Peninsula · Costa Rica</Text>
             <Text accessibilityRole="header" aria-level={1} style={styles.h1}>Explore Guanacaste & the Nicoya Peninsula</Text>
             <Text style={styles.lead}>
-              From the surf town of Tamarindo and the calm bays of Flamingo to the volcano gateway of
-              Liberia and Santa Teresa &amp; Malpaís on the southern Nicoya Peninsula — pick a base and
-              see the tours nearby.
+              From the surf town of Tamarindo and the calm bays of Flamingo to Liberia’s volcanoes,
+              Nosara’s beaches and Santa Teresa, Malpaís &amp; Montezuma on the southern Nicoya
+              Peninsula — pick a base and see the tours nearby.
             </Text>
           </View>
 

@@ -114,12 +114,23 @@ export const DESTINATIONS: Destination[] = [
     slug: 'santa-teresa',
     town: 'Santa Teresa',
     region: 'Nicoya Peninsula',
-    h1: 'Tours & Things to Do in Santa Teresa & Malpaís',
-    title: 'Santa Teresa & Malpaís Tours — Nicoya Peninsula, Costa Rica',
+    h1: 'Tours & Things to Do in Santa Teresa, Malpaís & Montezuma',
+    title: 'Santa Teresa, Malpaís & Montezuma Tours — Nicoya Peninsula, Costa Rica',
     description:
-      'Tours and things to do in Santa Teresa and Malpaís on the southern Nicoya Peninsula — surf lessons, bioluminescence paddles, and Isla Tortuga and Curú day trips.',
+      'Tours and things to do around Santa Teresa, Malpaís and Montezuma on the southern Nicoya Peninsula — surf lessons, bioluminescence paddles, and Isla Tortuga and Curú day trips.',
     intro:
-      'Santa Teresa and neighbouring Malpaís sit at the southern tip of the Nicoya Peninsula, known for world-class surf, long sunsets and a laid-back, off-the-grid feel. The area is a base for surf lessons and night-time bioluminescence paddles, with boat day trips to Isla Tortuga and the Curú Wildlife Refuge on the peninsula’s eastern side, and the waterfalls of Montezuma nearby. Browse the tours around Santa Teresa and Malpaís below.',
+      'Santa Teresa, neighbouring Malpaís and the beach town of Montezuma sit at the southern tip of the Nicoya Peninsula, known for world-class surf, long sunsets and a laid-back, off-the-grid feel. The area is a base for surf lessons and night-time bioluminescence paddles, with boat day trips to Isla Tortuga and the Curú Wildlife Refuge on the peninsula’s eastern side. Browse the tours around Santa Teresa, Malpaís and Montezuma below.',
+  },
+  {
+    slug: 'nosara',
+    town: 'Nosara',
+    region: 'Nicoya Peninsula',
+    h1: 'Tours & Things to Do in Nosara, Costa Rica',
+    title: 'Nosara Tours & Things to Do — Nicoya Peninsula, Costa Rica',
+    description:
+      'Tours and things to do in Nosara on the Nicoya Peninsula — surf, a cooking class, cycling and mountain tours, river floats, waterfall rappelling and birdwatching.',
+    intro:
+      'Nosara sits on the western coast of the Nicoya Peninsula, known for its consistent surf at Playa Guiones, a laid-back wellness and yoga scene, and easy access to wildlife and nature. Inland from the beach you’ll find birdwatching, river floats and waterfall adventures, with a jungle-meets-beach feel throughout. Browse the tours and things to do around Nosara below.',
   },
 ];
 
