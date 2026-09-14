@@ -51,11 +51,12 @@ export default function DestinationsIndex() {
       <ScrollView nativeID="main" style={styles.container} contentContainerStyle={styles.content}>
         <View style={[styles.page, { maxWidth: layout.maxWidth }]}>
           <View style={styles.header}>
-            <Text style={styles.eyebrow}>Guanacaste · Costa Rica</Text>
-            <Text accessibilityRole="header" aria-level={1} style={styles.h1}>Explore Guanacaste by destination</Text>
+            <Text style={styles.eyebrow}>Guanacaste & the Nicoya Peninsula · Costa Rica</Text>
+            <Text accessibilityRole="header" aria-level={1} style={styles.h1}>Explore Guanacaste & the Nicoya Peninsula</Text>
             <Text style={styles.lead}>
-              From the surf town of Tamarindo to the calm bays of Flamingo and the volcano gateway of
-              Liberia — pick a base and see the tours nearby.
+              From the surf town of Tamarindo and the calm bays of Flamingo to the volcano gateway of
+              Liberia and Santa Teresa &amp; Malpaís on the southern Nicoya Peninsula — pick a base and
+              see the tours nearby.
             </Text>
           </View>
 

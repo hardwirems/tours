@@ -72,6 +72,18 @@ const URL_MAP: Record<string, string> = {
   'viator/5-hour-guided-sunset-boat-tour-in-tamarindo-costa-rica': 'https://www.viator.com/tours/Tamarindo/Sunset-Tour/d24763-368946P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
   'viator/adventure-combo-tour-horses-tubing-zipline-hot-springs': 'https://www.viator.com/tours/Liberia/ADRENALINE-ONE-DAY-COMBO-TOUR/d22740-63887P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
   'viator/zip-line-and-atv-adventure': 'https://www.viator.com/tours/Playa-Flamingo/Zip-Line-ATV-Adventure/d24471-107293P5?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/bioluminescent-kayak-tour': 'https://www.viator.com/tours/Santa-Teresa/Bioluminescent-kayak-tour/d25896-148182P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/surf-lessons-in-santa-teresa-costa-rica': 'https://www.viator.com/tours/Santa-Teresa/Surf-Classes-in-Santa-Teresa-Costa-Rica/d25896-285755P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/isla-tortuga-snorkeling-tour': 'https://www.viator.com/tours/Santa-Teresa/Isla-Tortuga-Snorkeling-Tour/d25896-248571P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/eddy-s-bioluminescence-reserve-in-punta-cuchillos': 'https://www.viator.com/tours/Santa-Teresa/Eddys-Bioluminescence-Reserve-in-Punta-Cuchillos/d25896-449017P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/specialized-group-surf-lesson-in-playa-hermosa': 'https://www.viator.com/tours/Santa-Teresa/Specialize-in-private-and-group-surf-lesson-all-ages-to-achieve-their-surf-goals/d25896-345400P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/isla-tortuga-boat-tour-from-paquera': 'https://www.viator.com/tours/Santa-Teresa/Isla-Tortuga-boat-tour-from-Paquera/d25896-148182P4?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/inshore-fishing-trip-in-santa-teresa': 'https://www.viator.com/tours/Santa-Teresa/Inshore-Fishing-trip/d25896-148017P3?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/sunset-bioluminescence-tour-by-boat': 'https://www.viator.com/tours/Santa-Teresa/Bioluminescence-Tour-by-Boat/d25896-248571P2?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/private-nature-adventure-tour-in-curu-wildlife-refuge': 'https://www.viator.com/tours/Santa-Teresa/Nature-and-Adventure-Tours/d25896-290184P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/private-surf-lessons-in-santa-teresa-beach': 'https://www.viator.com/tours/Santa-Teresa/Surf-lessons-in-Santa-Teresa-Costa-Rica/d25896-283312P2?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/volcano-combo-7-activities-in-1-day-natural-hot-springs': 'https://www.viator.com/tours/Playa-Flamingo/Horse-Back-Ridding-Blue-Zone-Adventures/d24471-167483P2?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
+  'viator/double-kayak-bioluminescence-tour-in-costa-rica': 'https://www.viator.com/tours/Santa-Teresa/Bioluminescence-Costa-Rica-Kayak/d25896-439152P1?mcid=42383&pid=P00318538&medium=api&api_version=2.0',
 }
 
 function resolveUrl(slug: string): string | null {

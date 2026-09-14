@@ -57,7 +57,7 @@ export const CATEGORY_CONTENT: Record<string, HubContent> = {
 };
 
 // --- Destination pages. `town` must exactly match values in tour `towns[]`. ---
-export type Destination = HubContent & { slug: string; town: string };
+export type Destination = HubContent & { slug: string; town: string; region?: string };
 
 export const DESTINATIONS: Destination[] = [
   {
@@ -109,6 +109,17 @@ export const DESTINATIONS: Destination[] = [
       'Tours and things to do in Sámara, Guanacaste — a laid-back Nicoya Peninsula beach town with a calm, reef-protected bay. Compare experiences and book direct.',
     intro:
       'Sámara is a relaxed beach town on the Nicoya Peninsula, known for its calm, reef-protected bay and unhurried pace. It’s a gentle spot for time on the water and easygoing days. See the tours available around Sámara below.',
+  },
+  {
+    slug: 'santa-teresa',
+    town: 'Santa Teresa',
+    region: 'Nicoya Peninsula',
+    h1: 'Tours & Things to Do in Santa Teresa & Malpaís',
+    title: 'Santa Teresa & Malpaís Tours — Nicoya Peninsula, Costa Rica',
+    description:
+      'Tours and things to do in Santa Teresa and Malpaís on the southern Nicoya Peninsula — surf lessons, bioluminescence paddles, and Isla Tortuga and Curú day trips.',
+    intro:
+      'Santa Teresa and neighbouring Malpaís sit at the southern tip of the Nicoya Peninsula, known for world-class surf, long sunsets and a laid-back, off-the-grid feel. The area is a base for surf lessons and night-time bioluminescence paddles, with boat day trips to Isla Tortuga and the Curú Wildlife Refuge on the peninsula’s eastern side, and the waterfalls of Montezuma nearby. Browse the tours around Santa Teresa and Malpaís below.',
   },
 ];
 
