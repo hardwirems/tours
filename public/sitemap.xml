@@ -544,6 +544,9 @@
   <!-- TRANSPORT:END -->
 
 
+
+
+
   <!-- BLOG:START -->
   <url>
     <loc>https://www.guanacasteexperiences.com/blog/</loc>
@@ -552,6 +555,11 @@
   </url>
   <url>
     <loc>https://www.guanacasteexperiences.com/blog/tamarindo-things-to-do/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/blog/lir-vs-sjo-airport-guide/</loc>
     <lastmod>2026-09-14</lastmod>
     <priority>0.7</priority>
   </url>

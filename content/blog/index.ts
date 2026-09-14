@@ -8,7 +8,9 @@ import { post as rinconGuide } from './rincon-de-la-vieja-volcano-guide';
 import { post as gettingAround } from './getting-around-guanacaste-transport';
 
 import { post as tamarindoThingsToDo } from './tamarindo-things-to-do';
+import { post as lirVsSjoAirportGuide } from './lir-vs-sjo-airport-guide';
 export const POSTS: BlogPost[] = [
+  lirVsSjoAirportGuide,
   tamarindoThingsToDo,
   bestTimeToVisit,
   rinconGuide,

@@ -36,10 +36,17 @@ for (const f of files) {
 }
 const { TOURS } = await import(pathToFileURL(join(ROOT, 'lib/tours.ts')).href);
 const { DESTINATIONS, CATEGORY_CONTENT } = await import(pathToFileURL(join(ROOT, 'lib/seo-content.ts')).href);
+const { ROUTES: TRANSPORT_ROUTES, LOCAL_CATEGORIES } = await import(pathToFileURL(join(ROOT, 'lib/transportation-content.ts')).href);
 const tourSlugs = new Set(TOURS.map((t) => t.slug));
 const destSlugs = new Set(DESTINATIONS.map((d) => d.slug));
 const catKeys = new Set(Object.keys(CATEGORY_CONTENT));
 const postSlugs = new Set(posts.map((p) => p.slug));
+const transportPaths = new Set([
+  '/transportation', '/transportation/airport-transfers', '/transportation/airport-transfers/lir',
+  '/transportation/airport-transfers/sjo', '/transportation/getting-around',
+  ...TRANSPORT_ROUTES.map((r) => `/transportation/airport-transfers/lir/${r.slug}`),
+  ...LOCAL_CATEGORIES.map((c) => `/transportation/${c.slug}`),
+]);
 
 // Known internal route matchers (for broken-link detection).
 function internalRouteExists(href) {
@@ -50,6 +57,7 @@ function internalRouteExists(href) {
   if ((m = path.match(/^\/destinations\/(.+)$/))) return destSlugs.has(m[1]);
   if ((m = path.match(/^\/categories\/(.+)$/))) return catKeys.has(m[1]);
   if ((m = path.match(/^\/blog\/(.+)$/))) return postSlugs.has(m[1]);
+  if (path === '/transportation' || path.startsWith('/transportation/')) return transportPaths.has(path);
   if (path.startsWith('/go/')) return true; // affiliate redirect (resolved by the Pages function)
   return false;
 }
@@ -132,7 +140,7 @@ for (const p of posts) {
   let commercial = 0;
   for (const l of links) {
     if (l.startsWith('/')) { if (!internalRouteExists(l)) fail(s, `broken internal link: ${l}`); else ok(); }
-    if (/^\/(tours|destinations|categories|go)\b/.test(l)) commercial++;
+    if (/^\/(tours|destinations|categories|go|transportation)\b/.test(l)) commercial++;
     if (/(pages\.dev|localhost|127\.0\.0\.1)/.test(l)) fail(s, `preview/local URL leaked in link: ${l}`);
   }
   if (commercial < 1) fail(s, 'no link to a commercial/experience page'); else ok();
