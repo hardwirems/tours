@@ -257,7 +257,9 @@ export function generateStaticParams() {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: color.ground },
   content: { flexGrow: 1, paddingBottom: space[12] },
-  hero: { height: 380, backgroundColor: color.primary, position: 'relative' },
+  // Contained hero with a photo-friendly aspect ratio so the whole image shows
+  // (a full-bleed ultra-wide band crops the top/bottom of the composition).
+  hero: { width: '100%', maxWidth: 1100, alignSelf: 'center', aspectRatio: 1.8, marginTop: space[5], borderRadius: radius.lg, overflow: 'hidden', backgroundColor: color.primary, position: 'relative' },
   heroImg: { width: '100%', height: '100%' },
   heroScrim: { ...StyleSheet.absoluteFillObject, ...Platform.select({ web: { backgroundImage: 'linear-gradient(180deg, rgba(8,47,59,0) 60%, rgba(8,47,59,0.25) 100%)' } as object, default: {} }) },
   page: { width: '100%', alignSelf: 'center', paddingHorizontal: layout.gutter, paddingTop: space[6] },
