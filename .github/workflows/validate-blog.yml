@@ -1,0 +1,26 @@
+name: Validate blog
+
+# Runs the blog quality gate + a production build on every change to blog code
+# or content. This is the test suite in CI — a failing gate blocks the change.
+on:
+  push:
+    paths: ['content/blog/**', 'lib/blog.ts', 'components/blog/**', 'app/(tabs)/blog/**', 'automation/**', 'scripts/build-blog.mjs']
+  pull_request:
+    paths: ['content/blog/**', 'lib/blog.ts', 'components/blog/**', 'app/(tabs)/blog/**', 'automation/**', 'scripts/build-blog.mjs']
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm ci
+      - name: Quality + SEO + a11y gate (post modules)
+        run: EXPO_PUBLIC_BLOG_DRAFTS=1 node automation/validate.mjs
+      - name: Production build (with drafts, for preview parity)
+        run: EXPO_PUBLIC_BLOG_DRAFTS=1 npm run build:web
+      - name: Built-HTML gate (canonicals, JSON-LD, H1, no preview-domain leak)
+        run: EXPO_PUBLIC_BLOG_DRAFTS=1 node automation/validate.mjs --dist

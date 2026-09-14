@@ -21,6 +21,9 @@ export default function Root({ children }: PropsWithChildren) {
           <meta name="google-site-verification" content={GSC_VERIFICATION} />
         ) : null}
 
+        {/* Blog RSS feed autodiscovery */}
+        <link rel="alternate" type="application/rss+xml" title="Guanacaste Experiences — Travel Blog" href="/blog-rss.xml" />
+
         {/* Fonts — Fraunces (display) + DM Sans (body). Preconnect + swap, only used weights. */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

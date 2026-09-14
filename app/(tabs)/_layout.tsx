@@ -58,6 +58,8 @@ export default function TabsLayout() {
         <Tabs.Screen name="categories/[category]/index" options={{ href: null }} />
         <Tabs.Screen name="destinations/index" options={{ href: null }} />
         <Tabs.Screen name="destinations/[place]/index" options={{ href: null }} />
+        <Tabs.Screen name="blog/index" options={{ href: null }} />
+        <Tabs.Screen name="blog/[slug]/index" options={{ href: null }} />
       </Tabs>
     </View>
   );

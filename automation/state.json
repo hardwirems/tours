@@ -1,0 +1,9 @@
+{
+  "_comment": "Idempotency registry. A slug listed here is never generated again; published[] is the source of truth for what has gone live. Maintained by automation/publish.mjs.",
+  "generated": [
+    "best-time-to-visit-guanacaste",
+    "rincon-de-la-vieja-volcano-guide",
+    "getting-around-guanacaste-transport"
+  ],
+  "published": []
+}
