@@ -49,7 +49,10 @@ const ghSummary = (md) => { if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(
 const titleOf = (slug) => { const m = readFileSync(join(ROOT, 'content/blog', `${slug}.ts`), 'utf8').match(/^\s*title:\s*(['"])(.*?)\1/m); return m ? m[2] : slug; };
 
 function sh(cmd, cmdArgs, opts = {}) {
-  return execFileSync(cmd, cmdArgs, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'], ...opts }).toString();
+  // execFileSync returns null when a command runs with stdio:'inherit' (e.g. the
+  // build), so guard the toString() — calling it on null was crashing the run.
+  const out = execFileSync(cmd, cmdArgs, { cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'], ...opts });
+  return out ? out.toString() : '';
 }
 
 // ---------------------------------------------------------------------------
