@@ -72,7 +72,7 @@ export type BlogPost = {
   published: string; // ISO date
   updated?: string; // ISO date, only when content meaningfully changed
   reviewBy?: string; // internal refresh date
-  hero: { src: string; alt: string; caption?: Inline; credit?: ImageCredit; width?: number; height?: number };
+  hero: { src: string; alt: string; caption?: Inline; credit?: ImageCredit; width?: number; height?: number; focal?: string };
   excerpt: string; // card + list description
   body: Block[];
   sources: Source[]; // verifiable references with access dates

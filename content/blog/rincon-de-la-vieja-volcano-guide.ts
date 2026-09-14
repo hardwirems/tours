@@ -17,7 +17,7 @@ export const post: BlogPost = {
   hero: {
     src: '/images/blog/rincon-de-la-vieja-waterfall.webp',
     alt: 'A waterfall dropping through dense green forest in Guanacaste, Costa Rica',
-    width: 1600, height: 1067,
+    width: 2400, height: 1599,
     credit: {
       source: 'Pexels', sourceUrl: 'https://www.pexels.com/photo/a-waterfall-in-the-forest-10614098/',
       author: 'Mariam', license: 'Pexels License', licenseUrl: 'https://www.pexels.com/license/',

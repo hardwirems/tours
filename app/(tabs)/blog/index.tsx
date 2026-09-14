@@ -1,6 +1,7 @@
 import { SITE_URL } from '../../../lib/constants';
+import { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform } from 'react-native';
-import { Link } from 'expo-router';
+import { Link, useLocalSearchParams } from 'expo-router';
 import { Icon } from '../../../components/Icon';
 import { Seo } from '../../../components/Seo';
 import { SiteFooter } from '../../../components/SiteFooter';
@@ -72,7 +73,9 @@ function ArticleCard({ post }: { post: BlogPost }) {
         activeOpacity={0.92}
       >
         <View style={styles.cardImgWrap}>
-          <Image source={{ uri: post.hero.src }} style={styles.cardImg} resizeMode="cover"
+          <Image source={{ uri: post.hero.src }}
+            style={[styles.cardImg, Platform.OS === 'web' ? { objectPosition: post.hero.focal ?? '50% 50%' } as object : null]}
+            resizeMode="cover"
             accessibilityLabel={post.hero.alt} {...(Platform.OS === 'web' ? { alt: post.hero.alt, loading: 'lazy' } as object : {})} />
           <View style={styles.catBadge}><Text style={styles.catBadgeText}>{post.category}</Text></View>
         </View>
@@ -88,9 +91,17 @@ function ArticleCard({ post }: { post: BlogPost }) {
 
 export default function BlogIndex() {
   const posts = getAllPosts();
+  const params = useLocalSearchParams<{ category?: string }>();
+  // Defer the query-based filter until after mount so the first client render
+  // matches the statically-rendered HTML (no ?category at build time). Applying
+  // it during hydration would swap element types and crash the page.
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  const activeCategory = mounted && typeof params.category === 'string' ? params.category : undefined;
   const featured = getFeaturedPost();
-  const rest = posts.filter((p) => p.slug !== featured?.slug);
   const categories = getActiveCategories();
+  const filtered = activeCategory ? posts.filter((p) => p.category === activeCategory) : [];
+  const rest = posts.filter((p) => p.slug !== featured?.slug);
 
   return (
     <>
@@ -127,48 +138,77 @@ export default function BlogIndex() {
             </View>
           ) : (
             <>
-              {/* Featured */}
-              {featured ? (
-                <Link href={`/blog/${featured.slug}`} asChild>
-                  <TouchableOpacity accessibilityRole="link" accessibilityLabel={`Featured: ${featured.title}`}
-                    href={`/blog/${featured.slug}`} style={StyleSheet.flatten([styles.featured, cardShadow])} activeOpacity={0.94}>
-                    <View style={styles.featuredImgWrap}>
-                      <Image source={{ uri: featured.hero.src }} style={styles.featuredImg} resizeMode="cover"
-                        accessibilityLabel={featured.hero.alt} {...(Platform.OS === 'web' ? { alt: featured.hero.alt } as object : {})} />
-                      <View style={styles.featuredScrim} />
-                      <View style={styles.featuredOverlay}>
-                        <View style={styles.featuredTag}><Text style={styles.featuredTagText}>Featured · {featured.category}</Text></View>
-                        <Text style={styles.featuredTitle}>{featured.title}</Text>
-                        <Text style={styles.featuredExcerpt} numberOfLines={2}>{featured.excerpt}</Text>
-                        <Meta post={featured} light />
-                      </View>
-                    </View>
-                  </TouchableOpacity>
-                </Link>
-              ) : null}
-
-              {/* Categories */}
+              {/* Topics — interactive filters */}
               {categories.length > 1 ? (
                 <View style={styles.catRow}>
                   <Text style={styles.catLabel}>Topics:</Text>
-                  {categories.map((c) => (
-                    <View key={c.category} style={styles.catChip}>
-                      <Text style={styles.catChipText}>{c.category}</Text>
-                      <Text style={styles.catChipCount}>{c.count}</Text>
-                    </View>
-                  ))}
+                  <Link href="/blog" asChild>
+                    <TouchableOpacity accessibilityRole="link" aria-current={!activeCategory ? true : undefined} href="/blog"
+                      style={StyleSheet.flatten([styles.catChip, !activeCategory && styles.catChipActive])}>
+                      <Text style={[styles.catChipText, !activeCategory && styles.catChipTextActive]}>All</Text>
+                    </TouchableOpacity>
+                  </Link>
+                  {categories.map((c) => {
+                    const active = activeCategory === c.category;
+                    const href = `/blog?category=${encodeURIComponent(c.category)}`;
+                    return (
+                      <Link key={c.category} href={href} asChild>
+                        <TouchableOpacity accessibilityRole="link" aria-current={active ? true : undefined} href={href}
+                          style={StyleSheet.flatten([styles.catChip, active && styles.catChipActive])}>
+                          <Text style={[styles.catChipText, active && styles.catChipTextActive]}>{c.category}</Text>
+                          <Text style={[styles.catChipCount, active && styles.catChipTextActive]}>{c.count}</Text>
+                        </TouchableOpacity>
+                      </Link>
+                    );
+                  })}
                 </View>
               ) : null}
 
-              {/* Recent */}
-              {rest.length > 0 ? (
+              {activeCategory ? (
+                /* Filtered by topic */
                 <View style={styles.section}>
-                  <Text accessibilityRole="header" aria-level={2} style={styles.sectionTitle}>Latest guides</Text>
-                  <View style={styles.grid}>
-                    {rest.map((p) => <ArticleCard key={p.slug} post={p} />)}
-                  </View>
+                  <Text accessibilityRole="header" aria-level={2} style={styles.sectionTitle}>{activeCategory}</Text>
+                  {filtered.length ? (
+                    <View style={styles.grid}>{filtered.map((p) => <ArticleCard key={p.slug} post={p} />)}</View>
+                  ) : (
+                    <Text style={styles.lead}>No guides in this topic yet — <Link href="/blog" style={styles.inlineLink}>see all guides</Link>.</Text>
+                  )}
                 </View>
-              ) : null}
+              ) : (
+                <>
+                  {/* Featured */}
+                  {featured ? (
+                    <Link href={`/blog/${featured.slug}`} asChild>
+                      <TouchableOpacity accessibilityRole="link" accessibilityLabel={`Featured: ${featured.title}`}
+                        href={`/blog/${featured.slug}`} style={StyleSheet.flatten([styles.featured, cardShadow])} activeOpacity={0.94}>
+                        <View style={styles.featuredImgWrap}>
+                          <Image source={{ uri: featured.hero.src }}
+                            style={[styles.featuredImg, Platform.OS === 'web' ? { objectPosition: featured.hero.focal ?? '50% 50%' } as object : null]}
+                            resizeMode="cover"
+                            accessibilityLabel={featured.hero.alt} {...(Platform.OS === 'web' ? { alt: featured.hero.alt } as object : {})} />
+                          <View style={styles.featuredScrim} />
+                          <View style={styles.featuredOverlay}>
+                            <View style={styles.featuredTag}><Text style={styles.featuredTagText}>Featured · {featured.category}</Text></View>
+                            <Text style={styles.featuredTitle}>{featured.title}</Text>
+                            <Text style={styles.featuredExcerpt} numberOfLines={2}>{featured.excerpt}</Text>
+                            <Meta post={featured} light />
+                          </View>
+                        </View>
+                      </TouchableOpacity>
+                    </Link>
+                  ) : null}
+
+                  {/* Recent */}
+                  {rest.length > 0 ? (
+                    <View style={styles.section}>
+                      <Text accessibilityRole="header" aria-level={2} style={styles.sectionTitle}>Latest guides</Text>
+                      <View style={styles.grid}>
+                        {rest.map((p) => <ArticleCard key={p.slug} post={p} />)}
+                      </View>
+                    </View>
+                  ) : null}
+                </>
+              )}
 
               {/* Tie back to experiences */}
               <View style={styles.tieback}>
@@ -226,6 +266,9 @@ const styles = StyleSheet.create({
   catChip: { flexDirection: 'row', alignItems: 'center', gap: space[2], backgroundColor: color.surface, borderWidth: 1, borderColor: color.border, borderRadius: radius.pill, paddingVertical: 6, paddingHorizontal: space[3] },
   catChipText: { color: color.body, fontFamily: font.body, fontSize: 13.5, fontWeight: '600' },
   catChipCount: { color: color.muted, fontFamily: font.body, fontSize: 12, fontWeight: '700' },
+  catChipActive: { backgroundColor: color.primary, borderColor: color.primary },
+  catChipTextActive: { color: '#fff' },
+  inlineLink: { color: color.coral, fontFamily: font.body, fontWeight: '700' },
 
   section: { paddingHorizontal: layout.gutter },
   sectionTitle: { color: color.ink, fontFamily: font.display, fontSize: 24, fontWeight: '600', letterSpacing: -0.3, marginBottom: space[5] },

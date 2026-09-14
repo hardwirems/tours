@@ -115,8 +115,9 @@ export default function BlogArticle() {
       <ScrollView nativeID="main" style={styles.container} contentContainerStyle={styles.content}>
         {/* Hero */}
         <View style={styles.hero}>
-          <Image source={{ uri: post.hero.src }} style={styles.heroImg} resizeMode="cover"
-            accessibilityLabel={post.hero.alt}
+          <Image source={{ uri: post.hero.src }}
+            style={[styles.heroImg, Platform.OS === 'web' ? { objectPosition: post.hero.focal ?? '50% 50%' } as object : null]}
+            resizeMode="cover" accessibilityLabel={post.hero.alt}
             {...(Platform.OS === 'web' ? { alt: post.hero.alt, fetchpriority: 'high' } as object : {})} />
           <View style={styles.heroScrim} />
         </View>
