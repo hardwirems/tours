@@ -64,6 +64,8 @@ function metaFor(post: BlogPost) {
     },
     twitter: { card: 'summary_large_image', title: post.title, description: post.description, images: [img] },
     alternates: { canonical: url },
+    // Drafts (shown only on the preview build) must never be indexed anywhere.
+    robots: post.draft ? { index: false, follow: true } : undefined,
   };
 }
 

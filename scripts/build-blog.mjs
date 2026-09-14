@@ -16,14 +16,15 @@ const SITE = 'https://www.guanacasteexperiences.com';
 // avoiding the extensionless registry import that Metro resolves but Node doesn't.
 const blogDir = join(ROOT, 'content/blog');
 const files = readdirSync(blogDir).filter((f) => f.endsWith('.ts') && f !== 'index.ts');
-const showDrafts = process.env.EXPO_PUBLIC_BLOG_DRAFTS === '1';
 const all = [];
 for (const f of files) {
   const mod = await import(pathToFileURL(join(blogDir, f)).href);
   if (mod.post) all.push(mod.post);
 }
+// Feeds and the sitemap always reflect PUBLISHED posts only — never drafts, even
+// when the preview build renders drafts for review (they are noindex there).
 const posts = all
-  .filter((p) => showDrafts || !p.draft)
+  .filter((p) => !p.draft)
   .sort((a, b) => (a.published < b.published ? 1 : -1));
 
 function readingTimeMinutes(p) {
