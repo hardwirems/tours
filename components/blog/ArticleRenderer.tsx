@@ -67,11 +67,14 @@ export function RichText({ text, style }: { text: Inline; style?: object }) {
 }
 
 function CalloutBlock({ block }: { block: Extract<Block, { type: 'callout' }> }) {
-  const cfg = {
+  const cfgs = {
     tip: { bg: color.skyLight, bd: color.sky, ic: 'bulb-outline' as const, fg: color.primary },
     note: { bg: color.surfaceAlt, bd: color.border, ic: 'information-circle-outline' as const, fg: color.body },
     warning: { bg: color.sunLight, bd: color.sun, ic: 'alert-circle-outline' as const, fg: '#8B6914' },
-  }[block.variant];
+  };
+  // Fall back to `note` for any unknown variant — a bad value must never crash the
+  // whole article render (which would blank the page, H1 and all).
+  const cfg = cfgs[block.variant] ?? cfgs.note;
   return (
     <View style={[styles.callout, { backgroundColor: cfg.bg, borderColor: cfg.bd }]}>
       <Icon name={cfg.ic} size={18} color={cfg.bd} />

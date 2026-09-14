@@ -57,6 +57,7 @@ async function sanitizeLinks(art, topic, root) {
       else if (b.type === 'faq') b.items = (b.items || []).map((i) => ({ ...i, a: fixLinks(i.a, v) }));
       else if (b.type === 'cta') { if (b.href && !routeOk(b.href, v)) b.href = '/tours'; }
       else if (b.type === 'table') b.rows = (b.rows || []).map((row) => row.map((c) => fixLinks(c, v)));
+      else if (b.type === 'callout') { if (!['tip', 'note', 'warning'].includes(b.variant)) b.variant = /warn|danger|caution|important|alert/i.test(b.variant || '') ? 'warning' : 'note'; }
     }
     console.log(`[links] kept relatedTours:${art.relatedTours.length} relatedDests:${art.relatedDestinations.length} relatedPosts:${art.relatedPosts.length}`);
   } catch (e) {
@@ -89,7 +90,7 @@ Link naturally to these internal routes where relevant (use markdown links in bl
 Return JSON with EXACTLY these fields (types match lib/blog.ts BlogPost, minus slug/hero/dates which the pipeline fills):
 { "metaTitle": "<=60 chars", "description": "50-150 chars (never exceed 160)", "excerpt": "1-2 sentences",
   "tags": ["..."], "author": {"name":"Guanacaste Experiences editorial team","role":"Travel editors"},
-  "body": [ {block} ... ],  // blocks: p, h2, h3, ul{items}, ol{items}, table{caption,headers,rows}, callout{variant,title,text}, quote{text,cite}, cta{label,href,note}, faq{items:[{q,a}]}
+  "body": [ {block} ... ],  // blocks: p, h2, h3, ul{items}, ol{items}, table{caption,headers,rows}, callout{variant:"tip"|"note"|"warning",title,text}, quote{text,cite}, cta{label,href,note}, faq{items:[{q,a}]}
   "sources": [ {"title":"...","url":"https://...","accessed":"${new Date().toISOString().slice(0,10)}","supports":"the claim(s) this backs"} ],
   "relatedTours": ["<tour-slug>"], "relatedDestinations": ["<dest-slug>"], "relatedPosts": ["<post-slug>"] }
 Requirements: answer the main question in the first paragraph; at least 2 H2 sections; at least one comparison table OR a useful list; at least one link to a commercial/experience page; 2-4 FAQ items; every non-obvious/volatile fact backed by a source with a real URL. Length: only as long as the intent needs (roughly ${topic.funnel === 'top' ? '700-1200' : '1000-1800'} words).`;
