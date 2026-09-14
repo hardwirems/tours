@@ -7,7 +7,7 @@
 // resolvable route, transfer/transport product (not a guided tour). Writes:
 //   lib/transportation-data.ts   — typed product + zone data for the pages
 //   lib/affiliate-transfers.ts   — { 'viator/<slug>': '<commissionable productUrl>' }
-import { writeFileSync } from 'node:fs';
+import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 
 const KEY = process.env.VIATOR_API_KEY;
 if (!KEY) { console.error('VIATOR_API_KEY not set'); process.exit(1); }
@@ -115,6 +115,27 @@ for (const code of RENTAL_CODES) {
   urlMap[`viator/${slug}`] = d.productUrl;
   rentals.push({ code, slug, title: d.title, category: 'golf-cart', rating: Number((d.reviews?.combinedAverageRating || 0).toFixed(2)), reviews: d.reviews?.totalCount || d.reviews?.totalReviews || 0, freeCancellation: d.cancellationPolicy?.type === 'STANDARD', image: variant ? { url: variant.url, width: variant.width, height: variant.height, alt: d.title } : null });
 }
+
+// ---- Safety floor: refuse to overwrite good data with a gutted set --------
+// A sudden collapse in results almost always means an API hiccup, not that the
+// inventory vanished. Abort (exit 2) rather than publish an empty section.
+const MIN_EXPECTED = Number(process.env.MIN_EXPECTED_TRANSFERS || 15);
+if (transfers.length < MIN_EXPECTED) {
+  console.error(`ABORT: only ${transfers.length} qualifying transfers (< floor ${MIN_EXPECTED}). Likely an API issue — existing data left untouched.`);
+  process.exit(2);
+}
+
+// ---- Change summary vs. the currently-committed data -----------------------
+let prevCodes = new Set();
+if (existsSync('lib/transportation-data.ts')) {
+  try { const m = readFileSync('lib/transportation-data.ts', 'utf8').match(/TRANSFERS: TransferProduct\[\] = (\[[\s\S]*?\]);/); if (m) JSON.parse(m[1]).forEach((p) => prevCodes.add(p.code)); } catch { /* first run */ }
+}
+const newCodes = new Set(transfers.map((t) => t.code));
+const added = [...newCodes].filter((c) => !prevCodes.has(c));
+const removed = [...prevCodes].filter((c) => !newCodes.has(c));
+const summary = `Transfers: ${transfers.length} (added ${added.length}, removed ${removed.length}).\nAdded: ${added.join(', ') || 'none'}\nRemoved: ${removed.join(', ') || 'none'}`;
+console.log('\n' + summary);
+if (process.env.SUMMARY_OUT) writeFileSync(process.env.SUMMARY_OUT, summary + '\n');
 
 // ---- Emit data files -------------------------------------------------------
 const today = new Date().toISOString().slice(0, 10);
