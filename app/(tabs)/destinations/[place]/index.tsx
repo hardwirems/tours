@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, ScrollView } from 'react-native';
 import { getToursByTown, Tour } from '../../../../lib/tours';
 import { useRouteParam } from '../../../../lib/useRouteParam';
 import { DESTINATIONS, getDestinationBySlug, Destination } from '../../../../lib/seo-content';
+import { ROUTES } from '../../../../lib/transportation-content';
 import { TourGrid } from '../../../../components/TourCard';
 import { Seo } from '../../../../components/Seo';
 import { SiteFooter } from '../../../../components/SiteFooter';
@@ -59,6 +60,15 @@ export default function DestinationScreen() {
   }
 
   const url = `${SITE_URL}/destinations/${dest.slug}/`;
+  // Contextual link to the matching airport-transfer page (dedicated route where
+  // one exists, otherwise the Liberia Airport hub which serves any Guanacaste hotel).
+  const transferRoute = ROUTES.find((r) => r.destSlug === dest.slug);
+  const transferHref = transferRoute
+    ? `/transportation/airport-transfers/lir/${transferRoute.slug}`
+    : '/transportation/airport-transfers/lir';
+  const transferLabel = transferRoute
+    ? `Flying in? Private airport transfers from Liberia (LIR) to ${dest.town}`
+    : `Flying in? Private airport transfers from Liberia (LIR)`;
   return (
     <>
       <Seo metadata={buildMeta(dest, url)} jsonLd={buildJsonLd(dest, url, tours)} />
@@ -68,6 +78,7 @@ export default function DestinationScreen() {
           <Text role="heading" aria-level={1} style={styles.h1}>{dest.h1}</Text>
           <Text style={styles.intro}>{dest.intro}</Text>
           <Text style={styles.count}>{tours.length} {tours.length === 1 ? 'tour' : 'tours'} in {dest.town}</Text>
+          <Link href={transferHref} style={styles.transferLink} aria-label={`${transferLabel} — airport transfers`}>{transferLabel} →</Link>
         </View>
 
         <View style={styles.grid}>
@@ -101,6 +112,7 @@ const styles = StyleSheet.create({
   h1: { color: color.ink, fontFamily: font.display, fontSize: 32, fontWeight: '600', letterSpacing: -0.4, lineHeight: 38, marginBottom: 12 },
   intro: { color: '#374151', fontSize: 15, lineHeight: 23, maxWidth: 680 },
   count: { color: '#6B7280', fontSize: 13, fontWeight: '600', marginTop: 12 },
+  transferLink: { alignSelf: 'flex-start', color: '#0B4155', backgroundColor: '#E6F4FE', paddingHorizontal: 12, paddingVertical: 8, borderRadius: 999, fontSize: 13.5, fontWeight: '700', marginTop: 14, textDecorationLine: 'none' },
   grid: { flex: 1 },
   linksBlock: { padding: 20, borderTopWidth: 1, borderTopColor: '#E5E7EB' },
   linksTitle: { color: '#0B4155', fontSize: 16, fontWeight: '800', marginBottom: 12 },
