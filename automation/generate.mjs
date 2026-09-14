@@ -10,9 +10,60 @@
 // The model is instructed to return STRICT JSON matching the BlogPost block
 // schema, with the brief's writing and sourcing rules enforced in the prompt AND
 // re-checked by automation/validate.mjs afterwards (belt and braces).
-import { writeFileSync, existsSync } from 'node:fs';
+import { writeFileSync, existsSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
+
+// Valid internal routes (mirrors automation/validate.mjs) so the generator never
+// emits a link the validator would reject. The model tends to invent plausible
+// but non-existent destination/post slugs; we drop those before writing.
+async function validRoutes(root) {
+  const { TOURS } = await import(pathToFileURL(join(root, 'lib/tours.ts')).href);
+  const { DESTINATIONS, CATEGORY_CONTENT } = await import(pathToFileURL(join(root, 'lib/seo-content.ts')).href);
+  return {
+    tours: new Set(TOURS.map((t) => t.slug)),
+    dests: new Set(DESTINATIONS.map((d) => d.slug)),
+    cats: new Set(Object.keys(CATEGORY_CONTENT || {})),
+    posts: new Set(readdirSync(join(root, 'content/blog')).filter((f) => f.endsWith('.ts') && f !== 'index.ts').map((f) => f.replace(/\.ts$/, ''))),
+  };
+}
+function routeOk(href, v) {
+  const path = String(href).split(/[?#]/)[0].replace(/\/$/, '');
+  if (['', '/', '/tours', '/destinations', '/about', '/blog', '/compare'].includes(path)) return true;
+  let m;
+  if ((m = path.match(/^\/tours\/(.+)$/))) return v.tours.has(m[1]);
+  if ((m = path.match(/^\/destinations\/(.+)$/))) return v.dests.has(m[1]);
+  if ((m = path.match(/^\/categories\/(.+)$/))) return v.cats.has(m[1]);
+  if ((m = path.match(/^\/blog\/(.+)$/))) return v.posts.has(m[1]);
+  if (path.startsWith('/go/')) return true;
+  return false;
+}
+// Neutralize a broken internal markdown link to its plain text; keep valid links.
+function fixLinks(text, v) {
+  return String(text).replace(/\[([^\]]+)\]\((\/[^)\s]*)\)/g, (full, label, href) => (routeOk(href, v) ? full : label));
+}
+// Drop invented related slugs and neutralize broken body links so internal links
+// never 404 (enforced by validate.mjs). Mutates `art` in place.
+async function sanitizeLinks(art, topic, root) {
+  try {
+    const v = await validRoutes(root);
+    art.relatedTours = (art.relatedTours || topic.relatedTours || []).filter((t) => v.tours.has(t));
+    art.relatedDestinations = (art.relatedDestinations || topic.relatedDestinations || []).filter((d) => v.dests.has(d));
+    art.relatedPosts = (art.relatedPosts || []).filter((r) => v.posts.has(r) && r !== topic.slug);
+    for (const b of (art.body || [])) {
+      if (b.type === 'p') b.text = fixLinks(b.text, v);
+      else if (b.type === 'ul' || b.type === 'ol') b.items = (b.items || []).map((i) => fixLinks(i, v));
+      else if (b.type === 'faq') b.items = (b.items || []).map((i) => ({ ...i, a: fixLinks(i.a, v) }));
+      else if (b.type === 'cta') { if (b.href && !routeOk(b.href, v)) b.href = '/tours'; }
+      else if (b.type === 'table') b.rows = (b.rows || []).map((row) => row.map((c) => fixLinks(c, v)));
+    }
+    console.log(`[links] kept relatedTours:${art.relatedTours.length} relatedDests:${art.relatedDestinations.length} relatedPosts:${art.relatedPosts.length}`);
+  } catch (e) {
+    console.log(`[links] slug data load failed (${e.message}); dropping related links`);
+    art.relatedTours = []; art.relatedDestinations = []; art.relatedPosts = [];
+  }
+}
 
 const MODEL = process.env.BLOG_MODEL || 'claude-opus-4-8';
 const PEXELS = 'https://api.pexels.com/v1/search';
@@ -121,6 +172,7 @@ export async function generateDraft(topic, { root }) {
   if (art.description && art.description.length > 165) {
     art.description = art.description.slice(0, 165).replace(/\s+\S*$/, '').replace(/[\s.,;:–—-]+$/, '');
   }
+  await sanitizeLinks(art, topic, root);
   const hero = await sourceImage(topic, root);
   const today = new Date().toISOString().slice(0, 10);
   writeFileSync(file, toModule(topic, art, hero, today));
