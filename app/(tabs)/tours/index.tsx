@@ -4,6 +4,7 @@ import { useLocalSearchParams, useRouter } from 'expo-router';
 import { Icon } from '../../../components/Icon';
 import { TOURS, CATEGORY_LABELS, searchTours, getToursByCategory, getToursByTown, Tour, TourCategory } from '../../../lib/tours';
 import { TourGrid } from '../../../components/TourCard';
+import { DESTINATIONS } from '../../../lib/seo-content';
 import { Seo } from '../../../components/Seo';
 import { SiteFooter } from '../../../components/SiteFooter';
 import { color, font, space, radius, layout } from '../../../lib/theme';
@@ -146,7 +147,7 @@ export default function ToursScreen() {
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.chipsContainer}
         >
-          {['Tamarindo', 'Playa Flamingo', 'Liberia', 'Playa Hermosa'].map((t) => (
+          {DESTINATIONS.map((d) => d.town).map((t) => (
             <TouchableOpacity
               key={t}
               accessibilityRole="link"
