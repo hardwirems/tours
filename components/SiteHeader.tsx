@@ -13,6 +13,7 @@ import { color, font, space, radius, layout, shadow } from '../lib/theme';
 const NAV = [
   { label: 'Tours', href: '/tours' },
   { label: 'Destinations', href: '/destinations' },
+  { label: 'Transportation', href: '/transportation' },
   { label: 'Blog', href: '/blog' },
   { label: 'About', href: '/about' },
 ] as const;

@@ -56,6 +56,7 @@ export function SiteFooter() {
           <Col title="Guanacaste Experiences">
             <FooterLink href="/tours" label="All tours" />
             <FooterLink href="/destinations" label="Destinations" />
+            <FooterLink href="/transportation" label="Transportation" />
             <FooterLink href="/blog" label="Travel blog" />
             <FooterLink href="/about" label="About us" />
           </Col>

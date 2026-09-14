@@ -60,6 +60,13 @@ export default function TabsLayout() {
         <Tabs.Screen name="destinations/[place]/index" options={{ href: null }} />
         <Tabs.Screen name="blog/index" options={{ href: null }} />
         <Tabs.Screen name="blog/[slug]/index" options={{ href: null }} />
+        <Tabs.Screen name="transportation/index" options={{ href: null }} />
+        <Tabs.Screen name="transportation/airport-transfers/index" options={{ href: null }} />
+        <Tabs.Screen name="transportation/airport-transfers/lir/index" options={{ href: null }} />
+        <Tabs.Screen name="transportation/airport-transfers/lir/[destination]/index" options={{ href: null }} />
+        <Tabs.Screen name="transportation/airport-transfers/sjo/index" options={{ href: null }} />
+        <Tabs.Screen name="transportation/getting-around/index" options={{ href: null }} />
+        <Tabs.Screen name="transportation/[rental]/index" options={{ href: null }} />
       </Tabs>
     </View>
   );

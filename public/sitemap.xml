@@ -490,6 +490,60 @@
 
 
 
+  <!-- TRANSPORT:START -->
+  <url>
+    <loc>https://www.guanacasteexperiences.com/transportation/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/transportation/airport-transfers/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/transportation/airport-transfers/lir/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/transportation/airport-transfers/lir/tamarindo/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/transportation/airport-transfers/lir/papagayo-coco/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/transportation/airport-transfers/lir/flamingo-conchal/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/transportation/airport-transfers/lir/la-fortuna/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/transportation/airport-transfers/sjo/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/transportation/getting-around/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/transportation/golf-cart-rentals/</loc>
+    <lastmod>2026-09-14</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <!-- TRANSPORT:END -->
+
+
   <!-- BLOG:START -->
   <url>
     <loc>https://www.guanacasteexperiences.com/blog/</loc>

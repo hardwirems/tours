@@ -5,6 +5,8 @@
  * Supabase credentials are set via wrangler pages secret put (not committed).
  */
 
+import { TRANSFER_URLS } from '../../lib/affiliate-transfers'
+
 interface Env {
   SUPABASE_URL: string
   SUPABASE_ANON_KEY: string
@@ -96,7 +98,9 @@ const URL_MAP: Record<string, string> = {
 }
 
 function resolveUrl(slug: string): string | null {
-  return URL_MAP[slug] ?? null
+  // Tours live in the inline URL_MAP; transportation transfers/rentals are
+  // generated into lib/affiliate-transfers.ts by scripts/sync-transfers.mjs.
+  return URL_MAP[slug] ?? TRANSFER_URLS[slug] ?? null
 }
 
 async function recordClick(
