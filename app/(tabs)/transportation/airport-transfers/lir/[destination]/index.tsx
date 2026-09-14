@@ -122,5 +122,5 @@ const styles = StyleSheet.create({
   p: { flex: 1, color: color.body, fontFamily: font.body, fontSize: 15.5, lineHeight: 24 },
   b: { fontWeight: '700', color: color.ink },
   inlineLink: { color: color.sky, fontWeight: '700' },
-  freshness: { color: color.faint, fontFamily: font.body, fontSize: 12.5, marginTop: space[8] },
+  freshness: { color: color.muted, fontFamily: font.body, fontSize: 12.5, marginTop: space[8] },
 });

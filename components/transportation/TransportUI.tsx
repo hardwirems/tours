@@ -85,7 +85,7 @@ const ds = StyleSheet.create({
 const bc = StyleSheet.create({
   row: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: space[2] },
   item: { flexDirection: 'row', alignItems: 'center', gap: space[2] },
-  sep: { color: color.faint, fontFamily: font.body, fontSize: 13 },
+  sep: { color: color.muted, fontFamily: font.body, fontSize: 13 },
   link: { color: color.sky, fontFamily: font.body, fontSize: 13, fontWeight: '600' },
   current: { color: color.muted, fontFamily: font.body, fontSize: 13, maxWidth: 280 },
 });

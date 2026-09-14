@@ -131,5 +131,5 @@ const styles = StyleSheet.create({
   b: { fontWeight: '700', color: color.ink },
   faqItem: { marginTop: space[4], gap: space[1] },
   faqQ: { color: color.ink, fontFamily: font.body, fontSize: 16, fontWeight: '700' },
-  freshness: { color: color.faint, fontFamily: font.body, fontSize: 12.5, marginTop: space[8] },
+  freshness: { color: color.muted, fontFamily: font.body, fontSize: 12.5, marginTop: space[8] },
 });

@@ -14,7 +14,7 @@ export function RentalCard({ product, campaign }: { product: RentalProduct; camp
         {product.image ? (
           <Image source={{ uri: product.image.url }} style={styles.img} resizeMode="cover"
             accessibilityLabel={product.image.alt}
-            {...(Platform.OS === 'web' ? ({ alt: product.image.alt, loading: 'lazy', width: product.image.width, height: product.image.height } as object) : {})} />
+            {...(Platform.OS === 'web' ? ({ alt: product.image.alt, loading: 'lazy' } as object) : {})} />
         ) : <View style={styles.img} />}
       </View>
       <View style={styles.body}>
@@ -29,7 +29,7 @@ export function RentalCard({ product, campaign }: { product: RentalProduct; camp
         </View>
         <TouchableOpacity
           accessibilityRole="link"
-          accessibilityLabel={`Check availability for ${product.title} on Viator`}
+          accessibilityLabel={`Check availability on Viator for ${product.title}`}
           href={href} hrefAttrs={{ rel: 'sponsored noopener' }}
           style={styles.cta}
           onPress={() => track('click_viator_booking', { category: 'rental', subcategory: product.category, product_code: product.code, campaign })}

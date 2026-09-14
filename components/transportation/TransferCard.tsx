@@ -50,7 +50,7 @@ export function TransferCard({ product, campaign, eager = false }: { product: Tr
             style={styles.img}
             resizeMode="cover"
             accessibilityLabel={product.image.alt}
-            {...(Platform.OS === 'web' ? ({ alt: product.image.alt, loading: eager ? 'eager' : 'lazy', width: product.image.width, height: product.image.height } as object) : {})}
+            {...(Platform.OS === 'web' ? ({ alt: product.image.alt, loading: eager ? 'eager' : 'lazy' } as object) : {})}
           />
         ) : <View style={styles.img} />}
         <View style={styles.routeBadge}><Text style={styles.routeBadgeText}>{product.origin} → {dest}</Text></View>
@@ -76,7 +76,7 @@ export function TransferCard({ product, campaign, eager = false }: { product: Tr
 
         <TouchableOpacity
           accessibilityRole="link"
-          accessibilityLabel={`Check availability for ${product.title} on Viator`}
+          accessibilityLabel={`Check availability on Viator for ${product.title}`}
           href={href}
           hrefAttrs={{ rel: 'sponsored noopener' }}
           style={styles.cta}
