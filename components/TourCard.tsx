@@ -311,7 +311,9 @@ const styles = StyleSheet.create({
   // Detail
   dScroll: { flex: 1, backgroundColor: color.ground },
   dScrollContent: { flexGrow: 1 },
-  dHero: { height: 420, backgroundColor: color.primary, justifyContent: 'flex-end', overflow: 'hidden' },
+  // Contained, photo-friendly aspect so the tour photo shows nearly in full (a
+  // full-bleed ultra-wide band cropped the subject); title/rating stay overlaid.
+  dHero: { width: '100%', maxWidth: 1100, alignSelf: 'center', aspectRatio: 1.9, minHeight: 300, marginTop: space[5], borderRadius: radius.lg, backgroundColor: color.primary, justifyContent: 'flex-end', overflow: 'hidden' },
   dHeroImg: { ...StyleSheet.absoluteFillObject, width: '100%', height: '100%' },
   dHeroScrim: {
     ...StyleSheet.absoluteFillObject,
