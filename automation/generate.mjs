@@ -45,9 +45,14 @@ Requirements: answer the main question in the first paragraph; at least 2 H2 sec
 }
 
 async function callModel(topic) {
+  const headers = { 'content-type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' };
+  // An org-level (unscoped) key must name a workspace on every request; a
+  // workspace-scoped key does not. Setting ANTHROPIC_WORKSPACE_ID makes an
+  // unscoped key work; it is harmless (ignored) with a scoped key.
+  if (process.env.ANTHROPIC_WORKSPACE_ID) headers['anthropic-workspace-id'] = process.env.ANTHROPIC_WORKSPACE_ID;
   const res = await fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
-    headers: { 'content-type': 'application/json', 'x-api-key': process.env.ANTHROPIC_API_KEY, 'anthropic-version': '2023-06-01' },
+    headers,
     body: JSON.stringify({ model: MODEL, max_tokens: 8000, system: SYSTEM, messages: [{ role: 'user', content: userPrompt(topic) }] }),
   });
   if (!res.ok) throw new Error(`Anthropic HTTP ${res.status}: ${await res.text()}`);

@@ -40,6 +40,7 @@ jobs:
       preview_url: ${{ steps.preview.outputs.url }}
     env:
       ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+      ANTHROPIC_WORKSPACE_ID: ${{ vars.ANTHROPIC_WORKSPACE_ID }}   # only needed for an org-level (unscoped) key
       PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
       BLOG_TZ: ${{ vars.BLOG_TZ }}
     steps:
