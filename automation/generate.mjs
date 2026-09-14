@@ -36,7 +36,7 @@ Suggested sources: ${(topic.sources || []).join(', ')}
 Link naturally to these internal routes where relevant (use markdown links in block text): commercial pages /tours, /tours?category=..., /destinations/<slug>, and related posts /blog/<slug>. Related tours: ${(topic.relatedTours||[]).join(', ')||'(pick relevant)'}. CTA: ${topic.cta}.
 
 Return JSON with EXACTLY these fields (types match lib/blog.ts BlogPost, minus slug/hero/dates which the pipeline fills):
-{ "metaTitle": "<=60 chars", "description": "50-160 chars", "excerpt": "1-2 sentences",
+{ "metaTitle": "<=60 chars", "description": "50-150 chars (never exceed 160)", "excerpt": "1-2 sentences",
   "tags": ["..."], "author": {"name":"Guanacaste Experiences editorial team","role":"Travel editors"},
   "body": [ {block} ... ],  // blocks: p, h2, h3, ul{items}, ol{items}, table{caption,headers,rows}, callout{variant,title,text}, quote{text,cite}, cta{label,href,note}, faq{items:[{q,a}]}
   "sources": [ {"title":"...","url":"https://...","accessed":"${new Date().toISOString().slice(0,10)}","supports":"the claim(s) this backs"} ],
@@ -70,7 +70,7 @@ async function sourceImage(topic, root) {
   if (!process.env.PEXELS_API_KEY) return null;
   const q = encodeURIComponent(topic.imageBrief || `${topic.title} Costa Rica`);
   const res = await fetch(`${PEXELS}?query=${q}&orientation=landscape&per_page=30`, { headers: { Authorization: process.env.PEXELS_API_KEY } });
-  if (!res.ok) return null;
+  if (!res.ok) { console.log(`[image] Pexels HTTP ${res.status} — no hero (check PEXELS_API_KEY / quota)`); return null; }
   const { photos = [] } = await res.json();
   // Only consider photos with a real description, so the alt text and provenance
   // are always truthful about what the image actually shows.
@@ -81,6 +81,7 @@ async function sourceImage(topic, root) {
   // honestly as a REPRESENTATIVE image; if nothing is on-theme, hold for a human
   // rather than attach a misleading picture.
   const photo = withAlt.find((p) => PLACE.test(p.alt)) || withAlt.find((p) => THEME.test(p.alt));
+  console.log(`[image] query="${topic.imageBrief || topic.title + ' Costa Rica'}" results=${photos.length} withAlt=${withAlt.length} matched=${photo ? (PLACE.test(photo.alt) ? 'place' : 'theme') : 'NONE'}`);
   if (!photo) return null;
   const named = PLACE.test(photo.alt);
   const out = join(root, 'public/images/blog', `${topic.slug}.webp`);
@@ -115,6 +116,11 @@ export async function generateDraft(topic, { root }) {
   const file = join(root, 'content/blog', `${topic.slug}.ts`);
   if (existsSync(file)) return topic.slug; // idempotent
   const art = await callModel(topic);
+  // Clamp the meta description to the validator's 165-char ceiling, trimming at a
+  // word boundary so a slightly-long model description doesn't fail the gate.
+  if (art.description && art.description.length > 165) {
+    art.description = art.description.slice(0, 165).replace(/\s+\S*$/, '').replace(/[\s.,;:–—-]+$/, '');
+  }
   const hero = await sourceImage(topic, root);
   const today = new Date().toISOString().slice(0, 10);
   writeFileSync(file, toModule(topic, art, hero, today));
