@@ -88,12 +88,15 @@ async function generate() {
   await generateDraft(topic, { root: ROOT });
   state.generated.push(topic.slug);
   saveState(state);
+  ghOut('slug', topic.slug); // emit early so the workflow can archive the draft even if a gate fails
 
   // --- 7–9. Quality, SEO, accessibility gate -------------------------------
   try {
     sh('node', ['automation/validate.mjs'], { env: { ...process.env, EXPO_PUBLIC_BLOG_DRAFTS: '1' } });
   } catch (e) {
-    record({ result: 'SKIP', slug: topic.slug, reason: 'failed quality/SEO/a11y gate — left as draft for review\n' + e.stdout?.toString() });
+    const detail = (e.stdout?.toString() || '') + (e.stderr?.toString() || '');
+    console.log('\n----- validator output (why the draft was rejected) -----\n' + detail); // surface in the CI log
+    record({ result: 'SKIP', slug: topic.slug, reason: 'failed quality/SEO/a11y gate — left as draft for review' });
     ghOut('candidate', 'false'); return;
   }
 
@@ -102,6 +105,8 @@ async function generate() {
   try {
     sh('node', ['automation/validate.mjs', '--dist'], { env: { ...process.env, EXPO_PUBLIC_BLOG_DRAFTS: '1' } });
   } catch (e) {
+    const detail = (e.stdout?.toString() || '') + (e.stderr?.toString() || '');
+    console.log('\n----- built-HTML validator output -----\n' + detail);
     record({ result: 'SKIP', slug: topic.slug, reason: 'failed built-HTML gate (canonical/JSON-LD/H1)' });
     ghOut('candidate', 'false'); return;
   }

@@ -52,6 +52,13 @@ jobs:
       - name: Generate + gate draft
         id: gen
         run: node automation/publish.mjs ${{ (github.event_name == 'schedule' || github.event.inputs.auto_only == 'true') && '--auto-only' || '' }}
+      - name: Archive the generated draft (even if it failed a gate)
+        if: always() && steps.gen.outputs.slug != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-draft
+          retention-days: 14
+          path: content/blog/${{ steps.gen.outputs.slug }}.ts
       - name: Deploy preview (drafts visible)
         id: preview
         if: steps.gen.outputs.candidate == 'true'
