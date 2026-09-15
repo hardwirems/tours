@@ -45,21 +45,23 @@ export default function Root({ children }: PropsWithChildren) {
 
         <ScrollViewStyleReset />
 
-        {/* Google Analytics 4 (gtag.js) */}
+        {/* Google Analytics 4 (gtag.js). Consent Mode + config run immediately (tiny,
+            inline); the ~70KB gtag.js download is deferred off the critical path —
+            loaded on the first user interaction, or 3s after load — so it never
+            competes with the LCP hero for bandwidth. Queued calls flush when it loads. */}
         {GA_MEASUREMENT_ID ? (
-          <>
-            <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
-            <script
-              dangerouslySetInnerHTML={{
-                __html:
-                  `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}` +
-                  // Consent Mode: default denied; restore a prior "granted" choice immediately.
-                  `var _c='denied';try{if(localStorage.getItem('cookie_consent')==='granted')_c='granted';}catch(e){}` +
-                  `gtag('consent','default',{analytics_storage:_c,ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});` +
-                  `gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');`,
-              }}
-            />
-          </>
+          <script
+            dangerouslySetInnerHTML={{
+              __html:
+                `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}` +
+                `var _c='denied';try{if(localStorage.getItem('cookie_consent')==='granted')_c='granted';}catch(e){}` +
+                `gtag('consent','default',{analytics_storage:_c,ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});` +
+                `gtag('js',new Date());gtag('config','${GA_MEASUREMENT_ID}');` +
+                `var _gl=0;function _loadGA(){if(_gl)return;_gl=1;var s=document.createElement('script');s.async=1;s.src='https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}';document.head.appendChild(s);}` +
+                `['scroll','click','keydown','touchstart','pointerdown'].forEach(function(e){addEventListener(e,_loadGA,{once:true,passive:true});});` +
+                `addEventListener('load',function(){setTimeout(_loadGA,3000);});`,
+            }}
+          />
         ) : null}
 
         {/* Cloudflare Web Analytics — privacy-first, no cookies. */}
