@@ -33,7 +33,7 @@ export function TourCard({ tour, onPress, featured = false }: TourCardProps) {
           <Text style={styles.categoryBadgeText}>{CATEGORY_LABELS[tour.category]}</Text>
         </View>
         {tour.rating != null && (
-          <View style={styles.ratingBadge}>
+          <View style={styles.ratingBadge} accessibilityLabel={`Rated ${tour.rating} on Viator`}>
             <Icon name="star" size={12} color={color.sun} />
             <Text style={styles.ratingText}>{tour.rating}</Text>
           </View>
@@ -172,7 +172,7 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
             {tour.rating != null ? (
               <Text style={styles.dHeroMetaItem}>
                 <Icon name="star" size={14} color={color.sun} /> {tour.rating}
-                {tour.reviewCount != null ? ` (${tour.reviewCount})` : ''}
+                {tour.reviewCount != null ? ` (${tour.reviewCount} reviews on Viator)` : ' on Viator'}
               </Text>
             ) : null}
             <Text style={styles.dHeroMetaItem}><Icon name="time-outline" size={14} color="#fff" /> {tour.duration}</Text>
