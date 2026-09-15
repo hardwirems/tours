@@ -61,11 +61,28 @@ export default function HomeScreen() {
   // identical DOM — no hydration mismatch, no first-paint size jump.
   return (
     <>
-      <Seo metadata={metadata} jsonLd={jsonLd} />
+      <Seo metadata={metadata} jsonLd={jsonLd} preloadImage="/images/home-hero.webp" />
       <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
         {/* Hero */}
         <View style={styles.hero} dataSet={{ hero: 'wrap' }} nativeID="main">
-          <Image source={require('../../assets/hero.webp')} style={styles.heroImage} resizeMode="cover" />
+          {Platform.OS === 'web' ? (
+            // LCP hero as a real, server-rendered <img>: it paints at first paint
+            // (not after hydration like RNW <Image>, which emits only a placeholder
+            // for a require()'d asset) and carries fetchpriority. Paired with the
+            // <link rel="preload"> in <Seo> so the browser fetches it during head parse.
+            // @ts-expect-error web-only DOM element in the RN tree
+            <img
+              src="/images/home-hero.webp"
+              alt=""
+              aria-hidden="true"
+              decoding="async"
+              // @ts-expect-error React DOM attribute (lowercase on the wire)
+              fetchpriority="high"
+              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+          ) : (
+            <Image source={require('../../assets/hero.webp')} style={styles.heroImage} resizeMode="cover" />
+          )}
           <View style={styles.heroScrim} />
           <View style={[styles.heroInner, { maxWidth: layout.maxWidth }]}>
             <Text style={styles.heroEyebrow}>Guanacaste · Costa Rica</Text>
