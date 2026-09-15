@@ -5,6 +5,7 @@ import {
 import { TOURS, CATEGORIES } from '../../lib/tours';
 import { Link } from 'expo-router';
 import { Seo } from '../../components/Seo';
+import { WebImage } from '../../components/WebImage';
 import { SiteFooter } from '../../components/SiteFooter';
 import { DESTINATIONS } from '../../lib/seo-content';
 import { color, font, type, space, radius, shadow, layout } from '../../lib/theme';
@@ -136,7 +137,7 @@ export default function HomeScreen() {
               {TOURS.slice(0, 6).map((tour) => (
                 <Link key={tour.slug} href={`/tours/${tour.slug}`} asChild>
                   <TouchableOpacity style={StyleSheet.flatten([styles.tourPreview, cardShadow])} activeOpacity={0.9}>
-                    <Image source={{ uri: tour.images[0]?.src }} style={styles.tourPreviewImage} resizeMode="cover" />
+                    <WebImage src={tour.images[0]?.src} alt={tour.title} style={styles.tourPreviewImage} />
                     <View style={styles.tourPreviewBody}>
                       <Text style={styles.tourPreviewTitle} numberOfLines={2}>{tour.title}</Text>
                       <Text style={styles.tourPreviewMeta}>

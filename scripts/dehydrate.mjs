@@ -16,20 +16,23 @@ import { dirname, join } from 'node:path';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DIST = join(ROOT, 'dist');
 
-// --- Phase 1 allow-list: individual blog POSTS (fully static articles). ------
-// The blog INDEX is intentionally left hydrated — its topic chips filter via a
-// URL param read in JS (useLocalSearchParams), which a de-hydrated page can't
-// apply. About and the homepage follow once this is proven (they need the same
-// image-in-SSR treatment as the posts already have).
+// --- Allow-list: fully static content routes. --------------------------------
+// Phase 1: individual blog POSTS. Phase 1b: the homepage and About (both 0
+// interactive signals, all images now rendered as real <img> via WebImage).
+// The blog INDEX stays hydrated — its topic chips filter via a URL param read in
+// JS (useLocalSearchParams), which a de-hydrated page can't apply. Interactive
+// routes (tours, compare, dashboard, the LIR finder) are untouched.
 function collectTargets() {
   const targets = [];
-  const add = (p) => { if (existsSync(p)) targets.push(p); };
+  const add = (rel) => { const p = join(DIST, rel); if (existsSync(p)) targets.push(p); };
+  add('index.html');       // homepage
+  add('about/index.html'); // about
   const blogDir = join(DIST, 'blog');
   if (existsSync(blogDir)) {
     for (const entry of readdirSync(blogDir)) {
       const dir = join(blogDir, entry);
       const idx = join(dir, 'index.html');
-      if (statSync(dir).isDirectory() && existsSync(idx)) add(idx); // blog/<slug>/index.html only
+      if (statSync(dir).isDirectory() && existsSync(idx)) add(join('blog', entry, 'index.html')); // posts only
     }
   }
   return [...new Set(targets)];
@@ -79,4 +82,4 @@ if (!existsSync(join(DIST, 'light.js'))) {
   process.exit(1);
 }
 
-console.log(`✓ dehydrate: ${changed}/${targets.length} blog post(s) de-hydrated (bundle removed, light.js injected); blog index + tours/ left hydrated.`);
+console.log(`✓ dehydrate: ${changed}/${targets.length} content page(s) de-hydrated (home, about, blog posts); blog index + tours/ left hydrated.`);

@@ -1,9 +1,9 @@
 import { SITE_URL } from '../../../lib/constants';
 import { View, Text, StyleSheet, ScrollView } from 'react-native';
-import { Image } from 'react-native';
 import { useRouter } from 'expo-router';
 import { Icon } from '../../../components/Icon';
 import { Seo } from '../../../components/Seo';
+import { WebImage } from '../../../components/WebImage';
 import { SiteFooter } from '../../../components/SiteFooter';
 
 // ---------------------------------------------------------------------------
@@ -40,14 +40,15 @@ export const jsonLd = {
 export default function AboutScreen() {
   return (
     <>
-    <Seo metadata={metadata} jsonLd={jsonLd} />
+    <Seo metadata={metadata} jsonLd={jsonLd} preloadImage="/images/home-hero.webp" />
     <ScrollView nativeID="main" style={styles.container} contentContainerStyle={styles.containerContent}>
       {/* Header image */}
       <View style={styles.hero}>
-        <Image
-          source={{ uri: 'https://images.unsplash.com/photo-1589985261513-84652?w=1200&q=80' }}
+        <WebImage
+          src="/images/home-hero.webp"
+          alt="A palm-lined coastal road in Guanacaste, Costa Rica"
           style={styles.heroImage}
-          resizeMode="cover"
+          priority
         />
         <View style={styles.heroOverlay}>
           <Text style={styles.heroEyebrow}>About us</Text>
