@@ -62,25 +62,39 @@ export default function HomeScreen() {
   // identical DOM — no hydration mismatch, no first-paint size jump.
   return (
     <>
-      <Seo metadata={metadata} jsonLd={jsonLd} preloadImage="/images/home-hero.webp" />
+      <Seo
+        metadata={metadata}
+        jsonLd={jsonLd}
+        preloadImages={[
+          // Mobile downloads a ~20KB center crop (the only slice a narrow, tall
+          // hero ever shows); wider screens get the full banner. Each media query
+          // mirrors the <picture> below so the browser preloads the one it uses.
+          { href: '/images/home-hero-mobile.webp', media: '(max-width: 699px)' },
+          { href: '/images/home-hero.webp', media: '(min-width: 700px)' },
+        ]}
+      />
       <ScrollView style={styles.container} contentContainerStyle={styles.containerContent}>
         {/* Hero */}
         <View style={styles.hero} dataSet={{ hero: 'wrap' }} nativeID="main">
           {Platform.OS === 'web' ? (
-            // LCP hero as a real, server-rendered <img>: it paints at first paint
-            // (not after hydration like RNW <Image>, which emits only a placeholder
-            // for a require()'d asset) and carries fetchpriority. Paired with the
-            // <link rel="preload"> in <Seo> so the browser fetches it during head parse.
-            // @ts-expect-error web-only DOM element in the RN tree
-            <img
-              src="/images/home-hero.webp"
-              alt=""
-              aria-hidden="true"
-              decoding="async"
-              // @ts-expect-error React DOM attribute (lowercase on the wire)
-              fetchpriority="high"
-              style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', objectFit: 'cover' }}
-            />
+            // LCP hero as a real, server-rendered <picture>/<img>: paints at first
+            // paint (not after hydration) and carries fetchpriority. The mobile
+            // source is a small center crop — same visible content at ~⅓ the bytes,
+            // since the source is only 586px tall and a narrow hero shows just a
+            // ~700px-wide slice. Paired with the media-aware <link rel="preload">.
+            // @ts-expect-error web-only DOM elements in the RN tree
+            <picture style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+              <source media="(min-width: 700px)" srcSet="/images/home-hero.webp" />
+              <img
+                src="/images/home-hero-mobile.webp"
+                alt=""
+                aria-hidden="true"
+                decoding="async"
+                // @ts-expect-error React DOM attribute (lowercase on the wire)
+                fetchpriority="high"
+                style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+              />
+            </picture>
           ) : (
             <Image source={require('../../assets/hero.webp')} style={styles.heroImage} resizeMode="cover" />
           )}

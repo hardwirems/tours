@@ -37,6 +37,7 @@ export function Seo({
   metadata = {},
   jsonLd,
   preloadImage,
+  preloadImages,
 }: {
   metadata?: SeoMeta;
   jsonLd?: unknown;
@@ -45,6 +46,10 @@ export function Seo({
   // instead of waiting for the JS bundle to mount the <img>. Pass the exact src
   // the <Image> uses (relative /images/… path) so the preload matches the request.
   preloadImage?: string;
+  // Media-aware variant: preload a different LCP image per viewport (e.g. a small
+  // mobile crop vs the full desktop hero via <picture>). Each `media` must match
+  // the corresponding <source media> so the browser preloads the one it will use.
+  preloadImages?: { href: string; media?: string }[];
 }) {
   const og = metadata.openGraph ?? {};
   const tw = metadata.twitter ?? {};
@@ -65,6 +70,9 @@ export function Seo({
       {preloadImage ? (
         <link rel="preload" as="image" href={preloadImage} fetchpriority="high" />
       ) : null}
+      {(preloadImages ?? []).map((p, i) => (
+        <link key={i} rel="preload" as="image" href={p.href} media={p.media} fetchpriority="high" />
+      ))}
       <meta name="robots" content={robotsContent} />
 
       {/* Open Graph */}

@@ -49,8 +49,10 @@ export function WebImage({
       alt={alt}
       decoding="async"
       loading={priority ? 'eager' : 'lazy'}
+      // Non-priority images (thumbnails, below-fold) are marked low so they don't
+      // contend with the LCP hero for bandwidth on slow connections.
       // @ts-expect-error React serializes this to the lowercase fetchpriority attribute
-      fetchpriority={priority ? 'high' : 'auto'}
+      fetchpriority={priority ? 'high' : 'low'}
       style={imgStyle}
     />
   );
