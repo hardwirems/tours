@@ -12,6 +12,7 @@ export const post: BlogPost = {
   intent: 'Help a traveler understand what Rincón de la Vieja offers and decide how to visit it.',
   author: { name: 'Guanacaste Experiences editorial team', role: 'Travel editors' },
   published: '2026-09-13',
+  updated: '2026-09-15',
   reviewBy: '2027-03-01',
   draft: false,
   hero: {
@@ -32,7 +33,7 @@ export const post: BlogPost = {
   relatedDestinations: ['liberia'],
   relatedPosts: ['best-time-to-visit-guanacaste'],
   sources: [
-    { title: 'SINAC — Parque Nacional Rincón de la Vieja', url: 'https://www.sinac.go.cr/ES/ac/acg/pnrv/Paginas/default.aspx', accessed: '2026-09-13', supports: 'The national park’s status, sectors (Las Pailas and Santa María), volcanic features (fumaroles, boiling mud pots) and that trails and the summit can close for volcanic or safety reasons.' },
+    { title: 'SINAC — Parque Nacional Rincón de la Vieja', url: 'https://www.sinac.go.cr/ES/ac/acg/pnrv/Paginas/default.aspx', accessed: '2026-09-15', supports: 'The national park’s status, sectors (Las Pailas and Santa María), volcanic features (fumaroles, boiling mud pots), that trails and the summit can close for volcanic or safety reasons, that tickets are sold online only, and that the Las Pailas sector is closed on Mondays.' },
     { title: 'SINAC — Área de Conservación Guanacaste', url: 'https://www.sinac.go.cr/', accessed: '2026-09-13', supports: 'That Rincón de la Vieja sits within Costa Rica’s protected-area system, with entry, hours and access managed by SINAC.' },
     { title: 'Instituto Costarricense de Turismo — Visit Costa Rica', url: 'https://www.visitcostarica.com/en', accessed: '2026-09-13', supports: 'General visitor context for the Guanacaste/Liberia area as a base for Rincón de la Vieja.' },
   ],
@@ -69,7 +70,7 @@ export const post: BlogPost = {
     { type: 'p', text: 'Rincón sits inland from the northern beaches, above Liberia. Most travelers base in [Liberia](/destinations/liberia) or on the coast and come up for the day. You have two clean options:' },
     { type: 'ol', items: [
       '**Book a combo tour.** The simplest route to the ziplines-and-hot-springs day. Transport, guides and lunch are usually handled, and many include hotel pickup from the beach towns — worth it given the drive and the unpaved final stretch.',
-      '**Visit the park independently.** Rent a car (a higher-clearance vehicle is wise for the access road), arrive early, and check SINAC conditions first. Best if hiking and wildlife are your priority and you’re comfortable driving rougher roads.',
+      '**Visit the park independently.** Rent a car (a higher-clearance vehicle is wise for the access road), buy your ticket online in advance, arrive early, and check SINAC conditions first. The Las Pailas sector is closed on Mondays. Best if hiking and wildlife are your priority and you’re comfortable driving rougher roads.',
     ] },
     { type: 'p', text: 'If your main goal is the volcanic scenery and a forest hike, the park is the answer. If you want a full day of activity capped by a warm soak, the ranch combos deliver that better. Plenty of people do one of each on a longer trip.' },
     { type: 'cta', label: 'Compare Rincón adventure tours', href: '/tours?category=adventure', note: 'Volcano combos with ziplining, tubing and hot springs — many include hotel pickup.' },
@@ -79,7 +80,8 @@ export const post: BlogPost = {
       'Closed shoes with grip — trails are uneven and can be muddy.',
       'Water and sun protection; shade is patchy on the Las Pailas loop.',
       'A swimsuit and towel if your day includes hot springs.',
-      'A light rain layer in the green season, and cash for park entry in case cards aren’t accepted.',
+      'A light rain layer in the green season.',
+      'Your park ticket, bought in advance — SINAC sells tickets online only, with no sales at the gate.',
     ] },
 
     { type: 'h2', text: 'Frequently asked questions' },

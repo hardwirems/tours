@@ -9,7 +9,13 @@ import { post as gettingAround } from './getting-around-guanacaste-transport';
 
 import { post as tamarindoThingsToDo } from './tamarindo-things-to-do';
 import { post as lirVsSjoAirportGuide } from './lir-vs-sjo-airport-guide';
+import { post as sjoToGuanacaste } from './sjo-to-guanacaste';
+import { post as howManyDays } from './how-many-days-in-guanacaste';
+import { post as bestCatamaranTours } from './best-catamaran-tours-guanacaste';
 export const POSTS: BlogPost[] = [
+  sjoToGuanacaste,
+  howManyDays,
+  bestCatamaranTours,
   lirVsSjoAirportGuide,
   tamarindoThingsToDo,
   bestTimeToVisit,
