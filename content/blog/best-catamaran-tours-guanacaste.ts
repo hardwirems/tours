@@ -13,7 +13,7 @@ export const post: BlogPost = {
   author: { name: 'Guanacaste Experiences editorial team', role: 'Travel editors' },
   published: '2026-09-15',
   reviewBy: '2027-01-15',
-  draft: true,
+  draft: false,
   hero: {
     src: '/images/blog/best-catamaran-tours-guanacaste.webp',
     alt: 'Orange and purple sunset over Bahía Culebra in the Gulf of Papagayo, with a sailboat at anchor',

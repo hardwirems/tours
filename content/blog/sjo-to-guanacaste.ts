@@ -13,7 +13,7 @@ export const post: BlogPost = {
   author: { name: 'Guanacaste Experiences editorial team', role: 'Travel editors' },
   published: '2026-09-15',
   reviewBy: '2027-01-15',
-  draft: true,
+  draft: false,
   hero: {
     src: '/images/blog/sjo-to-guanacaste.webp',
     alt: 'A two-lane stretch of the Pan-American Highway through green pastureland in Guanacaste, Costa Rica',

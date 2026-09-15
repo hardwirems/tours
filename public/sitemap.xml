@@ -560,11 +560,27 @@
 
 
 
+
   <!-- BLOG:START -->
   <url>
     <loc>https://www.guanacasteexperiences.com/blog/</loc>
     <lastmod>2026-09-15</lastmod>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/blog/sjo-to-guanacaste/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/blog/how-many-days-in-guanacaste/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.guanacasteexperiences.com/blog/best-catamaran-tours-guanacaste/</loc>
+    <lastmod>2026-09-15</lastmod>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.guanacasteexperiences.com/blog/tamarindo-things-to-do/</loc>

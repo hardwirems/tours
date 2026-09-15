@@ -13,7 +13,7 @@ export const post: BlogPost = {
   author: { name: 'Guanacaste Experiences editorial team', role: 'Travel editors' },
   published: '2026-09-15',
   reviewBy: '2027-03-15',
-  draft: true,
+  draft: false,
   hero: {
     src: '/images/blog/how-many-days-in-guanacaste.webp',
     alt: 'Witch’s Rock (Roca Bruja) rising offshore beyond breaking waves on the coast of Santa Rosa National Park, Guanacaste',
