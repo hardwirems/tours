@@ -28,6 +28,11 @@ export const metadata = ({ params }: { params: { slug: string } }) => {
   };
 };
 
+// Offer price-validity window, computed at build so it never goes stale
+// (the previous hardcoded priceValidUntil silently expired).
+const OFFER_VALID_FROM = new Date().toISOString().slice(0, 10);
+const OFFER_VALID_UNTIL = new Date(Date.now() + 365 * 864e5).toISOString().slice(0, 10);
+
 export const jsonLd = ({ params }: { params: { slug: string } }) => {
   const tour = getTourBySlug(params.slug);
   if (!tour) return null;
@@ -44,11 +49,15 @@ export const jsonLd = ({ params }: { params: { slug: string } }) => {
     description: tour.description,
     url,
     image: tour.ogImage ?? tour.images[0]?.src,
+    // Merchant listings require a global identifier; tours have no GTIN, so we
+    // declare the brand they are listed under (honest, and clears the warning).
+    brand: { '@type': 'Brand', name: 'Guanacaste Experiences' },
     offers: {
       '@type': 'Offer',
       priceCurrency: 'USD',
       price: tour.priceFrom,
-      priceValidUntil: '2026-12-31',
+      validFrom: OFFER_VALID_FROM,
+      priceValidUntil: OFFER_VALID_UNTIL,
       availability: 'https://schema.org/InStock',
       url,
     },
