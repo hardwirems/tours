@@ -8,7 +8,8 @@
  */
 (function () {
   'use strict';
-  var C = { ink: '#0B4155', coral: '#E0533D', cream: '#FDF3E0', surface: '#ffffff', line: '#E5E7EB' };
+  // coral matches the theme's accessible CTA colour (#C6432F, ~4.95:1 on white).
+  var C = { ink: '#0B4155', coral: '#C6432F', cream: '#FDF3E0', surface: '#ffffff', line: '#E5E7EB' };
   var FONT = "600 17px/1.2 -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif";
 
   function initMenu() {

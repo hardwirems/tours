@@ -70,6 +70,6 @@ const styles = StyleSheet.create({
   actions: { flexDirection: 'row', gap: 8, alignItems: 'center' },
   decline: { paddingHorizontal: 14, paddingVertical: 8, borderRadius: 8, borderWidth: 1, borderColor: '#FDF3E0' },
   declineText: { color: '#FDF3E0', fontSize: 13, fontWeight: '600' },
-  accept: { paddingHorizontal: 18, paddingVertical: 8, borderRadius: 8, backgroundColor: '#E0533D' },
+  accept: { paddingHorizontal: 18, paddingVertical: 8, borderRadius: 8, backgroundColor: '#C6432F' },
   acceptText: { color: '#FFFFFF', fontSize: 13, fontWeight: '700' },
 });
