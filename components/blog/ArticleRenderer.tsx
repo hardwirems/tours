@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Platform } from 'react-native';
 import { Image } from 'react-native';
 import { Link } from 'expo-router';
 import { Icon } from '../Icon';
+import { WebImage } from '../WebImage';
 import { color, font, type as ty, space, radius } from '../../lib/theme';
 import { slugifyHeading, type Block, type Inline } from '../../lib/blog';
 
@@ -113,13 +114,7 @@ function TableBlock({ block }: { block: Extract<Block, { type: 'table' }> }) {
 function ImageBlock({ block }: { block: Extract<Block, { type: 'image' }> }) {
   return (
     <View style={styles.figure}>
-      <Image
-        source={{ uri: block.src }}
-        style={styles.figureImg}
-        resizeMode="cover"
-        accessibilityLabel={block.alt}
-        {...(Platform.OS === 'web' ? { alt: block.alt, loading: 'lazy' } as object : {})}
-      />
+      <WebImage src={block.src} alt={block.alt} style={styles.figureImg} />
       {block.caption || (block.credit && block.credit.attributionRequired) ? (
         <Text style={styles.caption}>
           {block.caption ? <RichText text={block.caption} style={styles.captionText} /> : null}

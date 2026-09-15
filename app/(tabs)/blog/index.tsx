@@ -4,6 +4,7 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform }
 import { Link, useLocalSearchParams } from 'expo-router';
 import { Icon } from '../../../components/Icon';
 import { Seo } from '../../../components/Seo';
+import { WebImage } from '../../../components/WebImage';
 import { SiteFooter } from '../../../components/SiteFooter';
 import { color, font, space, radius, shadow, layout } from '../../../lib/theme';
 import {
@@ -73,10 +74,8 @@ function ArticleCard({ post }: { post: BlogPost }) {
         activeOpacity={0.92}
       >
         <View style={styles.cardImgWrap}>
-          <Image source={{ uri: post.hero.src }}
-            style={[styles.cardImg, Platform.OS === 'web' ? { objectPosition: post.hero.focal ?? '50% 50%' } as object : null]}
-            resizeMode="cover"
-            accessibilityLabel={post.hero.alt} {...(Platform.OS === 'web' ? { alt: post.hero.alt, loading: 'lazy' } as object : {})} />
+          <WebImage src={post.hero.src} alt={post.hero.alt} style={styles.cardImg}
+            objectPosition={post.hero.focal ?? '50% 50%'} />
           <View style={styles.catBadge}><Text style={styles.catBadgeText}>{post.category}</Text></View>
         </View>
         <View style={styles.cardBody}>
@@ -182,10 +181,8 @@ export default function BlogIndex() {
                       <TouchableOpacity accessibilityRole="link" accessibilityLabel={`Featured: ${featured.title}`}
                         href={`/blog/${featured.slug}`} style={StyleSheet.flatten([styles.featured, cardShadow])} activeOpacity={0.94}>
                         <View style={styles.featuredImgWrap}>
-                          <Image source={{ uri: featured.hero.src }}
-                            style={[styles.featuredImg, Platform.OS === 'web' ? { objectPosition: featured.hero.focal ?? '50% 50%' } as object : null]}
-                            resizeMode="cover"
-                            accessibilityLabel={featured.hero.alt} {...(Platform.OS === 'web' ? { alt: featured.hero.alt } as object : {})} />
+                          <WebImage src={featured.hero.src} alt={featured.hero.alt} style={styles.featuredImg}
+                            objectPosition={featured.hero.focal ?? '50% 50%'} priority />
                           <View style={styles.featuredScrim} />
                           <View style={styles.featuredOverlay}>
                             <View style={styles.featuredTag}><Text style={styles.featuredTagText}>Featured · {featured.category}</Text></View>

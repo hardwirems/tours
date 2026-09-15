@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, ScrollView, Image, TouchableOpacity, Platform }
 import { Link } from 'expo-router';
 import { Icon } from '../../../../components/Icon';
 import { Seo } from '../../../../components/Seo';
+import { WebImage } from '../../../../components/WebImage';
 import { SiteFooter } from '../../../../components/SiteFooter';
 import { AffiliateDisclosure } from '../../../../components/AffiliateDisclosure';
 import { ArticleRenderer, RichText } from '../../../../components/blog/ArticleRenderer';
@@ -76,8 +77,7 @@ function RelatedTour({ slug }: { slug: string }) {
     <Link href={`/tours/${tour.slug}`} asChild>
       <TouchableOpacity accessibilityRole="link" href={`/tours/${tour.slug}`}
         style={StyleSheet.flatten([styles.relTour, cardShadow])} activeOpacity={0.92}>
-        <Image source={{ uri: tour.images[0]?.src }} style={styles.relTourImg} resizeMode="cover"
-          accessibilityLabel={tour.title} {...(Platform.OS === 'web' ? { alt: tour.title, loading: 'lazy' } as object : {})} />
+        <WebImage src={tour.images[0]?.src} alt={tour.title} style={styles.relTourImg} />
         <View style={styles.relTourBody}>
           <Text style={styles.relTourTown}>{tour.towns?.[0] ?? 'Guanacaste'}</Text>
           <Text style={styles.relTourTitle} numberOfLines={2}>{tour.title}</Text>
@@ -115,10 +115,8 @@ export default function BlogArticle() {
       <ScrollView nativeID="main" style={styles.container} contentContainerStyle={styles.content}>
         {/* Hero */}
         <View style={styles.hero}>
-          <Image source={{ uri: post.hero.src }}
-            style={[styles.heroImg, Platform.OS === 'web' ? { objectPosition: post.hero.focal ?? '50% 50%' } as object : null]}
-            resizeMode="cover" accessibilityLabel={post.hero.alt}
-            {...(Platform.OS === 'web' ? { alt: post.hero.alt, fetchpriority: 'high' } as object : {})} />
+          <WebImage src={post.hero.src} alt={post.hero.alt} style={styles.heroImg}
+            objectPosition={post.hero.focal ?? '50% 50%'} priority />
           <View style={styles.heroScrim} />
         </View>
 
@@ -230,8 +228,7 @@ export default function BlogArticle() {
                 {related.map((p) => (
                   <Link key={p.slug} href={`/blog/${p.slug}`} asChild>
                     <TouchableOpacity accessibilityRole="link" href={`/blog/${p.slug}`} style={styles.relPost} activeOpacity={0.9}>
-                      <Image source={{ uri: p.hero.src }} style={styles.relPostImg} resizeMode="cover"
-                        accessibilityLabel={p.hero.alt} {...(Platform.OS === 'web' ? { alt: p.hero.alt, loading: 'lazy' } as object : {})} />
+                      <WebImage src={p.hero.src} alt={p.hero.alt} style={styles.relPostImg} />
                       <View style={{ flex: 1 }}>
                         <Text style={styles.relPostCat}>{p.category}</Text>
                         <Text style={styles.relPostTitle} numberOfLines={2}>{p.title}</Text>
