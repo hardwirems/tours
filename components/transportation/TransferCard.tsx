@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image, Platform } from 'react-native';
 import { Icon } from '../Icon';
-import { track } from '../../lib/analytics';
+import { bookingDataSet } from '../../lib/analytics';
 import type { TransferProduct } from '../../lib/transportation-data';
 import { color, font, space, radius, shadow } from '../../lib/theme';
 
@@ -36,9 +36,11 @@ export function TransferCard({ product, campaign, eager = false }: { product: Tr
   const dest = ZONE_SHORT[product.zone] ?? 'Guanacaste';
   const href = `/go/viator/${product.slug}`;
   const dur = duration(product);
-  const onBook = () => track('click_viator_booking', {
-    category: 'airport_transfer', airport: product.origin, destination: product.zone,
-    route: `${product.origin}-${product.zone}`, product_code: product.code, service: product.service, campaign,
+  // Conversion tracking is handled site-wide (app/+html.tsx) from these attributes.
+  // No price/value: Viator "from" prices for transfers are per-person fragments.
+  const booking = bookingDataSet({
+    itemId: product.code, itemName: product.title, category: 'airport_transfer',
+    placement: 'transfer_card', list: campaign,
   });
 
   return (
@@ -79,8 +81,8 @@ export function TransferCard({ product, campaign, eager = false }: { product: Tr
           accessibilityLabel={`Check availability on Viator for ${product.title}`}
           href={href}
           hrefAttrs={{ rel: 'sponsored noopener' }}
+          dataSet={booking}
           style={styles.cta}
-          onPress={onBook}
           activeOpacity={0.9}
         >
           <Text style={styles.ctaText}>Check availability on Viator</Text>

@@ -19,10 +19,47 @@ export function track(event: string, params: Params = {}): void {
   } catch { /* analytics must never break the page */ }
 }
 
-// Documented campaign identifiers for attribution reporting. These are OUR
-// first-party campaign labels (used on analytics events + /go click tracking).
-// A matching Viator dashboard sub-campaign parameter, if desired, must be
-// confirmed in the Partner dashboard before use — we don't invent Viator params.
+// --- Booking-click conversions ---------------------------------------------
+// Every outbound booking link (href="/go/...") is tracked by ONE site-wide click
+// listener in app/+html.tsx, which sends the GA4 event `click_viator_booking`
+// (mark it as a key event in GA4). Components don't call track() for these —
+// they only attach the attributes below, so a click is never counted twice and
+// the same tracking works on hydrated and de-hydrated pages.
+
+// Viator pays affiliates 8% of the booking value, once the experience is
+// completed (partnerresources.viator.com, checked 2026-09-15). GA4 can't see
+// confirmed bookings, so the event value is an ESTIMATE: listed "from" price x 8%.
+export const VIATOR_COMMISSION_RATE = 0.08;
+
+export type BookingLink = {
+  itemId: string; // our slug or the Viator product code
+  itemName: string;
+  category: string; // e.g. tour category, 'airport_transfer', 'rental'
+  placement: string; // where the button sits, e.g. 'tour_page_book'
+  list?: string; // optional list context, e.g. 'lir_tamarindo'
+  price?: number | null; // per-person "from" price in USD; omit when not meaningful
+};
+
+// RN-Web `dataSet` for a booking link -> data-* attributes the tracker reads.
+export function bookingDataSet(link: BookingLink): Record<string, string> {
+  const d: Record<string, string> = {
+    trackBooking: '1',
+    itemId: link.itemId,
+    itemName: link.itemName.slice(0, 100),
+    itemCategory: link.category,
+    placement: link.placement,
+  };
+  if (link.list) d.itemList = link.list;
+  if (link.price != null && link.price > 0) {
+    d.price = String(link.price);
+    d.estCommission = (Math.round(link.price * VIATOR_COMMISSION_RATE * 100) / 100).toFixed(2);
+  }
+  return d;
+}
+
+// First-party list labels used on analytics events. The matching Viator
+// `campaign` code (letters, numbers and dashes only, per Viator's attribution
+// docs) is derived server-side from the referring page in functions/go.
 export function campaignId(ctx: { section: string; airport?: string; destination?: string; category?: string }): string {
   const parts = [ctx.section];
   if (ctx.airport) parts.push(ctx.airport.toLowerCase());

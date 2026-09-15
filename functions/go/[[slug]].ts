@@ -103,6 +103,40 @@ function resolveUrl(slug: string): string | null {
   return URL_MAP[slug] ?? TRANSFER_URLS[slug] ?? null
 }
 
+/**
+ * Viator `campaign` code naming the page that sent the click, so bookings in the
+ * Viator partner reports can be tied back to it (e.g. "blog-best-catamaran-tours-guanacaste").
+ * Viator's attribution docs allow only letters, numbers and dashes in this value
+ * (partnerresources.viator.com, checked 2026-09-15). pid, mcid and medium are
+ * never modified — changing those breaks payouts.
+ */
+function campaignFor(sourcePath: string | null): string {
+  const clean = (s: string) =>
+    s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+/, '').slice(0, 60).replace(/-+$/, '')
+  if (sourcePath == null) return 'direct'
+  const parts = sourcePath.split('/').filter(Boolean)
+  if (parts.length === 0) return 'home'
+  const [section, ...rest] = parts
+  switch (section) {
+    case 'tours': return rest.length ? 'tour-page' : 'tours-index'
+    case 'blog': return clean(rest.length ? `blog-${rest.join('-')}` : 'blog-index')
+    case 'destinations': return clean(rest.length ? `dest-${rest.join('-')}` : 'destinations-index')
+    case 'categories': return clean(`cat-${rest.join('-')}`) || 'categories'
+    case 'transportation': return clean(`transport-${rest.join('-')}`) || 'transport'
+    default: return clean(section) || 'other'
+  }
+}
+
+function withCampaign(url: string, campaign: string): string {
+  try {
+    const u = new URL(url)
+    if (!u.searchParams.has('campaign')) u.searchParams.set('campaign', campaign)
+    return u.toString()
+  } catch {
+    return url
+  }
+}
+
 async function recordClick(
   slug: string,
   sourcePage: string | null,
@@ -188,11 +222,13 @@ export const onRequestGet: PagesFunction<Env> = async (context) => {
     console.error('Click tracking failed:', err)
   }
 
+  // No cookie is set here: a 30-day `guanacaste_go` cookie used to be written on
+  // every click but nothing ever read it, so it was a consent liability with no use.
   return new Response(null, {
     status: 302,
     headers: {
-      Location: redirectUrl,
-      'Set-Cookie': `guanacaste_go=${slug}; Path=/; Max-Age=${60 * 60 * 24 * 30}; SameSite=Lax; HttpOnly; Secure;`,
+      Location: withCampaign(redirectUrl, campaignFor(sourcePage)),
+      'Cache-Control': 'no-store',
     },
   })
 }

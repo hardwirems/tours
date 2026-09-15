@@ -6,6 +6,7 @@ import { Tour, CATEGORY_LABELS, AFFILIATE_LABELS, AFFILIATE_PROGRAMS, AffiliateP
 import { AffiliateDisclosure } from './AffiliateDisclosure';
 import { SiteFooter } from './SiteFooter';
 import { color, font, space, radius, shadow, layout } from '../lib/theme';
+import { bookingDataSet } from '../lib/analytics';
 
 const webCardShadow = Platform.select({ web: { boxShadow: shadow.card } as object, default: {} });
 const cap = (s?: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : '');
@@ -140,8 +141,14 @@ export function TourDetail({ tour, onBook }: TourDetailProps) {
         accessibilityLabel={`Check availability and book on ${partner}`}
         href={bookHref}
         hrefAttrs={{ rel: 'sponsored noopener' }}
+        dataSet={bookingDataSet({
+          itemId: tour.slug, itemName: tour.title, category: tour.category,
+          placement: 'tour_page_book', price: tour.priceFrom,
+        })}
         style={styles.dBookBtn}
-        onPress={goBook}
+        // Web: the link navigates natively so the site-wide booking tracker
+        // (app/+html.tsx) can record the conversion first. Native: open the partner.
+        onPress={Platform.OS === 'web' ? undefined : goBook}
         activeOpacity={0.9}
       >
         <Text style={styles.dBookBtnText}>Check availability & book</Text>

@@ -84,6 +84,36 @@ export default function Root({ children }: PropsWithChildren) {
               "document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a.skip-link');if(!a)return;var m=document.getElementById('main');if(m){m.setAttribute('tabindex','-1');m.focus({preventScroll:false});}});",
           }}
         />
+        {/* Booking-click conversions (GA4 key event `click_viator_booking`). One
+            listener for every outbound /go/ link on every page — hydrated or not —
+            reading the data-* attributes set by bookingDataSet() (lib/analytics.ts).
+            A normal click waits (max ~1.2s) for the event to send before navigating,
+            so the conversion isn't lost when the page unloads; new-tab clicks send
+            without delay. Listens in the CAPTURE phase: RN-Web pressables stop click
+            propagation, so a bubbling listener never sees clicks on booking buttons.
+            No personal data. Consent is enforced by GA4 Consent Mode. */}
+        {GA_MEASUREMENT_ID ? (
+          <script
+            dangerouslySetInnerHTML={{
+              __html:
+                "(function(){" +
+                "function link(t){return t&&t.closest?t.closest('a[href^=\"/go/\"]'):null;}" +
+                "function params(a){var d=a.dataset||{},p={link_path:(a.getAttribute('href')||'').split('?')[0],page_path:location.pathname};" +
+                "if(d.itemId)p.item_id=d.itemId;if(d.itemName)p.item_name=d.itemName;if(d.itemCategory)p.item_category=d.itemCategory;" +
+                "if(d.itemList)p.item_list_id=d.itemList;if(d.placement)p.placement=d.placement;if(d.price)p.price=Number(d.price);" +
+                "if(d.estCommission){p.value=Number(d.estCommission);p.currency='USD';}return p;}" +
+                "function send(a,cb){if(typeof window.gtag!=='function'){if(cb)cb();return;}" +
+                "if(typeof window._loadGA==='function')window._loadGA();" +
+                "var p=params(a);if(cb){p.event_callback=cb;p.event_timeout=1200;}window.gtag('event','click_viator_booking',p);}" +
+                "document.addEventListener('click',function(e){var a=link(e.target);if(!a)return;" +
+                "if(e.defaultPrevented||e.button!==0||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||a.target==='_blank'){send(a);return;}" +
+                "e.preventDefault();var href=a.href,done=false;function go(){if(done)return;done=true;window.location.href=href;}" +
+                "send(a,go);setTimeout(go,1200);},true);" +
+                "document.addEventListener('auxclick',function(e){if(e.button!==1)return;var a=link(e.target);if(a)send(a);},true);" +
+                "})();",
+            }}
+          />
+        ) : null}
       </body>
     </html>
   );

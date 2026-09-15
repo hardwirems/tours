@@ -52,7 +52,7 @@ export const post: BlogPost = {
     { title: 'SINAC — Parque Nacional Marino Ballena visitor rules', url: 'https://www.sinac.go.cr/ES/ac/acosa/pnmb/Paginas/default.aspx', accessed: '2026-09-15', supports: 'Costa Rica’s marine national park rules prohibit touching, feeding or harassing animals.' },
   ],
   body: [
-    { type: 'p', text: 'The best catamaran tour in Guanacaste depends on where you’re staying and who’s coming. For **families**, the Flamingo Family Fun catamaran is the standout; for a classic **sunset sail**, the Playa Flamingo sunset catamaran has the most reviews of any sail on our list; for a **quieter, upscale** afternoon, the small-group sunset sail is the one to book. Most trips last four to five hours and include snorkeling, drinks and a meal.' },
+    { type: 'p', text: 'The best catamaran tour in Guanacaste depends on where you’re staying and who’s coming. For **families**, the Tom Cat II catamaran from Playa Flamingo is the standout; for a classic **sunset sail**, the Playa Flamingo sunset catamaran has the most reviews of any sail on our list; for a **quieter, upscale** afternoon, the small-group sunset sail is the one to book. Most trips last four to five hours and include snorkeling, drinks and a meal.' },
     { type: 'callout', variant: 'note', title: 'How we chose', text: 'Every tour here is a real, bookable listing in our catalog with a strong rating across hundreds of verified reviews on Viator. Prices are the listed “from” price in September 2026 and change — the tour page shows the current price. All of them offer free cancellation.' },
 
     { type: 'h2', text: 'Catamaran tours at a glance' },
@@ -61,7 +61,7 @@ export const post: BlogPost = {
       caption: 'Top-rated catamaran and sailing tours in Guanacaste. Ratings and review counts are from Viator.',
       headers: ['Tour', 'Leaves from', 'Length', 'From', 'Rating on Viator', 'Best for'],
       rows: [
-        ['[Flamingo Family Fun Catamaran](/tours/flamingo-family-fun-catamaran-snorkel-comfortable-shaded-sea)', 'Playa Flamingo', '4 hrs', '$103', '4.98 (314 reviews)', 'Families'],
+        ['[Tom Cat II Catamaran, Snorkel & Lunch](/tours/flamingo-family-fun-catamaran-snorkel-comfortable-shaded-sea)', 'Playa Flamingo', '4 hrs', '$103', '4.98 (314 reviews)', 'Families'],
         ['[Sunset Catamaran & Snorkeling](/tours/sunset-catamaran-snorkeling-tour-in-playa-flamingo)', 'Playa Flamingo', '4 hrs', '$95', '4.85 (1,152 reviews)', 'Classic sunset sail'],
         ['[All Inclusive Catamaran Snorkel Adventure](/tours/flamingo-guanacaste-all-inclusive-catamaran-snorkel-adventur)', 'Playa Flamingo', '4 hrs', '$103', '4.9 (1,008 reviews)', 'Lunch and snorkeling'],
         ['[Small Group Sunset Sail](/tours/small-group-sunset-sail-for-the-sophisticated-traveler)', 'Playa Flamingo', '5 hrs', '$160', '4.98 (225 reviews)', 'Couples, a quieter boat'],
@@ -70,8 +70,8 @@ export const post: BlogPost = {
       ],
     },
 
-    { type: 'h2', text: 'Best for families: Flamingo Family Fun Catamaran' },
-    { type: 'p', text: 'Designed around kids and mixed-age groups, with comfortable **shaded seating**, a **waterslide**, bilingual guides, snorkel gear and lunch. It has one of the highest ratings of any sail here — 4.98 from 314 reviews on Viator — and runs four hours from Playa Flamingo. [See the Flamingo Family Fun Catamaran](/tours/flamingo-family-fun-catamaran-snorkel-comfortable-shaded-sea).' },
+    { type: 'h2', text: 'Best for families: the Tom Cat II catamaran, Playa Flamingo' },
+    { type: 'p', text: 'A good fit for kids and mixed-age groups, with comfortable **shaded seating**, a **waterslide**, bilingual guides, snorkel gear and lunch. It has one of the highest ratings of any sail here — 4.98 from 314 reviews on Viator — and runs four hours from Playa Flamingo. [See the Playa Flamingo catamaran tour with snorkel and lunch](/tours/flamingo-family-fun-catamaran-snorkel-comfortable-shaded-sea).' },
 
     { type: 'h2', text: 'Best classic sunset sail: Playa Flamingo Sunset Catamaran' },
     { type: 'p', text: 'The most-reviewed sail on our list, with 1,152 reviews and a 4.85 rating on Viator. Over four hours you snorkel, paddle **kayaks**, snack, and watch the sun go down with **unlimited beer, wine and soft drinks**. From $95, it’s also one of the better-value options. [See the Flamingo sunset catamaran](/tours/sunset-catamaran-snorkeling-tour-in-playa-flamingo).' },
@@ -103,7 +103,7 @@ export const post: BlogPost = {
 
     { type: 'h2', text: 'Frequently asked questions' },
     { type: 'faq', items: [
-      { q: 'Which is the best catamaran tour in Guanacaste for families?', a: 'The [Flamingo Family Fun Catamaran](/tours/flamingo-family-fun-catamaran-snorkel-comfortable-shaded-sea) — shaded seating, a waterslide, bilingual guides and lunch, with a 4.98 rating on Viator.' },
+      { q: 'Which is the best catamaran tour in Guanacaste for families?', a: 'The [Tom Cat II catamaran from Playa Flamingo](/tours/flamingo-family-fun-catamaran-snorkel-comfortable-shaded-sea) — shaded seating, a waterslide, bilingual guides and lunch, with a 4.98 rating on Viator.' },
       { q: 'Is a morning or sunset catamaran better?', a: 'Sunset sails have the views; morning sails often have calmer water, especially during the windy December–April months and for snorkeling in the green season.' },
       { q: 'Do catamaran tours include hotel pickup?', a: 'Some do, usually from selected areas near the departure beach. Check the tour page for your hotel before booking.' },
       { q: 'Will I see whales or manta rays?', a: 'Possibly, in season — humpbacks around November–April and July–November, and mantas at the Catalina Islands roughly November–April — but no tour can guarantee sightings.' },

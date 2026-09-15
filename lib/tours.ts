@@ -967,7 +967,7 @@ export const TOURS: Tour[] = [
   },
   {
     slug: 'flamingo-family-fun-catamaran-snorkel-comfortable-shaded-sea',
-    title: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating',
+    title: 'Playa Flamingo Catamaran Tour with Snorkel, Lunch, Cocktails',
     category: 'beach-water',
     tags: ['playa-flamingo', 'beach-water'],
     towns: ['Playa Flamingo'],
@@ -989,7 +989,7 @@ export const TOURS: Tour[] = [
       { question: 'What should I know before booking?', answer: 'Infants and small children can ride in a pram or stroller. Suitable for all physical fitness levels.' },
       { question: 'Can I cancel my booking?', answer: 'This tour offers free cancellation. Exact cancellation terms are shown at checkout on Viator.' },
     ],
-    images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/83/7d/d8.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/48/e1/6b.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/48/e1/68.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/57/94/09.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/83/7d/43.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/83/7d/90.jpg', alt: 'Flamingo Family Fun Catamaran Snorkel:Comfortable shaded seating' }],
+    images: [{ src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/83/7d/d8.jpg', alt: 'Playa Flamingo Catamaran Tour with Snorkel, Lunch, Cocktails' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/48/e1/6b.jpg', alt: 'Playa Flamingo Catamaran Tour with Snorkel, Lunch, Cocktails' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/48/e1/68.jpg', alt: 'Playa Flamingo Catamaran Tour with Snorkel, Lunch, Cocktails' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/57/94/09.jpg', alt: 'Playa Flamingo Catamaran Tour with Snorkel, Lunch, Cocktails' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/83/7d/43.jpg', alt: 'Playa Flamingo Catamaran Tour with Snorkel, Lunch, Cocktails' }, { src: 'https://media-cdn.tripadvisor.com/media/attractions-splice-spp-720x480/12/83/7d/90.jpg', alt: 'Playa Flamingo Catamaran Tour with Snorkel, Lunch, Cocktails' }],
   },
   {
     slug: 'tamarindo-estuary-tour',

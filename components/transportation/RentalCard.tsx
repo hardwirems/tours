@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity, Image, Platform } from 'react-native';
 import { Icon } from '../Icon';
-import { track } from '../../lib/analytics';
+import { bookingDataSet } from '../../lib/analytics';
 import type { RentalProduct } from '../../lib/transportation-data';
 import { color, font, space, radius, shadow } from '../../lib/theme';
 
@@ -31,8 +31,9 @@ export function RentalCard({ product, campaign }: { product: RentalProduct; camp
           accessibilityRole="link"
           accessibilityLabel={`Check availability on Viator for ${product.title}`}
           href={href} hrefAttrs={{ rel: 'sponsored noopener' }}
+          // Conversion tracking is handled site-wide (app/+html.tsx) from these attributes.
+          dataSet={bookingDataSet({ itemId: product.code, itemName: product.title, category: 'rental', placement: 'rental_card', list: campaign })}
           style={styles.cta}
-          onPress={() => track('click_viator_booking', { category: 'rental', subcategory: product.category, product_code: product.code, campaign })}
           activeOpacity={0.9}
         >
           <Text style={styles.ctaText}>Check availability on Viator</Text>
